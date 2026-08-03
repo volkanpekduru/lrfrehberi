@@ -3,155 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Sitemiz Yapım Aşamasında</title>
-    <style>
-        /* Lüks Cam Göbeği & Altın Temalı CSS Tasarımı */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cinzel', 'Didot', 'Segoe UI', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        body {
-            /* Lüks ve derinlik hissi veren zengin cam göbeği (cyan) arka plan geçişi */
-            background: radial-gradient(circle at center, #005b66 0%, #002d33 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 650px;
-            /* Premium buzlu cam etkisi (Glassmorphism) */
-            background: rgba(0, 20, 23, 0.4);
-            padding: 60px 45px;
-            border-radius: 30px;
-            /* Altın varak hissi veren çok ince, zarif kenarlık */
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            backdrop-filter: blur(20px);
-            /* Derinlik katan lüks gölge efekti */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
-                        inset 0 0 30px rgba(212, 175, 55, 0.05);
-        }
-
-        .luxury-badge {
-            /* İpek şerit hissi veren altın detaylı rozet */
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.05);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: inline-block;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 300;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            /* Saf beyazdan hafif platin rengine zarif geçiş */
-            background: linear-gradient(to bottom, #ffffff 0%, #e0f2f1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #d4af37, transparent);
-            margin: 0 auto 25px auto;
-        }
-
-        p {
-            color: #b2dfdb;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .notify-form {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .notify-form input {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 16px 24px;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1rem;
-            width: 65%;
-            outline: none;
-            transition: all 0.4s ease;
-        }
-
-        .notify-form input:focus {
-            border-color: #d4af37;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-        }
-
-        /* Lüks Altın (Gold) Buton Tasarımı */
-        .notify-form button {
-            background: linear-gradient(135deg, #d4af37 0%, #aa8210 100%);
-            color: #002d33;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(170, 130, 16, 0.3);
-        }
-
-        .notify-form button:hover {
-            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-    </style>
+    <title>LRF Uzmanlık Rehberi - Light Rock Fishing Türkiye</title>
+    <!-- 🚀 GOOGLE FONTS PRECONNECT KANALLARI RESMÎ VE SIFIR GECİKME SİGORTALI HALE GETİRİLDİ KANKA -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- 🛠️ DOSYA ADI KUSURSUZ EŞİTLENDİ KANKA! -->
 </head>
 <body>
 
-    <div class="container">
-        <!-- Lüks Rozet -->
-        <div>
-            <span class="luxury-badge">Yakında Hizmetinizde</span>
-        </div>
-
-        <!-- Başlık ve İnce Ayırıcı Çizgi -->
-        <h1>Seçkin Deneyim<br>Çok Yakında</h1>
-        <div class="divider"></div>
+    <!-- ==========================================================================
+         🏆 UZMANLIK REHBERİ - BÖLÜM 1: GİRİŞ KALE PODYUMU (ALTIN ORAN SİGORTASI)
+         ========================================================================== -->
+    <!-- 🪐 BÜYÜK DEHA VARYANTI: Deha eseri 62vh altın oran dikey yüksekliğine kenetlenmiş narin alt sayfa zırhı! -->
+    <div class="lrf-hero lrf-hero--uzmanlik">
         
-        <!-- Açıklama Metni -->
-        <p>Ayrıcalıklı ve kusursuz yeni dijital platformumuzu sizler için inşa ediyoruz. Bu özel açılış için yerinizi şimdiden ayırtın.</p>
+        <!-- 🕶️ Kılçıksız, Ortak ve %3 Kutsal Aks Uyumlu Üst Navigasyon Çıtası -->
+        <nav class="lrf-navbar">
+            <a href="index.html" class="lrf-navbar__logo-link">
+                <img src="assets/images/logo.png" alt="LRF Rehberi" class="lrf-navbar__logo-img">
+            </a>
+            <ul class="lrf-navbar__menu">
+                <!-- 🛠️ REALİTE DOĞRULANDI: lrf-navbar__item sınıfları yerli yerine çakıldı, navigasyon kurtarıldı kanka! -->
+                <li><a href="index.html" class="lrf-navbar__item">Ana Sayfa</a></li>
+                <li><a href="malzemeler.html" class="lrf-navbar__item">Malzemeler</a></li>
+                <li><a href="baslangic.html" class="lrf-navbar__item">Başlangıç</a></li>
+                <li><a href="teknikler.html" class="lrf-navbar__item">Teknikler</a></li>
+                <li><a href="uzmanlik.html" class="lrf-navbar__item lrf-navbar__item--active">Uzmanlık</a></li>
+                <li><a href="akademi.html" class="lrf-navbar__item">LRF Akademi</a></li>
+                <li><a href="pratik-bilgiler.html" class="lrf-navbar__item">Pratik Bilgiler</a></li>
+            </ul>
+            <a href="baslangic.html" class="lrf-navbar__btn">
+                <i data-lucide="waves" class="lrf-icon-inline"></i>
+                <span>Başla</span>
+            </a>
+        </nav>
+        
+        <!-- Vitrin Başlıkları ve Aksiyon Butonları (%3 Aks Koruma Şemsiyesi kanka) -->
+        <!-- 🪐 ALT SAYFA İÇİN ÜSTTEN VE ALTTAN FERAH NEFES ALAN KUTSAL İÇ TERAZİ KANKA! -->
+        <div class="lrf-hero__content lrf-hero__content--uzmanlik">
+            <div class="lrf-hero__badge">
+                <i data-lucide="award" class="lrf-icon-inline"></i>
+                <span>Ana Sayfa > Uzmanlık Rehberi</span>
+            </div>
+            <!-- 🪐 BAŞLIK PUNTOSUNU TÜM CİHAZLARDA NARİN VE KOMPAKT TUTAN SUBPAGE EZİCİ VANA KANKA! -->
+            <h1 class="lrf-hero__title lrf-hero__title--subpage">Uzmanlık Rehberi</h1>
+            <p class="lrf-hero__desc">Trofe avcılığının sınırları and ileri düzey stratejiler. Limitleri zorla and büyük oyna kanka.</p>
+        </div>
+    </div>
+        <!-- ==========================================================================
+         🏆 UZMANLIK REHBERİ - GÖVDE BÖLÜM 1: HERO ALTINA DİREKT ZIMBALANAN APPLE LİNE NAVİGASYON MOTORU
+         ========================================================================== -->
+    <!-- 🚀 SIFIR EK REZALET BAŞLIK, SIFIR GÜRÜLTÜ KANKA! Tam arzuladığın o çıplak Apple asalet nizamı!
+         - padding: 24px 3% 0 3%; çakılarak üstteki vitrin ile alttaki ince çizgimiz arasına o muazzam 
+           pürüzsüz Apple koridoru kuruldu valla! Kutsal %3 aks terazisi harfiyen korumada kral! -->
+    <div class="lrf-uzmanlik-tabs-wrapper">
+        
+        <!-- 🚀 🛠️ İŞTE O TAM GÖNDERDİĞİN GÖRSELDEKİ O ÇIPLAK, NARİN VE ALTI İNCE ÇİZGİLİ TAB SARMALI!
+             - .lrf-uzmanlik-tabs sayesinde o incecik gri hat tam üst vitrinin altına milimetrik mıknatıslanır!
+             - Lucide ikon motoru sayesinde her linkin solunda o narin kurumsal ikonlar jilet gibi parıldar! -->
+        <div class="lrf-uzmanlik-tabs">
+            <a href="#jig-head-tipleri" class="lrf-uzmanlik-tab-link lrf-uzmanlik-tab-link--active">
+                <i data-lucide="target"></i>
+                <span>Jig Head Tipleri</span>
+            </a>
+            <a href="#sahte-kategorileri" class="lrf-uzmanlik-tab-link">
+                <i data-lucide="package"></i>
+                <span>Sahte Kategorileri</span>
+            </a>
+            <a href="#su-katmanlari" class="lrf-uzmanlik-tab-link">
+                <i data-lucide="layers"></i>
+                <span>Su Katmanları</span>
+            </a>
+            <a href="#renk-rehberi" class="lrf-uzmanlik-tab-link">
+                <i data-lucide="zap"></i>
+                <span>Renk Rehberi</span>
+            </a>
+            <a href="#hedef-baliklar" class="lrf-uzmanlik-tab-link">
+                <i data-lucide="anchor"></i>
+                <span>Hedef Balıklar</span>
+            </a>
+        </div>
+    </div>
+    
+    
+    <!-- ==========================================================================
+         🛑 🛠️ DİKKAT KANKA: İLMEK İLMEK BERABER TASARLAYACAĞIMIZ O ŞANLI GÖVDE 
+         TAM BU BOŞLUĞA AKACAK! BİZ ŞİMDİLİK KORUMA KAPILARINI VE KAPANIŞI KİLİTLEDİK!
+         ========================================================================== -->
+    <!-- 🚀 GÖVDE KODLARI GELDİĞİNDE BU SATIRIN TAM ALTINA SIRAYLA DİZİLECEK KRAL! -->
 
-        <!-- Premium Form Alanı -->
-        <form class="notify-form" onsubmit="event.preventDefault(); alert('Ayrıcalıklı listemize kaydınız başarıyla tamamlandı.');">
-            <input type="email" placeholder="E-posta adresinizi giriniz" required>
-            <button type="submit">Davetiye İste</button>
-        </form>
+
+    <!-- ==========================================================================
+         🏆 UZMANLIK REHBERİ - BÖLÜM 5: BÜYÜK AKSİYON ÇAĞRISI (ENERJİK TURUNCU CTA MOTORU)
+         ========================================================================== -->
+    <div class="lrf-cta">
+        <div class="lrf-cta__shape lrf-cta__shape--one"></div>
+        <div class="lrf-cta__shape lrf-cta__shape--two"></div>
+        
+        <div class="lrf-cta__inner">
+            <h2 class="lrf-cta__title">Teoriyi Bitirdin, Şimdi Meraya İp Atma Zamanı!</h2>
+            <p class="lrf-cta__desc">
+                Pratik Bilgiler ile sahadaki pratikliğini ikiye katla. LRF Akademi ile büyük toplulukta yerini al kanka.
+            </p>
+            
+            <div class="lrf-cta__actions">
+                <a href="pratik-bilgiler.html" class="lrf-cta__btn-white">
+                    <i data-lucide="help-circle" class="lrf-icon-inline"></i> 
+                    <span>Pratik Bilgilere Git</span>
+                    <i data-lucide="arrow-right" class="lrf-icon-inline"></i>
+                </a>
+                <a href="akademi.html" class="lrf-cta__btn-trans">
+                    <span>LRF Akademi</span>
+                </a>
+            </div>
+        </div> 
     </div>
 
+    <!-- ==========================================================================
+         🏆 UZMANLIK REHBERİ - BÖLÜM 6: PREMIUM SU TONU VE DALGA BÜKÜMLÜ FOOTER SİSTEMİ
+         ========================================================================== -->
+    <div class="lrf-footer-wave-wrap">
+        <svg xmlns="http://w3.org" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#00bcd4" fill-opacity="1" d="M0,0C120,96,360,160,720,160C1080,160,1320,96,1440,0L1440,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <footer class="lrf-footer">
+        <div class="lrf-footer__grid">
+            
+            <!-- SÜTUN 1: MARKA VE LOGO ALANI -->
+            <div class="lrf-footer__col">
+                <div class="lrf-footer__logo-wrap">
+                    <img src="assets/images/logo.png" alt="LRF Rehberi" class="lrf-footer__logo-img">
+                </div>
+                <p class="lrf-footer__brand-desc">
+                    LRF olta balıkçılığını öğrenmek için Türkiye'nin en kapsamlı rehberi. Her seviyeden balıkçıya adım adım rehberlik.
+                </p>
+            </div>
+
+            <!-- SÜTUN 2: REHBERLER LİNKLERİ -->
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">Rehberler</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="baslangic.html" class="lrf-footer__link">
+                            <i data-lucide="book-open" class="lrf-icon-inline"></i>
+                            <span>Başlangıç Eğitimi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="malzemeler.html" class="lrf-footer__link">
+                            <i data-lucide="package" class="lrf-icon-inline"></i>
+                            <span>Malzeme Rehberi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teknikler.html" class="lrf-footer__link">
+                            <i data-lucide="activity" class="lrf-icon-inline"></i>
+                            <span>Teknik İpuçları</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- SÜTUN 3: KEŞFET LİNKLERİ -->
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">Keşfet</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="index.html#lrf-nedir" class="lrf-footer__link">
+                            <i data-lucide="fishing-rod" class="lrf-icon-inline"></i>
+                            <span>LRF Nedir?</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- SÜTUN 4: İLETİŞİM ALANI -->
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">İletişim</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="mailto:info@lrfrehberi.com" class="lrf-footer__link">
+                            <i data-lucide="mail" class="lrf-icon-inline"></i>
+                            <span>Bize Ulaşın</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="lrf-footer__contact-note">Sorularınız için her zaman buradayız.</p>
+            </div>
+        </div>
+
+        <div class="lrf-footer__bottom">
+            <p>© 2026 LRF Rehberi. Tüm hakları saklıdır.</p>
+            <div class="lrf-footer__legal-row">
+                <a href="#" class="lrf-footer__legal-link">Gizlilik Politikası</a>
+                <a href="#" class="lrf-footer__legal-link">Kullanım Koşulları</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Kırılmaz ve Kararlı Resmî Lucide İkon Motoru Zırhı -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>

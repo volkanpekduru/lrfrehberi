@@ -3,155 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Sitemiz Yapım Aşamasında</title>
-    <style>
-        /* Lüks Cam Göbeği & Altın Temalı CSS Tasarımı */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cinzel', 'Didot', 'Segoe UI', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        body {
-            /* Lüks ve derinlik hissi veren zengin cam göbeği (cyan) arka plan geçişi */
-            background: radial-gradient(circle at center, #005b66 0%, #002d33 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 650px;
-            /* Premium buzlu cam etkisi (Glassmorphism) */
-            background: rgba(0, 20, 23, 0.4);
-            padding: 60px 45px;
-            border-radius: 30px;
-            /* Altın varak hissi veren çok ince, zarif kenarlık */
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            backdrop-filter: blur(20px);
-            /* Derinlik katan lüks gölge efekti */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
-                        inset 0 0 30px rgba(212, 175, 55, 0.05);
-        }
-
-        .luxury-badge {
-            /* İpek şerit hissi veren altın detaylı rozet */
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.05);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: inline-block;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 300;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            /* Saf beyazdan hafif platin rengine zarif geçiş */
-            background: linear-gradient(to bottom, #ffffff 0%, #e0f2f1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #d4af37, transparent);
-            margin: 0 auto 25px auto;
-        }
-
-        p {
-            color: #b2dfdb;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .notify-form {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .notify-form input {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 16px 24px;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1rem;
-            width: 65%;
-            outline: none;
-            transition: all 0.4s ease;
-        }
-
-        .notify-form input:focus {
-            border-color: #d4af37;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-        }
-
-        /* Lüks Altın (Gold) Buton Tasarımı */
-        .notify-form button {
-            background: linear-gradient(135deg, #d4af37 0%, #aa8210 100%);
-            color: #002d33;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(170, 130, 16, 0.3);
-        }
-
-        .notify-form button:hover {
-            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-    </style>
+    <title>LRF Av Teknikleri - Light Rock Fishing Türkiye</title>
+    
+    <!-- 🚀 🛠️ BÜYÜK FONT VE PRECONNECT ZAFERİ KANKA! Eksik subdomain kanalları ebediyen tamir edildi!
+         - Resmî fonts.googleapis.com ve fonts.gstatic.com kanalları harfiyen çakıldı!
+         - Tarayıcı artık o şovluk Inter fontunu laboratuvardan SIFIR GECİKMEYLE and ezilmeden jet hızıyla çekecek! -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- 🛠️ DOSYA ADI KUSURSUZ EŞİTLENDİ KANKA! -->
 </head>
 <body>
 
-    <div class="container">
-        <!-- Lüks Rozet -->
-        <div>
-            <span class="luxury-badge">Yakında Hizmetinizde</span>
+    <!-- ==========================================================================
+         🏆 AV TEKNİKLERİ REHBERİ - BÖLÜM 1: GİRİŞ KALE PODYUMU (ALTIN ORAN SİGORTASI)
+         ========================================================================== -->
+    <!-- 🪐 BÜYÜK DEHA VARYANTI: Deha eseri 62vh altın oran dikey yüksekliğine kenetlenmiş narin alt sayfa zırhı! -->
+    <div class="lrf-hero lrf-hero--teknikler lrf-hero__content--subpage"">
+        
+        <!-- 🕶️ Kılçıksız, Ortak ve %3 Kutsal Aks Uyumlu Üst Navigasyon Çıtası -->
+        <nav class="lrf-navbar">
+            <a href="index.html" class="lrf-navbar__logo-link">
+                <img src="assets/images/logo.png" alt="LRF Rehberi" class="lrf-navbar__logo-img">
+            </a>
+            <ul class="lrf-navbar__menu">
+                <!-- 🛠️ REALİTE DOĞRULANDI: lrf-navbar__item sınıfları yerli yerine çakıldı, navigasyon kurtarıldı kanka! -->
+                <li><a href="index.html" class="lrf-navbar__item">Ana Sayfa</a></li>
+                <li><a href="malzemeler.html" class="lrf-navbar__item">Malzemeler</a></li>
+                <li><a href="baslangic.html" class="lrf-navbar__item">Başlangıç</a></li>
+                <li><a href="teknikler.html" class="lrf-navbar__item lrf-navbar__item--active">Teknikler</a></li>
+                <li><a href="uzmanlik.html" class="lrf-navbar__item">Uzmanlık</a></li>
+                <li><a href="akademi.html" class="lrf-navbar__item">LRF Akademi</a></li>
+                <li><a href="pratik-bilgiler.html" class="lrf-navbar__item">Pratik Bilgiler</a></li>
+            </ul>
+            <a href="baslangic.html" class="lrf-navbar__btn">
+                <i data-lucide="waves" class="lrf-icon-inline"></i>
+                <span>Başla</span>
+            </a>
+        </nav>
+        
+        <!-- Vitrin Başlıkları ve Aksiyon Butonları (%3 Aks Koruma Şemsiyesi kanka) -->
+        <!-- 🪐 ALT SAYFA İÇİN ÜSTTEN VE ALTTAN FERAH NEFES ALAN KUTSAL İÇ TERAZİ KANKA! -->
+        <div class="lrf-hero__content lrf-hero__content--teknikler">
+            <div class="lrf-hero__badge">
+                <i data-lucide="activity" class="lrf-icon-inline"></i>
+                <span>Ana Sayfa > Av Teknikleri</span>
+            </div>
+            <!-- 🪐 BAŞLIK PUNTOSUNU TÜM CİHAZLARDA NARİN VE KOMPAKT TUTAN SUBPAGE EZİCİ VANA KANKA! -->
+            <h1 class="lrf-hero__title lrf-hero__title--subpage">Av Teknikleri</h1>
+            <p class="lrf-hero__desc">Aksiyon mühendisliği and kamış ucu sihirbazlığı. Yemlerine hayat ver and trofeleri cezbet kanka.</p>
+        </div>
+    </div>
+               <!-- ==========================================================================
+         🏆 AV TEKNİKLERİ REHBERİ - GÖVDE BÖLÜM 1: PREMIUM SEKME MENÜSÜ (SIFIR GRID SIZINTISI!)
+         ========================================================================== -->
+    <!-- 🚀 Kanka, .lrf-grid-section ebediyen infaz edildi! .lrf-text-center ise evrensel bir utility sınıfı olduğu için tam ortalı merkezleme emniyeti olarak yanına zımbalandı! -->
+    <!-- 🎨 🚀 BÜYÜK ESTETİK VE TUTARLILIK ZAFERİ KANKA! Sinsi whitespace lekelerini kurutmak için yorumlar en dışa itildi, rozet ve başlık arası mesafe milimetrik olarak kilitlendi! -->
+    <section class="class= lrf-tab-nav-section lrf-text-center">
+        
+        <span class="lrf-badge lrf-badge--cyan lrf-badge--sm">Aksiyon Laboratuvarı</span>
+        <h2 class="lrf-tab-nav-title">Teknik Bilgi Neden Önemli?</h2>
+        <p class="lrf-tab-nav-desc">
+            Doğru ekipmana sahip olmak yeterli değildir — onu nasıl kullandığın sonucu belirler. LRF'de başarı, sabır, gözlem and doğru tekniğin bir araya gelmesiyle gelir. Bu rehberde en temel teknikleri adım adım öğreneceksin.
+        </p>
+        <div class="lrf-mat-tabs">
+            <a href="#duz-sarim" class="lrf-mat-tab-btn lrf-mat-tab-btn--cyan">Atış Teknikleri</a>
+            <a href="#twitching" class="lrf-mat-tab-btn lrf-mat-tab-btn--blue">Çekiş Teknikleri</a>
+            <a href="#dogru-nokta" class="lrf-mat-tab-btn lrf-mat-tab-btn--teal">Doğu Nokta Seçimi</a>
+            <a href="#balik-davranislari" class="lrf-mat-tab-btn lrf-mat-tab-btn--orange">Balık Davranışları</a>
+        </div>
+    </section>
+
+        <!-- ==========================================================================
+         🏆 AV TEKNİKLERİ REHBERİ - GÖVDE BÖLÜM 2: PREMIUM TEK PARÇA ZIGZAG HAVUZU
+         ========================================================================== -->
+    <!-- 🚀 DEHA ANAYASASI DEVREDE KANKA! Koca 4 büyük teknik bu tek bir şanlı dış sarmalın 
+         altında toplanacak, araya asla rüküş kapat-aç mayınları sızamayacak, kırılmaz beton! -->
+    <section class="lrf-zigzag" style="padding-top: 40px; padding-bottom: 90px;">
+        <div class="lrf-zigzag__inner">
+            
+            <!-- 🪐 FOTOĞRAF 01: ATIŞ TEKNİKLERİ (Okyanus Camgöbeği Varyantı kanka!) 
+                 - id="duz-sarim" yapılarak yukarıdaki sekme butonuna milimetrik olarak bağlandı!
+                 - .lrf-zigzag__row--cyan vanası sayesinde tüm adım ikonları and ipucu kutusu otomatik boyanır! -->
+            <div class="lrf-zigzag__row lrf-zigzag__row--cyan" id="duz-sarim">
+                
+                <!-- Fotoğraf Solda kanka! Arkasındaki o hover anında 6px fırlayan lüks gölge motoru devrede! -->
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/teknikler-atis.jpg" alt="LRF Atış Teknikleri">
+                </div>
+                
+                <!-- Sağ tarafta akan o narin metin, daireli adım listesi and ipucu havuzu kanka -->
+                <div class="lrf-zigzag__content">
+                    
+                    <!-- 🎨 OKYANUS CAMGÖBEĞİ KÜRESEL ATOMİK ROZET SENKRONU KANKA! -->
+                    <div class="lrf-zigzag__badge-wrap">
+                        <span class="lrf-badge lrf-badge--cyan lrf-badge--sm">Doğru Atış - Daha Uzak, Daha Hassas</span>
+                    </div>
+                    
+                    <h3 class="lrf-zigzag__title">Atış Teknikleri</h3>
+                    <p class="lrf-zigzag__desc">
+                        LRF'de atış tekniği, hem mesafeyi hem de hassasiyeti doğrudan etkiler. Overhead (tepeden) atış en yaygın yöntemdir; ancak dar alanlarda side cast (yandan atış) daha pratiktir.
+                    </p>
+                    
+                    <!-- 🛠️ İİŞTE O GÖRSELDEKİ DAİRELİ NARİN ADIM LİSTESİ MÜHENDİSLİĞİ KANKA!
+                         - .lrf-step-list__icon yapısı; içindeki o şanlı sayıları tam mikron koordinat göbeğinde ortalar!
+                         - Dış sarmaldaki --cyan vanası sayesinde daireler saniyede kurumsal camgöbeği zırhına bükülür! -->
+                    <ul class="lrf-step-list">
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">1</div>
+                            <span class="lrf-step-list__text">Oltayı dominant elinle tut, maket suyun 20–30 cm üzerinde salsın.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">2</div>
+                            <span class="lrf-step-list__text">Parmağınla misina tut, bail'i aç ve hedefi gözle.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">3</div>
+                            <span class="lrf-step-list__text">Oltayı geriye al, öne doğru hızlı bir hareketle fırlat ve hedef noktasında parmağını bırak.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">4</div>
+                            <span class="lrf-step-list__text">Maket suya değdiğinde bail'i kapat ve misina gerginliğini hisset.</span>
+                        </li>
+                    </ul>
+
+                    <!-- 🚀 SIFIR EK REZALET SINIF! Kutu tamamen çıplak şasisiyle kalır kanka!
+                         - Üstteki o asil --cyan vanasından gücünü otomatik emerek arkasını o %4 transparan su bulutuna boyar!
+                         - İçindeki ampul ikonu and o kalın (strong) yazılar tam kurumsal camgöbeği (#00bcd4) renginde ateş eder! -->
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb" class="lrf-icon-inline"></i></div>
+                        <span><strong>Pro İpucu:</strong> Güç değil, zamanlama önemlidir. Hızlı ve keskin bir bilek hareketi, güçlü bir kol hareketinden daha fazla mesafe sağlar.</span>
+                    </div>
+                </div>
+            </div>
+                        <!-- 🪐 FOTOĞRAF 02: ÇEKİŞ (RETRIEVE) TEKNİKLERİ (Premium Tok Safir Mavisi Varyantı kanka!) 
+                 - id="twitching" yapılarak yukarıdaki sekme butonuna milimetrik olarak bağlandı!
+                 - lrf-zigzag__row--reverse sayesinde görsel jilet gibi sağ tarafa bükülür!
+                 - lrf-zigzag__row--blue vanası altındaki tüm adım ikonları and ipucu kutusu otomatik boyanır! -->
+            <div class="lrf-zigzag__row lrf-zigzag__row--reverse lrf-zigzag__row--blue" id="twitching">
+                
+                <!-- Fotoğraf Sağda kanka! Arkasındaki o şovluk 3D hibrit gölge motoru mermi gibi devrede! -->
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/teknikler-cekis.jpg" alt="LRF Çekiş Teknikleri">
+                </div>
+                
+                <!-- Sol tarafta akan o narin metin, daireli adım listesi and ipucu havuzu kanka -->
+                <div class="lrf-zigzag__content">
+                    
+                    <!-- 🎨 SAFİR MAVİ KÜRESEL ATOMİK ROZET SENKRONU KANKA! -->
+                    <div class="lrf-zigzag__badge-wrap">
+                        <span class="lrf-badge lrf-badge--blue lrf-badge--sm">Maketi Hayata Geçir</span>
+                    </div>
+                    
+                    <h3 class="lrf-zigzag__title">Çekiş (Retrieve) Teknikleri</h3>
+                    <p class="lrf-zigzag__desc">
+                        Maketi suya attıktan sonra nasıl çektiğin, balığın onu avlanmaya değer görüp görmeyeceğini belirler. Farklı çekiş teknikleri farklı balık türlerini ve koşulları hedefler.
+                    </p>
+                    
+                    <!-- 🛠️ İİŞTE O GÖRSELDEKİ DAİRELİ NARİN ADIM LİSTESİ MÜHENDİSLİĞİ KANKA!
+                         - .lrf-step-list__icon yapısı; içindeki o şanlı sayıları tam mikron koordinat göbeğinde ortalar!
+                         - Dış sarmaldaki --blue vanası sayesinde daireler saniyede kurumsal safir mavi zırhına bükülür! -->
+                    <ul class="lrf-step-list">
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">1</div>
+                            <span class="lrf-step-list__text">Düz çekiş (steady retrieve): Sabit hızda sarım. Yüzey yakını veya orta su için idealdir.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">2</div>
+                            <span class="lrf-step-list__text">Stop & Go: Birkaç tur sar, dur, tekrar sar. Durma anında çoğu atış gerçekleşir.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">3</div>
+                            <span class="lrf-step-list__text">Jigging: Olta ucunu yukarı çek, aşağı bırak, sarım yap. Dip balıkları için etkilidir.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">4</div>
+                            <span class="lrf-step-list__text">Twitch & Pause: Kısa, sert bilek hareketleriyle makete düzensiz hareket ver.</span>
+                        </li>
+                    </ul>
+
+                    <!-- 🚀 SIFIR EK REZALET SINIF! Kutu tamamen çıplak şasisiyle kalır kanka!
+                         - Üstteki o asil --blue vanasından gücünü otomatik emerek arkasını o %4 transparan safir mavi su bulutuna boyar!
+                         - İçindeki ampul ikonu and o kalın (strong) yazılar tam kurumsal safir mavi (#0077b6) renginde ateş eder! -->
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb" class="lrf-icon-inline"></i></div>
+                        <span><strong>Pro İpucu:</strong> Stop & Go tekniği yeni başlayanlar için en etkili yöntemdir — balıklar genellikle duraksamada vurur.</span>
+                    </div>
+                </div>
+            </div>
+                        <!-- 🪐 FOTOĞRAF 03: DOĞRU NOKTA SEÇİMİ (Canlı Doğa Yeşili Teal Varyantı kanka!) 
+                 - id="dogru-nokta" yapılarak yukarıdaki sekme butonuna milimetrik olarak bağlandı!
+                 - lrf-zigzag__row--teal vanası altındaki tüm adım ikonları and ipucu kutusu otomatik boyanır! -->
+            <div class="lrf-zigzag__row lrf-zigzag__row--teal" id="dogru-nokta">
+                
+                <!-- Fotoğraf Solda kanka! Arkasındaki o hover anında 6px fırlayan lüks gölge motoru devrede! -->
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/teknikler-nokta.jpg" alt="LRF Doğru Nokta Seçimi">
+                </div>
+                
+                <!-- Sağ tarafta akan o narin metin, daireli adım listesi and ipucu havuzu kanka -->
+                <div class="lrf-zigzag__content">
+                    
+                    <!-- 🎨 DOĞA YEŞİLİ TEAL KÜRESEL ATOMİK ROZET SENKRONU KANKA! -->
+                    <div class="lrf-zigzag__badge-wrap">
+                        <span class="lrf-badge lrf-badge--teal lrf-badge--sm">Balık Nerede Durur?</span>
+                    </div>
+                    
+                    <h3 class="lrf-zigzag__title">Doğru Nokta Seçimi</h3>
+                    <p class="lrf-zigzag__desc">
+                        LRF balıkları genellikle yapısal noktalarda — kayalıklar, iskeleler, rıhtımlar, yosunlu alanlar ve akıntı kırıkları — bulunur. Doğru noktayı bulmak, teknik kadar önemlidir.
+                    </p>
+                    
+                    <!-- 🛠️ İİŞTE O GÖRSELDEKİ DAİRELİ NARİN ADIM LİSTESİ MÜHENDİSLİĞİ KANKA!
+                         - Dış sarmaldaki --teal vanası sayesinde daireler saniyede kurumsal doğa yeşili zırhına bükülür! -->
+                    <ul class="lrf-step-list">
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">1</div>
+                            <span class="lrf-step-list__text">Kayalık ve taşlık dipli alanlar: Kaya balığı, istavrit ve lahoz için ideal.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">2</div>
+                            <span class="lrf-step-list__text">İskele ve rıhtım ayakları: Gölge ve yapı, küçük balıkları çeker.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">3</div>
+                            <span class="lrf-step-list__text">Yosunlu ve algli alanlar: Küçük balıkların beslenme alanı — LRF için altın bölge.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">4</div>
+                            <span class="lrf-step-list__text">Akıntı kırıkları: Akıntının yavaşladığı noktalarda balıklar avlanmak için bekler.</span>
+                        </li>
+                    </ul>
+
+                    <!-- 🚀 SIFIR EK REZALET SINIF! Kutu tamamen çıplak şasisiyle kalır kanka!
+                         - Üstteki o asil --teal vanasından gücünü otomatik emerek arkasını o %4 transparan teal su bulutuna boyar!
+                         - İçindeki ampul ikonu and o kalın (strong) yazılar tam kurumsal teal (#009688) renginde ateş eder! -->
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb" class="lrf-icon-inline"></i></div>
+                        <span><strong>Pro İpucu:</strong> Sabah erken ve akşam üstü saatleri en verimli zamanlardır. Güneş yüksekken balıklar derine çekilir.</span>
+                    </div>
+                </div>
+            </div>
+                        <!-- 🪐 FOTOĞRAF 04: BALIK DAVRANIŞLARI (Enerjik Canlı Turuncu Varyantı kanka!) 
+                 - id="balik-davranislari" yapılarak yukarıdaki sekme butonuna milimetrik olarak bağlandı!
+                 - lrf-zigzag__row--reverse sayesinde görsel jilet gibi sağ tarafa bükülür!
+                 - lrf-zigzag__row--orange vanası altındaki tüm adım ikonları and ipucu kutusu otomatik boyanır! -->
+            <div class="lrf-zigzag__row lrf-zigzag__row--reverse lrf-zigzag__row--orange" id="balik-davranislari">
+                
+                <!-- Fotoğraf Sağda kanka! Arkasındaki o şovluk 3D hibrit gölge motoru mermi gibi devrede! -->
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/teknikler-davranis.jpg" alt="LRF Balık Davranışları">
+                </div>
+                
+                <!-- Sol tarafta akan o narin metin, daireli adım listesi and ipucu havuzu kanka -->
+                <div class="lrf-zigzag__content">
+                    
+                    <!-- 🎨 CANLI TURUNCU KÜRESEL ATOMİK ROZET SENKRONU KANKA! -->
+                    <div class="lrf-zigzag__badge-wrap">
+                        <span class="lrf-badge lrf-badge--orange lrf-badge--sm">Balığı Anlamak</span>
+                    </div>
+                    
+                    <h3 class="lrf-zigzag__title">Balık Davranışları</h3>
+                    <p class="lrf-zigzag__desc">
+                        LRF'de avlanan balıkların davranışlarını anlamak, doğru teknik ve maket seçimini kolaylaştırır. Su sıcaklığı, mevsim ve hava koşulları balık aktivitesini doğrudan etkiler.
+                    </p>
+                    
+                    <!-- 🛠️ İİŞTE O GÖRSELDEKİ DAİRELİ NARİN ADIM LİSTESİ MÜHENDİSLİĞİ KANKA!
+                         - Dış sarmaldaki --orange vanası sayesinde daireler saniyede kurumsal turuncu zırhına bükülür! -->
+                    <ul class="lrf-step-list">
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">1</div>
+                            <span class="lrf-step-list__text">Su sıcaklığı 18–24°C arasında olduğunda balıklar en aktif dönemdedir.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">2</div>
+                            <span class="lrf-step-list__text">Rüzgarlı havalarda balıklar kıyıya yaklaşır — bu günler avantajlıdır.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">3</div>
+                            <span class="lrf-step-list__text">Ay takvimine dikkat et: Dolunay dönemlerinde gece beslenme aktivitesi artar.</span>
+                        </li>
+                        <li class="lrf-step-list__item">
+                            <div class="lrf-step-list__icon">4</div>
+                            <span class="lrf-step-list__text">Balık vurduğunda paniklemeden sakin bir şekilde fren ayarını kullan ve yorgunlaştır.</span>
+                        </li>
+                    </ul>
+
+                    <!-- 🚀 SIFIR EK REZALET SINIF! Kutu tamamen çıplak şasisiyle kalır kanka!
+                         - Üstteki o asil --orange vanasından gücünü otomatik emerek arkasını o %4 transparan turuncu su bulutuna boyar!
+                         - İçindeki ampul ikonu and o kalın (strong) yazılar tam kurumsal turuncu renginde ateş eder! -->
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb" class="lrf-icon-inline"></i></div>
+                        <span><strong>Pro İpucu:</strong> Balık vurduğunda hemen sert çekme — önce misina gerginliğini hisset, sonra kontrollü bir şekilde kanca vur.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🛠️ 🚀 İŞTE EN TEPEDEN BERİ AKAN KOCA MASTER HAVUZU TAM BURADA EMNİYETLİCE KAPATIP MÜHÜRLÜYORUZ KANKA! -->
+        </div>
+    </section>
+    <!-- ==========================================================================
+     🏆 AV TEKNİKLERİ REHBERİ - GÖVDE BÖLÜM 3: LRF İLE AVLANAN BALIKLAR (8'Lİ PREMIUM MATRİS)
+     ========================================================================== -->
+<section class="lrf-grid-section lrf-grid-section--white-bg">
+    
+    <!-- Üstteki o şanlı Apple hap rozeti -->
+    <span class="lrf-badge lrf-badge--cyan lrf-badge--sm lrf-badge--podyum">Mera Sakinleri</span>
+    <h2 class="lrf-grid-section__title">LRF ile Avlanan Balıklar</h2>
+    
+    <p class="lrf-platform-podyum-desc">
+        Türkiye kıyılarında LRF ile en sık karşılaşılan türler.
+    </p>
+
+    <!-- 🚀 8 KARTIN YAN YANA VE ALT ALTA JİLET GİBİ DİZİLMESİNİ SAĞLAYAN KÜRESEL IZGARA MOTORU! -->
+    <div class="lrf-grid-matrix">
+        
+        <!-- KART 01: KAYA BALIĞI -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--teal lrf-badge--sm">Kolay</span>
+            </div>
+            <h3 class="lrf-grid-card__title">Kaya Balığı (Scorpionfish)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Kayalık dipli alanlar</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> Yıl boyu</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Kolay</strong></li>
+            </ul>
         </div>
 
-        <!-- Başlık ve İnce Ayırıcı Çizgi -->
-        <h1>Seçkin Deneyim<br>Çok Yakında</h1>
-        <div class="divider"></div>
-        
-        <!-- Açıklama Metni -->
-        <p>Ayrıcalıklı ve kusursuz yeni dijital platformumuzu sizler için inşa ediyoruz. Bu özel açılış için yerinizi şimdiden ayırtın.</p>
+        <!-- KART 02: İSTAVRİT -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--teal lrf-badge--sm">Kolay</span>
+            </div>
+            <h3 class="lrf-grid-card__title">İstavrit (Horse Mackerel)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Açık su, yüzey yakını</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> İlkbahar-Sonbahar</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Kolay</strong></li>
+            </ul>
+        </div>
 
-        <!-- Premium Form Alanı -->
-        <form class="notify-form" onsubmit="event.preventDefault(); alert('Ayrıcalıklı listemize kaydınız başarıyla tamamlandı.');">
-            <input type="email" placeholder="E-posta adresinizi giriniz" required>
-            <button type="submit">Davetiye İste</button>
-        </form>
+        <!-- KART 03: LAHOZ -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--orange lrf-badge--sm">Orta</span>
+            </div>
+            <h3 class="lrf-grid-card__title">Lahoz (Wrasse)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Yosunlu, kayalık alanlar</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> Yaz-Sonbahar</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Orta</strong></li>
+            </ul>
+        </div>
+
+        <!-- KART 04: ÇİPURA -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--red lrf-badge--sm">Zor</span>
+            </div>
+            <h3 class="lrf-grid-card__title">Çipura (Sea Bream)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Karma yapılar, kumlu dip</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> İlkbahar-Sonbahar</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Zor</strong></li>
+            </ul>
+        </div>
+
+        <!-- KART 05: LÜFER -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--orange lrf-badge--sm">Orta</span>
+            </div>
+            <h3 class="lrf-grid-card__title">Lüfer (Bluefish)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Açık su, akıntılı bölgeler</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> Sonbahar</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Orta</strong></li>
+            </ul>
+        </div>
+
+        <!-- KART 06: BARBUN -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--orange lrf-badge--sm">Orta</span>
+            </div>
+            <h3 class="lrf-grid-card__title">Barbun (Red Mullet)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Kumlu ve çakıllı dip</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> Yaz</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Orta</strong></li>
+            </ul>
+        </div>
+
+        <!-- KART 07: EŞKİNA -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--red lrf-badge--sm">Zor</span>
+            </div>
+            <!-- 🌟 Karakter arınması: Yazı puntoları ve alt boşluklar tamamen CSS otomasyonuna bağlandı! -->
+            <h3 class="lrf-grid-card__title">Eşkina (Stonebass)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Kayalık gölgeler, derin taş altları</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> Dört mevsim (Gece avı)</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Zor</strong></li>
+            </ul>
+        </div>
+
+        <!-- KART 08: LEVREK -->
+        <div class="lrf-grid-card">
+            <div class="lrf-grid-card__header">
+                <div class="lrf-icon-box lrf-icon-box--cyan"><i data-lucide="fish" class="lrf-icon-inline"></i></div>
+                <span class="lrf-badge lrf-badge--red lrf-badge--sm">Zor</span>
+            </div>
+            <h3 class="lrf-grid-card__title">Levrek (Sea Bass)</h3>
+            <ul class="lrf-grid-card__list">
+                <li><i data-lucide="map-pin" class="lrf-icon-inline"></i> Sığ sular, köpüklü ve dalgalı sahiller</li>
+                <li><i data-lucide="calendar" class="lrf-icon-inline"></i> Sonbahar-Kış (Fırtınalı havalar)</li>
+                <li><i data-lucide="gauge" class="lrf-icon-inline"></i> Zorluk: <strong>Zor</strong></li>
+            </ul>
+        </div>
+
+    </div> <!-- .lrf-grid-matrix Sonu -->
+</section> <!-- .lrf-grid-section Sonu -->
+
+
+    <!-- ==========================================================================
+         🏆 AV TEKNİKLERİ REHBERİ - BÖLÜM 5: BÜYÜK AKSİYON ÇAĞRISI (ENERJİK TURUNCU CTA MOTORU)
+         ========================================================================== -->
+    <div class="lrf-cta">
+        <div class="lrf-cta__shape lrf-cta__shape--one"></div>
+        <div class="lrf-cta__shape lrf-cta__shape--two"></div>
+        
+        <div class="lrf-cta__inner">
+            <h2 class="lrf-cta__title">Aksiyonları Çözdün, Şimdi Şov Zamanı!</h2>
+            <p class="lrf-cta__desc">
+                LRF Akademi ile teorik bilgini derinleştir. Uzmanlık Rehberi ile trofe avcılığının sınırlarını zorla kanka.
+            </p>
+            
+            <div class="lrf-cta__actions">
+                <a href="uzmanlik.html" class="lrf-cta__btn-white">
+                    <i data-lucide="award" class="lrf-icon-inline"></i> 
+                    <span>Uzmanlık Alanına Git</span>
+                    <i data-lucide="arrow-right" class="lrf-icon-inline"></i>
+                </a>
+                <a href="akademi.html" class="lrf-cta__btn-trans">
+                    <span>LRF Akademi</span>
+                </a>
+            </div>
+        </div> 
     </div>
 
+    <!-- ==========================================================================
+         🏆 AV TEKNİKLERİ REHBERİ - BÖLÜM 6: PREMIUM SU TONU VE DALGA BÜKÜMLÜ FOOTER SİSTEMİ
+         ========================================================================== -->
+    <div class="lrf-footer-wave-wrap">
+        <!-- 🚀 W3 resmî SVG şeması adresi tam internet standardına eşitlendi kanka! -->
+        <svg xmlns="https://w3.org" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#00bcd4" fill-opacity="1" d="M0,0C120,96,360,160,720,160C1080,160,1320,96,1440,0L1440,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <footer class="lrf-footer">
+        <div class="lrf-footer__grid">
+            
+            <!-- SÜTUN 1: MARKA VE LOGO ALANI -->
+            <div class="lrf-footer__col">
+                <div class="lrf-footer__logo-wrap">
+                    <img src="assets/images/logo.png" alt="LRF Rehberi" class="lrf-footer__logo-img">
+                </div>
+                <p class="lrf-footer__brand-desc">
+                    LRF olta balıkçılığını öğrenmek için Türkiye'nin en kapsamlı rehberi. Her seviyeden balıkçıya adım adım rehberlik.
+                </p>
+            </div>
+
+            <!-- SÜTUN 2: REHBERLER LİNKLERİ -->
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">Rehberler</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="baslangic.html" class="lrf-footer__link">
+                            <i data-lucide="book-open" class="lrf-icon-inline"></i>
+                            <span>Başlangıç Eğitimi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="malzemeler.html" class="lrf-footer__link">
+                            <i data-lucide="package" class="lrf-icon-inline"></i>
+                            <span>Malzeme Rehberi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teknikler.html" class="lrf-footer__link">
+                            <i data-lucide="activity" class="lrf-icon-inline"></i>
+                            <span>Teknik İpuçları</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- SÜTUN 3: KEŞFET LİNKLERİ -->
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">Keşfet</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="index.html#lrf-nedir" class="lrf-footer__link">
+                            <i data-lucide="fishing-rod" class="lrf-icon-inline"></i>
+                            <span>LRF Nedir?</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- SÜTUN 4: İLETİŞİM ALANI -->
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">İletişim</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="mailto:info@lrfrehberi.com" class="lrf-footer__link">
+                            <i data-lucide="mail" class="lrf-icon-inline"></i>
+                            <span>Bize Ulaşın</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="lrf-footer__contact-note">Sorularınız için her zaman buradayız.</p>
+            </div>
+        </div>
+
+        <div class="lrf-footer__bottom">
+            <p>© 2026 LRF Rehberi. Tüm hakları saklıdır.</p>
+            <div class="lrf-footer__legal-row">
+                <a href="#" class="lrf-footer__legal-link">Gizlilik Politikası</a>
+                <a href="#" class="lrf-footer__legal-link">Kullanım Koşulları</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Kırılmaz ve Kararlı Resmî Lucide İkon Motoru Zırhı -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>

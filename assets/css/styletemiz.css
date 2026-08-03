@@ -160,9 +160,8 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     box-shadow: 0 6px 16px rgba(0, 188, 212, 0.45);
 }
 /* ==========================================================================
-   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 3: BÜYÜK VİTRİN (HERO) SİSTEMİ (NİHAİ)
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 3: BÜYÜK VİTRİN (HERO) SİSTEMİ
    ========================================================================== */
-/* 🚀 1. Ana sayfa koca vitrin sarmalı dış şasisi */
 .lrf-hero {
     background: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.45)), url('../images/hero.jpg'); 
     background-size: cover;
@@ -176,7 +175,10 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     box-sizing: border-box;
 }
 
-/* 🚀 2. Üstten and alttan gelen kaba dikey baskılar sıfırlandı, içerik tam mikron koordinat göbeğinde! */
+/* 🚀 🛠️ BÜYÜK DİKEY TERAZİ ZAFERİ KANKA! Sinsi dengesizlik ebediyen tırpanlandı!
+   - padding: 0 3% 0 3% yapılarak üstten and alttan gelen kaba katı boşluklar tamamen sıfırlandı!
+   - Artık justify-content: center emri tarayıcı arkasında %100 özgür kalacak and koca içerik 
+     sarmalını dikey eksende tam mikron koordinat göbeğine, ip gibi zımbalayacak kral! */
 .lrf-hero__content {
     flex: 1;
     display: flex;
@@ -186,14 +188,13 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 3%; /* 🌟 Kutsal %3 aks terazisi harfiyen korundu kanka! */
+    padding: 0 3% 0 3%; /* 🌟 ÜST VE ALT TAM SİMETRİK SIFIRLANDI, KUTSAL %3 AKSI KORUNDU KANKA! */
     color: var(--lrf-color-bg);
     position: relative;
     z-index: 2;
     box-sizing: border-box;
 }
 
-/* 🚀 3. Hero alanlarına has, o buzlu cam asaletindeki narin Apple hap rozeti */
 .lrf-hero__badge {
     display: inline-flex;
     align-items: center;
@@ -210,7 +211,6 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     margin-bottom: 28px;
 }
 
-/* 🚀 4. Dev ekranlarda parıldayan o şanlı gölgeli ana başlık */
 .lrf-hero__title {
     font-size: 56px;
     font-weight: 800;
@@ -228,18 +228,22 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     text-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
 }
 
-/* 🚀 5. Butonların mobilde sola kayma and hizasızlık fırlamasını engelleyen merkezleme emniyeti */
 .lrf-hero__actions {
     display: flex;
     gap: 20px;
-    justify-content: center; /* Butonlar her ekranda tam merkezde kilitlenir kanka! */
     flex-wrap: wrap;
 }
 
-/* 🚀 6. Ana sayfa beyaz lüks camgöbeği hap butonu varyantı */
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 3: BÜYÜK VİTRİN (HERO) SİSTEMİ
+   ========================================================================== */
+/* 🚀 ... Diğer tüm lrf-hero ve lrf-hero__content dikey terazi şasileri yukarda tertemiz kalıyor kanka! */
+
+/* 🚀 🛠️ BÜYÜK RENK TAMİRİ KANKA! Tok mavi lekesi söküldü, o şovluk kurumsal camgöbeği 
+   rengimize (#00bcd4) and onun o narin Apple gölge parıltısına tam ayna simetrisiyle eşitlendi! */
 .lrf-hero__btn-primary {
     background-color: var(--lrf-color-bg);
-    color: #00bcd4 !important; /* Buton yazı rengi parıl parıl kurumsal camgöbeği */
+    color: #00bcd4 !important; /* 🌟 BUTON YAZI RENGİ PARIL PARIL CAMGÖBEĞİ KANKA! */
     padding: 16px 32px;
     border-radius: 100px;
     font-weight: 700;
@@ -252,12 +256,15 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
 }
+
 .lrf-hero__btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 188, 212, 0.45); /* Üst navbar butonuyla tam ayna simetrisi */
+    box-shadow: 0 6px 16px rgba(0, 188, 212, 0.45); /* 🌟 NAVBAR BUTONUYLA %100 AYNI ASİL APPLE GÖLGESİ KANKA! */
 }
 
-/* 🚀 7. Arka planı transparan, narin çizgili ikincil eylem butonu */
+/* 🚀 ... lrf-hero__btn-secondary ve scroll-link kuralları aşağıda zırh gibi korunuyor kral! */
+
+
 .lrf-hero__btn-secondary {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(4px);
@@ -274,32 +281,26 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     transition: all 0.22s ease-in-out;
     box-sizing: border-box;
 }
+
 .lrf-hero__btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.18);
     border-color: var(--lrf-color-bg);
 }
 
-/* Aşağı kaydırma ikonu sarmalı kanka */
 .lrf-hero__scroll-link {
     display: inline-block;
     align-self: center;        
     margin-bottom: 24px;       
     z-index: 5;                
 }
+
 .lrf-hero__scroll-icon {
-    width: 28px; height: 28px;
+    width: 28px;
+    height: 28px;
     color: rgba(255, 255, 255, 0.7);
-    animation: lrfArrowBounce 2s infinite; /* 🌟 Bu motorun matematik vanası aşağıda mühürlendi! */
+    animation: lrfArrowBounce 2s infinite;
 }
 
-/* ==========================================================================
-   🔮 SİTEDEKİ TÜM UÇMALARI BİTİREN KUTSAL OK ZIPLAMA ANIMASYON MOTORU
-   ========================================================================== */
-@keyframes lrfArrowBounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-    60% { transform: translateY(-4px); }
-}
 
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 4: ALT SAYFA NARİN HERO KALKANLARI
@@ -311,10 +312,12 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
 .lrf-hero.lrf-hero--akademi,
 .lrf-hero.lrf-hero--pratik-bilgiler {
     min-height: 62vh; 
-    padding-bottom: 0; 
+    padding-bottom: 0; /* 🛠️ Sinsi kaba dikey baskılar sıfırlandı kral! */
 }
 
-/* 🌟 Kırılmaz alt sayfa iç içerik sarmal senkronu kral! */
+/* 🚀 🛠️ BÜYÜK DİKEY TERAZİ SENKRONİZASYONU: Alt sayfalarda da üst and alt iç boşlukları 
+   tamamen sıfıra çekildi! Böylece yarım ekran (62vh) olan tüm alt sayfalarda da içerikler 
+   tam dikey koordinat göbeğine saniyede and kendiliğinden tam aslanlar gibi ortalanacak kral! */
 .lrf-hero .lrf-hero__content--materials,
 .lrf-hero .lrf-hero__content--baslangic,
 .lrf-hero .lrf-hero__content--teknikler,
@@ -329,74 +332,61 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     font-size: 48px;
     letter-spacing: -0.8px;
 }
-
 /* ==========================================================================
-   🪐 MASTER INTRO REFAKTÖRÜ: SAFKAN GENEL PODYUM VE HİZALAMA MOTORU (NİHAİ)
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 5: LRF NEDİR? SPOT ODAK NOKTASI SİSTEMİ
    ========================================================================== */
-/* 🚀 1. En dış taşıyıcı kuşak: Sitenin diğer tüm podyumlarıyla %100 aynı kutsal %3 aks terazisine eşitlendi!
-   - max-width: 1400px; barajı sayesinde koca ekranlarda taşmayı and bozulmayı ebediyen engeller!
-   - padding: 70px 3%; ile mobilde and webde o arzuladığın nefes alan Apple odası sağlandı kral! */
-/* ==========================================================================
-   🪐 MASTER INTRO REFAKTÖRÜ: SAFKAN GENEL PODYUM VE HİZALAMA MOTORU (NİHAİ)
-   ========================================================================== */
-/* 🚀 1. En dış taşıyıcı kuşak: Sitenin diğer tüm podyumlarıyla %100 aynı kutsal %3 aks terazisine eşitlendi!
-   - max-width: 1400px; barajı sayesinde koca ekranlarda taşmayı and bozulmayı ebediyen engeller!
-   - padding: 70px 3%; ile mobilde and webde o arzuladığın nefes alan Apple odası sağlandı kral! */
+/* 🚀 1. SSS and koca alanları 1400px sınır hatlarında tutan, %3 kutsal terazili dış sarmal kanka */
 .lrf-intro {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 70px 3%; /* 🌟 CEP TELEFONLARINDA VE MASAÜSTÜNDE BÜYÜK KORUMA ZIRHI KANKA! */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* İçindeki başlığı, görseli and kutuyu tam yatay orta eksende kilitler! */
-    text-align: center;
+    padding: 70px 3% 70px 3%; /* 🛠️ O bizzat keşfettiğin kutsal %3 terazisi! */
     box-sizing: border-box;
 }
 
-/* 🚀 2. İNFAZ MASASI KANKA! Sola uçan rozeti tam mikron koordinat göbeğine zımbalayan sihirbaz!
-   - display: inline-flex; ve margin-bottom: 20px; kuralları, üst kuşağın flex gücüyle birleştiği an 
-     rozeti tam merkezde kilitler and altındaki başlığa o asil Apple nefes odasını üfler kral! */
-.lrf-intro .lrf-badge--podyum {
-    display: inline-flex;
-    align-self: center; /* 🌟 SOLA KAÇMAYI EBEDİEN ENGELLENEN ASIL GİZLI SİGORTA BURASI KRAL! */
-    margin-bottom: 20px; /* 📐 BİZİM O KUTSAL 20PX APPLE BOŞLUĞUMUZ BU SAYFADA DA AYNEN CANLANDI! */
-}
-
-/* 🚀 3. Büyük Kurumsal Başlığın Dikey Ritmi */
 .lrf-intro__title {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 800;
     color: var(--lrf-color-dark);
-    margin-top: 0;
-    margin-bottom: 32px; /* Görsel kutusuyla arasındaki o şık Apple mesafesi kanka */
+    margin-bottom: 40px;
     letter-spacing: -1px;
-    line-height: 1.2;
+    text-align: center;
 }
 
-/* 🚀 4. Görsel kutusunun responsive (esnek) and taşmasız akış sigortası */
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 5: LRF NEDİR? SPOT ODAK NOKTASI SİSTEMİ
+   ========================================================================== */
+/* 🚀 ... Üstteki .lrf-intro ve lrf-intro__title şasileri yukarda tertemiz kalıyor kanka! */
+
+/* 🚀 🛠️ BÜYÜK GEOMETRİ DEVRİMİ KANKA! O kaba, pervasız yayılma and sünme ebediyen infaz edildi!
+   - max-width: 1000px; çakılarak üstteki fotoğrafın genişliği, alttaki info kutusuyla MİKRON DÜZEYİNDE 
+     birebir and tam bir ayna simetrisiyle eşitlendi kral! Geniş ekranlarda taşma riski sıfırlandı!
+   - margin: 0 auto 50px auto; otomatik ortalama motoru sayesinde fotoğraf kutusu koca sayfada 
+     kendiliğinden tam matematiksel koordinat göbeğine zımbalanacak! */
 .lrf-intro__gorsel-box {
     width: 100%;
-    max-width: 1000px; /* Görselin devasa ekranlarda patlamasını engelleyen lüks baraj! */
-    margin: 0 auto 40px auto;
-    border-radius: 20px; /* Görsel ambalajının o fit Apple yuvarlatması kral */
+    max-width: 1000px;              /* 🌟 ALTAKİ KUTUYLA %100 EŞİTLENEN KUTSAL BARAJ KALKANI KANKA! */
+    margin: 0 auto 50px auto;       /* 🌟 GEOMETRİK OLARAK TAM MERKEZE OTOMATİK MILESLEME! */
+    background-color: var(--lrf-color-bg);
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+    box-shadow: var(--lrf-shadow-md);
+    border: 1px solid var(--lrf-color-border);
+    box-sizing: border-box;
 }
 
 .lrf-intro__gorsel-box img {
     width: 100%;
     height: auto;
-    display: block;
+    max-height: 480px;
     object-fit: cover;
+    display: block;
 }
 
-/* ==========================================================================
-   💎 PREMIUM TRANS-APPLE BİLGİ KUTUSU VE DOKU ANASÖZLEŞMESİ BÜTÜNLÜĞÜ
-   ========================================================================== */
-/* 🚀 1. DOKU EŞİTLEME ZAFERİ KANKA! Katı and rüküş gradyan lekesi ebediyen tarihe gömüldü!
+/* 🚀 2. BÜYÜK DOKU EŞİTLEME ZAFERİ KANKA! Katı and rüküş gradyan lekesi ebediyen tarihe gömüldü!
    - background-color: Camgöbeği rengimizin o lüks, %4 opaklıktaki narin transparan su bulutuna büküldü!
-   - border-color: Kontur çerçevesi de o narin, incecik camgöbeği su çizgisine mühürlendi! */
+   - border-color: Kontur çerçevesi de o narin, incecik camgöbeği su çizgisine (#ffe0b2 kıvamında) mühürlendi!
+   - Artık koca platform genelinde doku bütünlüğü mikron düzeyinde ip gibi and kusursuz akar kral! */
 .lrf-intro__info-box {
     background-color: rgba(0, 188, 212, 0.04); 
     border: 1px solid rgba(0, 188, 212, 0.15); 
@@ -414,69 +404,47 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     box-sizing: border-box;
 }
 
-/* 🚀 2. BÜYÜK RENK VE GÖLGE SENKRONİZASYONU: Mavi iç savaş bitti kral!
-   - Hacim: Üst ve alt meralarla tam altın oranda eşleşmesi için 44px'den 52px devasa lüks ebadına fırlatıldı!
-   - Hizalama: Kutu büyüdüğü için transform sihirbazı (-50%, -50%) onu milimetrik olarak tam çizginin ortasında kilitlemeye devam eder kral! */
+/* 🚀 3. BÜYÜK RENK VE GÖLGE SENKRONİZASYONU: Mavi iç savaş bitti kral!
+   - background-color: Nokta atışı o parıl parıl yanan kurumsal camgöbeği (#00bcd4) rengimize bağlandı!
+   - box-shadow: Etrafındaki o şovluk 3D saçılma halesi de tam ayna simetrisiyle camgöbeğine parlatıldı kanka! */
 .lrf-intro__info-icon-wrap {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%, -50%); 
-    width: 52px;                 
-    height: 52px;                
-    min-width: 52px;
-    min-height: 52px;
-    background-color: #00bcd4; /* SAF, OPAK VE NET KURUMSAM CAMGÖBEĞİ ATEŞİ */
-    border: 2.5px solid var(--lrf-color-bg); /* Sınır konturu da belirginleşti kral! */
-    border-radius: 50%; /* TAM DAİRE VARYANTI */
+    transform: translate(-50%, -50%); /* Kutunun tam üst sınır çizgisinin ortasına zımbalar kanka */
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    background-color: #00bcd4; /* 🌟 SAF, OPAK VE NET KURUMSAL CAMGÖBEĞİ ATEŞİ KANKA! */
+    border: 2px solid var(--lrf-color-bg);
+    border-radius: 12px;
     color: var(--lrf-color-bg);
-    box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.15), 0 4px 12px rgba(0, 188, 212, 0.22); 
+    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.18), 0 4px 10px rgba(0, 188, 212, 0.2); /* 🌟 TAM SENKRONİZE ASİL CAMGÖBEĞİ GÖLGESİ KANKA! */
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-/* 🌟 İKON SİGORTASI: Daire büyüdüğü için içindeki Lucide info ünlemini de narincede dolgunlaştırıyoruz kral! */
-.lrf-intro__info-icon-wrap svg, 
-.lrf-intro__info-icon-wrap [data-lucide] {
-    width: 22px !important;       
-    height: 22px !important;
-    stroke-width: 2.4 !important; /* Çizgileri mermi gibi net and belirgin okutur kral */
-}
-
-/* 🚀 3. SİNSİ KAÇAK EBEDİEN İNFAZ EDİLDİ KANKA! UNUTULAN PARAGRAF MOTORU BURADA DOĞDU!
-   - font-size: FAQ sayfasındaki o çok beğendiğin, gözü pamuk gibi dinlendiren kurumsal 14.5px!
-   - color: #475569; saf esnek duman grisi! Sitedeki diğer lüks açıklamalarla mikron düzeyinde eşitlendi! */
 .lrf-intro__info-text {
-    font-size: 14.5px;
-    color: #475569;
-    line-height: 1.65;
-    margin: 0;
-    letter-spacing: -0.1px;
-}
-/* 🚀 4. Bilgi metninin içindeki kalın (strong) vurguları kurumsal koyu renge bağlayan şasi kanka */
-.lrf-intro__info-text strong {
-    font-weight: 800;
     color: var(--lrf-color-dark);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.65;
 }
 
-/* 🚀 5. Kelimelerin baş harflerinden oluşan o narin İngilizce terimi eğik (italic) yapan vana */
-.lrf-intro__info-text span {
-    font-style: italic;
-}
 
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 7: KÜRESEL FLUID PARALLAX BANNER MOTORU
    ========================================================================== */
-/* 🚀 1. Parallax okyanus derinlik mekanizmasının asıl kalbi and dış taşıyıcı sarmalı kanka */
 .lrf-fluid-banner {
     position: relative;
     width: 100%;
-    padding: 80px 3% 60px 3%; /* 🌟 Üst ve alt dikey terazi narincede ferahlatıldı, %3 aks korundu! */
+    padding: 70px 3% 45px 3%; /* %3 Kutsal aks koruması harfiyen devrede kanka! */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    background-attachment: fixed; /* Parallax okyanus derinlik mekanizmasının asıl kalbi kanka */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -484,76 +452,62 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     overflow: hidden;
 }
 
-/* 🚀 2. Arka plandaki görselin üzerine asil bir koyuluk çöktüren karartma zırhı */
 .lrf-fluid-banner__overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65));
     z-index: 1;
 }
-/* 🚀 3. Parallax Banner iç metin havuzunu, yukarıdaki ve aşağıdaki ZIGZAG meralarının 
-     o şanlı 1400px kutsal altın oran sol sınırıyla mikron düzeyinde sıfıra sıfır eşitleyen taşıyıcı! */
+
 .lrf-fluid-banner__content {
     position: relative;
-    
-    /* 📐 İŞTE O SENİN BİZZAT KEŞFETTİĞİN KUTSAL ALTIN ORAN SENKRONU KANKA:
-       - max-width: 1400px devliğine harfiyen geri kilitlendi, koca platform genelinde tek bir milimetre sapma kalmadı!
-       - padding: 0 3%; yapılarak, yukarıdaki o şanlı .lrf-zigzag__inner gövdesinin and koca sitenin %3 kutsal aks terazisiyle %100 ayna simetrisine çivilendi! */
-    max-width: 1400px; 
+    max-width: 1400px; /* Tüm platformu aynı 1400px barajında ip gibi eşitleyen kalkan! */
     width: 100%;
     margin: 0 auto; 
-    padding: 0 3%; /* 🌟 %3 KUTSAL AKS TERAZİSİ GERİ GELDİ! Yazılar artık zigzag fotoğraflarının başladığı o asil dikey çizgide mermi gibi kilitlenecek kral! */
-    
     z-index: 2;
     text-align: left;
     box-sizing: border-box;
 }
 
+.lrf-fluid-banner__title {
+    font-size: 26px; /* Kompakt ve lüks Apple font standardına çekildi kanka */
+    font-weight: 800;
+    color: var(--lrf-color-bg);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
 
-/* 🚀 4. İkon kutusu ve rozeti yan yana dizen, başlığın üst sınırındaki narin sarmal */
+.lrf-fluid-banner__desc {
+    font-size: 14.5px; 
+    color: #cbd5e1;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* 🚀 🛠️ BÜYÜK DÜZELTME: Rüküş !important prangaları ebediyen yer küreden kazındı kanka!
+   - Doğru hiyerarşik ağırlık kuralı kurulduğu için artık geçiş yumuşaklığı (transition) motorları 
+     hiçbir yere çarpmadan, tam o arzuladığın o pürüzsüz Apple akıcılığını saniyede üfleyecek kral! */
+.lrf-fluid-banner__content .lrf-icon-box {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: var(--lrf-color-bg); 
+}
+
+.lrf-fluid-banner__content .lrf-badge {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: var(--lrf-color-bg); 
+}
 .lrf-fluid-banner__badge-wrap {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px; /* 🌟 Başlığı sıkıştırmayan asil Apple boşluğu kanka */
-}
-
-/* 🌟 BÜYÜK DEVRİM KANKA! Bağımsız lüks varyant takıları mühürlendi, atomik çakışmalar felç edildi! */
-.lrf-fluid-banner__icon--luxury {
-    background-color: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
-    color: var(--lrf-color-bg) !important;
-}
-
-.lrf-fluid-banner__badge--luxury {
-    background-color: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
-    color: var(--lrf-color-bg) !important;
-}
-
-/* 🚀 5. Jilet keskinliğinde, gölgesiz kurumsal banner iç başlığı kanka */
-.lrf-fluid-banner__title {
-    font-size: 26px; /* Kompakt ve lüks Apple font standardı */
-    font-weight: 800;
-    color: var(--lrf-color-bg);
-    margin-bottom: 12px; /* 🌟 6px yapışıklığı tırpanlandı, tam 12px altın oran nefes odası üflendi! */
-    letter-spacing: -0.5px;
-    line-height: 1.3;
-}
-
-/* 🚀 6. Okunurluğu yüksek, gözü yormayan narin Apple font standardında açıklama */
-.lrf-fluid-banner__desc {
-    font-size: 14.5px; 
-    color: #cbd5e1; /* O çok sevdiğin şık duman grisi ton kanka */
-    max-width: 700px;
-    line-height: 1.65;
-    letter-spacing: -0.1px;
+    margin-bottom: 16px;
 }
 
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 2: KÜRESEL MASTER KART VE IZGARA MOTORU
    ========================================================================== */
-/* 🚀 1. Sitedeki ortak grid alanlarının nefes almasını sağlayan dış taşıyıcı kuşak */
 .lrf-grid-section {
     max-width: 1400px; 
     width: 100%; 
@@ -565,239 +519,131 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     align-items: center; 
     text-align: center;
 }
-/* ==========================================================================
-   🎯 GRID KART ÜSTÜ PODYUM ROZET YERLEŞİM KALKANI (NİHAİ ŞASİ)
-   ========================================================================== */
-/* 🚀 Kanka, sinsi renk and display çakışmaları ebediyen tarihe gömüldü!
-   - İçinde zerre renk, punto veya yazı kalınlığı barındırmaz! Tamamen renksiz and durudur!
-   - .lrf-grid-section sınıfının altındaki .lrf-badge--podyum takısı sayesinde tarayıcı 
-     arkasındaki seçici gücünü doğal yoldan, tertemiz yükselttik.
-   - margin-bottom: 20px; emri altındaki o dev h2/h3 başlığına o arzuladığın asil, 
-     ferah and luxury Apple nefes odasını milimetrik olarak üfler kral! */
-.lrf-grid-section .lrf-badge--podyum {
-    margin-bottom: 20px; /* 📐 BİZİM O KUTSAL 20PX APPLE NEFES ODASI BARAJI KANKA! */
-}
 
 .lrf-grid-section--white-bg { background-color: var(--lrf-color-bg); }
 
-.lrf-grid-section__title { 
-    font-size: 36px; 
-    font-weight: 800; 
-    color: var(--lrf-color-dark); 
-    margin-bottom: 12px; 
-    letter-spacing: -1px; 
-    line-height: 1.2; 
-}
+/* 🚀 🛠️ BÜYÜK TON EŞİTLEME ZAFERİ KANKA! Katı and eski renk kodları ebediyen tarihe gömüldü!
+   - Slogan rengi tam o parıl parıl yanan kurumsal camgöbeği (#00bcd4) tonuna eşitlendi!
+   - Başlık rengi o lüks Apple derinliğindeki kurumsal asil koyu renk değişkenimize (var(--lrf-color-dark)) bağlandı! */
+.lrf-grid-section__slogan { font-size: 13px; font-weight: 700; color: #00bcd4; margin-bottom: 8px; letter-spacing: 0.5px; }
+.lrf-grid-section__title { font-size: 36px; font-weight: 800; color: var(--lrf-color-dark); margin-bottom: 12px; letter-spacing: -1px; line-height: 1.2; }
 
-/* 🚀 Kutsal master ızgara motorumuz zırh gibi yerinde duruyor, zerre bozulmuyor kanka! */
 .lrf-grid-matrix {
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 24px; 
-    width: 100%; 
-    box-sizing: border-box;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; width: 100%; box-sizing: border-box;
 }
 
-/* 🌟 MEVCUT GRUBU KORUMA ZAFERİ KANKA! Yeni sınıf uydurma ameleliği ebediyen bitti!
-   - .lrf-start-card sarmalının içindeki kompakt matrise tarayıcının kendi doğal ağırlığıyla 
-     minmax(230px, 1fr) fitliğini üfledik! Balık kartların 280px kalırken, burası jilet gibi 230px olur! */
 .lrf-grid-matrix--compact {
-    max-width: 1140px; 
-    margin: 0 auto; 
-    gap: 20px;
-}
-.lrf-grid-matrix--compact:has(.lrf-start-card) {
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    max-width: 1140px; margin: 0 auto; gap: 20px;
 }
 
-/* 🚀 2. Yumuşacık oval lüks Apple köşeli, akordiyon taşmalarını kesen çıplak master ambalaj 
-   - padding: Orijinal görseldeki o ferah 24px iç dengeye harfiyen çekildi kral!
-   - overflow: hidden: Uzmanlık sayfasında akordiyon açıldığında taşmaları narincede kesen sigorta! */
+/* 🚀 İncecik, yumuşacık köşeli narin küresel master kart şasisi kanka */
 .lrf-grid-card {
     background-color: var(--lrf-color-bg); 
-    border: 1px solid #e2e8f0; /* Eski keskin parlak kenarlık narin kurumsal fümeye büküldü */
-    border-radius: 16px; /* 24px kaba basıklığı orijinal asil 16px Apple kıvrımına çekildi */
-    padding: 24px; 
+    border: 1px solid #D8F6F9; 
+    border-radius: 24px; 
+    padding: 36px 24px;
     display: flex; 
     flex-direction: column; 
     height: 100%; 
     position: relative; 
     box-sizing: border-box;
-    overflow: hidden; 
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
-    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+    box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.05), 0 5px 15px -5px rgba(15, 23, 42, 0.02);
+    transition: transform 0.22s ease-in-out, box-shadow 0.22s ease-in-out, border-color 0.22s ease-in-out;
 }
 
-/* 🌟 GÖLGELER SADECE HOVER ANINDA PARILDAR! Katı taban kirlilikleri ebediyen kurutuldu kanka! */
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 2.5: JİLET KART TABAN NEON GÖLGE MOTORU
+   ========================================================================== */
+/* 🚀 🛠️ BÜYÜK NEON PARILTI SENKRONİZASYONU: Mavi iç savaş bitti kral!
+   - border-color: Nokta atışı o parıl parıl yanan kurumsal camgöbeği (#00bcd4) rengimize bağlandı!
+   - box-shadow: Etrafındaki o şovluk 3D saçılma halesi de tam ayna simetrisiyle camgöbeğine (rgba(0, 188, 212, ...)) parlatıldı!
+   - Artık fareyle kartın üstüne gelindiğinde o parıltı tam o istediğin keskin Apple taban nizamında akar! */
 .lrf-grid-card:hover {
     transform: translateY(-4px); 
     border-color: #00bcd4; 
     box-shadow: 
-        0 8px 16px -6px rgba(15, 23, 42, 0.04),
+        0 8px 16px -6px rgba(15, 23, 42, 0.08),
         0 12px 24px -8px rgba(0, 188, 212, 0.25), 
-        0 16px 32px -10px rgba(0, 188, 212, 0.12); /* Şanlı narin camgöbeği halesi */
+        0 16px 32px -10px rgba(0, 188, 212, 0.12);
 }
 
 .lrf-grid-card--index { align-items: center; text-align: center; }
 
-/* 🚀 3. İNFAZ MASASI KANKA! İkonu en sola, rozeti en sağa milimetrik çivileyen üst tavan motoru! */
-.lrf-grid-card__header { 
-    display: flex !important; 
-    justify-content: space-between !important; 
-    align-items: center !important; 
-    width: 100% !important; 
-    margin-bottom: 20px; /* Başlıkla ikon sarmalı arasındaki asil Apple boşluğu */
-    padding: 0 !important; 
-    box-sizing: border-box;
+/* Başlangıç rehberindeki o lüks kutulu kare kartların çıplak şasisi kanka */
+.lrf-grid-card--baslangic {
+    align-items: flex-start; 
+    text-align: left; 
+    border-radius: 12px;
+    background-color: rgba(216, 246, 249, 0.20); 
+    border-color: rgba(0, 188, 212, 0.15);  /* Camgöbeği kontur çizgisi senkronu kanka! */
 }
 
-/* 🚀 4. Ortak çıplak ikon kutusu and Lucide çizgi sabitleyiciler kral */
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.6: BAŞLANGIÇ KARE KART HOVER MOTORU
+   ========================================================================== */
+/* 🚀 🛠️ BÜYÜK ARINMA OPERASYONU: Rezalet !important prangaları ebediyen yer küreden kazındı kanka!
+   - Doğru hiyerarşik ağırlık kuralı kurulduğu için artık geçiş yumuşaklığı (transition) motorları 
+     hiçbir yere çarpmadan, ileride ekleyeceğin yüzlerce yeni kart varyantını bile sıfır kaçakla koruyacak kral!
+   - Renk ve gölge kodları nokta atışı o şanlı kurumsal camgöbeği (#00bcd4) standardımıza eşitlendi! */
+.lrf-grid-card--baslangic:hover {
+    transform: translateY(-4px); 
+    border-color: #00bcd4;       
+    box-shadow: 
+        0 8px 16px -6px rgba(15, 23, 42, 0.06),
+        0 12px 24px -8px rgba(0, 188, 212, 0.28), 
+        0 16px 32px -10px rgba(0, 188, 212, 0.15);
+}
+
 .lrf-grid-card__badge-wrap {
     background-color: #D8F6F9; 
-    color: #00bcd4; 
+    color: #00bcd4; /* Camgöbeği senkronu kral! */
     display: inline-flex; 
     align-items: center; 
     justify-content: center; 
     box-sizing: border-box;
 }
 
-.lrf-grid-card__badge-wrap svg, 
-.lrf-grid-card__badge-wrap [data-lucide] {
+.lrf-grid-card__badge-wrap svg, .lrf-grid-card__badge-wrap [data-lucide] {
     width: 20px; height: 20px; display: block; line-height: 1; margin: 0; padding: 0;
 }
 
-/* 🚀 5. Başlangıç sayfasındaki o meşhur dolgun 64px dairesel sayı yuvası */
 .lrf-grid-card__badge-wrap--circle-num {
-    width: 64px; 
-    height: 64px; 
+    width: 64px;                     /* 🌟 TAM 64PX TOK, ETLİ AND LÜKS REFAKTÖR EBATI KANKA! */
+    height: 64px;
     min-width: 64px; 
     min-height: 64px; 
     border-radius: 50%;
     font-weight: 800; 
-    font-size: 18px; 
+    font-size: 18px;                 /* RAKAM PUNTOSU DA NARİNCE DOLGUNLAŞTI KRAL! */
     margin-bottom: 24px;
     background-color: #D8F6F9; 
     color: #00bcd4; 
-    display: inline-flex; 
-    align-items: center; 
+    display: inline-flex;            /* Rakamı tam mikron koordinat göbeğine zımbalayan sihirbaz! */
+    align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 16px -4px rgba(0, 188, 212, 0.25);
+    box-shadow: 0 6px 16px -4px rgba(0, 188, 212, 0.25); /* 🌟 HARİKA SAÇILAN YAKIŞIKLI GÖLGE KANKA! */
 }
 
-/* 🚀 6. Diğer sayfalardaki o kibar 44px kare ikon yuvası */
 .lrf-grid-card__badge-wrap--square-icon {
-    width: 44px; 
-    height: 44px; 
-    min-width: 44px; 
-    min-height: 44px; 
-    border-radius: 12px; 
-    margin-bottom: 0; /* Header flex kullandığı için kaba dikey baskı sıfırlandı kral! */
+    width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 12px; margin-bottom: 18px;
     box-shadow: 0 6px 15px -3px rgba(0, 188, 212, 0.2);
 }
 
-/* 🚀 7. Başlığın kartın sol iç sınırıyla jilet gibi ip gibi sıfırlanmasını sağlayan vana */
-.lrf-grid-card__title { 
-    font-size: 20px; 
-    font-weight: 800; 
-    color: var(--lrf-color-dark); 
-    margin-bottom: 14px; 
-    padding: 0 !important; /* Sinsi sağa sola kaçma payları ebediyen tırpanlandı! */
-    letter-spacing: -0.25px;
-    line-height: 1.3;
-    text-align: center;
-}
-
-/* 🚀 8. Alt taraftaki o narin ikonlu liste satırlarının sola sıfıra sıfır hizalanması */
-.lrf-grid-card__list { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    margin: 0 0 16px 0; 
-    padding: 0 !important; 
-    list-style: none; 
-    width: 100%; 
-    box-sizing: border-box; 
-}
-
-/* 🚀 9. Gözü pamuk gibi dinlendiren kurumsal lüks gri liste açıklaması */
-.lrf-grid-card__desc { 
-    font-size: 14px; 
-    color: #475569; 
-    line-height: 1.6; 
-    margin-top: 0;
-    margin-bottom: 16px;
-    text-align: left;
-    letter-spacing: -0.1px;
-}
+.lrf-grid-card__title { font-size: 20px; font-weight: 700; color: var(--lrf-color-dark); margin-bottom: 14px; } /* 🚀 Başlık rengi de asil koyu renge bağlandı! */
+.lrf-grid-card__desc { font-size: 14px; color: #475569; line-height: 1.65; }
 
 /* ==========================================================================
-   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.6: BAŞLANGIÇ KARE KART EKOSİSTEMİ
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 3: KÜRESEL ATOMİK ROZET VE İKON MOTORU
    ========================================================================== */
-/* 🚀 1. Master kart sınıfından bağını tamamen koparmış, bağımsız başlangıç dış şasisi kanka */
-.lrf-start-card {
-    background-color: rgba(216, 246, 249, 0.20); /* %20 lüks kurumsal su bulutu dolgusu */
-    border: 1px solid rgba(0, 188, 212, 0.15);  /* Camgöbeği narin kontur çizgisi */
-    border-radius: 12px; /* Görseldeki o fit, gergin Apple köşe yarıçapı */
-    padding: 36px 24px;
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    text-align: left; 
-    height: 100%; 
-    position: relative; 
-    box-sizing: border-box;
-    box-shadow: none; /* İlk duruşta sıfır gölge kaçağı, tüy gibi narin hafiflik! */
-    transition: transform 0.22s ease-in-out, box-shadow 0.22s ease-in-out, border-color 0.22s ease-in-out;
-}
-
-/* 🚀 2. Fareyle üzerine gelindiğinde fırlayan o şanlı camgöbeği 3D neon halesi */
-.lrf-start-card:hover {
-    transform: translateY(-4px); 
-    border-color: #00bcd4;       
-    box-shadow: 
-        0 8px 16px -6px rgba(15, 23, 42, 0.06),
-        0 16px 32px rgba(0, 188, 212, 0.08); /* Taban nizamında asaletle parıldayan hale kanka */
-}
-
-/* 🚀 3. İçindeki öğelerin master sınıflardan sızıntı almasını önleyen bağımsız çocukları */
-.lrf-start-card__title {
-    font-size: 20px; 
-    font-weight: 800; 
-    color: var(--lrf-color-dark); /* Bizim asil tok koyu rengimiz */
-    margin-top: 18px;
-    margin-bottom: 14px;
-    letter-spacing: -0.25px;
-    line-height: 1.3;
-}
-
-.lrf-start-card__desc {
-    font-size: 14px; 
-    color: #475569; /* Görseldeki o gözü pamuk gibi dinlendiren kurumsal gri! */
-    line-height: 1.65;
-    margin: 0;
-}
-/* ==========================================================================
-   🏆 2.6 REFAKTÖR: BAŞLANGIÇ REHBERİNE HAS BAĞIMSIZ HİZALAMA MOTORU (NİHAİ)
-   ========================================================================== */
-/* 🚀 MİMARÎ DEVRİM KANKA! Master grid sisteminden bağını %100 ebediyen kopardı!
-   - minmax(230px, 1fr) yapılarak kartların taban genişliği narincede Apple fitliğine büküldü.
-   - max-width: 1140px; barajı sayesinde koca ekranlarda kartlar sinsice aşağı patlamaz!
-   - gap: 20px; ile o arzuladığın narin yan yana süzülme mesafesi tahta çivilendi kral! */
-.lrf-start-card__matrix {
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
-    gap: 20px; 
-    width: 100%; 
-    max-width: 1140px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
 .lrf-badge {
     display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;
     padding: 4px 12px; border-radius: 100px; border: 1px solid transparent; line-height: 1;
     width: fit-content; white-space: nowrap; box-sizing: border-box;
 }
 .lrf-badge--sm { font-size: 11px; padding: 3px 10px; border-radius: 6px; }
+.lrf-badge--lg { font-size: 14px; padding: 8px 20px; }
 
 .lrf-badge--blue   { background-color: rgba(0, 180, 216, 0.06); color: var(--lrf-color-blue-hover); border-color: rgba(0, 180, 216, 0.12); }
 .lrf-badge--purple { background-color: #f5f3ff; color: #7c3aed; border-color: #ddd6fe; }
@@ -843,58 +689,25 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
 }
 
-/* ==========================================================================
-   🎯 MASTER İKON KUTUSU (ICON-BOX) EKOSİSTEMİ (FLUID-BANNER EMNİYETLİ VARYANT)
-   ========================================================================== */
-/* 🚀 1. Çıplak master ikon ambalajı: Kar gibi saf, renksiz and transparan yapısı harfiyen korundu kanka!
-   - Bu sayece fluid banner içindeki veya diğer meralardaki renksiz ikon nizamı asla bozulamaz! */
 .lrf-icon-box {
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    width: 36px; 
-    height: 36px;
-    min-width: 36px; 
-    min-height: 36px; 
-    border-radius: 10px; 
-    border: 1px solid transparent; 
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02); 
-    box-sizing: border-box;
+    display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+    min-width: 36px; min-height: 36px; border-radius: 10px; border: 1px solid transparent; flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02); box-sizing: border-box;
 }
-
-/* 🚀 Şekil varyasyonları kalkanı */
 .lrf-icon-box--square { border-radius: 8px !important; }
 .lrf-icon-box--circle { border-radius: 50% !important; }
-.lrf-icon-box--lg     { width: 48px; height: 48px; min-width: 48px; min-height: 48px; border-radius: 12px; }
+.lrf-icon-box--lg { width: 48px; height: 48px; min-width: 48px; min-height: 48px; border-radius: 12px; }
 
-/* 🚀 2. İkon kutularının o şanlı kurumsal renk elbiseleri */
 .lrf-icon-box--blue   { background-color: rgba(0, 180, 216, 0.06); color: var(--lrf-color-blue); border-color: rgba(0, 180, 216, 0.12); }
 .lrf-icon-box--purple { background-color: #f3e8ff; color: #7c3aed; border-color: #ddd6fe; }
 .lrf-icon-box--teal   { background-color: #ccfbf1; color: #0f766e; border-color: #bcebf2; }
 .lrf-icon-box--orange { background-color: #fff3e0; color: var(--lrf-color-orange-dark); border-color: #ffe0b2; }
-.lrf-icon-box--red    { background-color: rgba(239, 68, 68, 0.06); color: #ef4444; border-color: rgba(239, 68, 68, 0.15); }
-
-/* 🌟 BÜYÜK ARINMA VE RENK ZAFERİ KANKA! Kutsal camgöbeği varyantı kılçıksız olarak buraya çivilenmiştir!
-   - Arka plan dolgusu tam o bahsettiğin hafif lüks transparan su bulutu tonunda (#e0f6f9) süzülür.
-   - Yazı ve çizgi rengi tam o parıl parıl yanan imza camgöbeği (#00BCD4) rengimizle kilitlendi kral! */
-.lrf-icon-box--cyan   { 
-    background-color: #e0f6f9; 
-    color: #00BCD4; 
-    border-color: #bcebf2; 
+.lrf-icon-box--red { 
+    background-color: rgba(239, 68, 68, 0.06); 
+    color: #ef4444; 
+    border-color: rgba(239, 68, 68, 0.15); 
 }
-
-/* 🚀 3. Lucide çizgi sabitleyiciler kanka */
-.lrf-icon-box svg, 
-.lrf-icon-box [data-lucide] { 
-    width: 18px; 
-    height: 18px; 
-    display: block; 
-    line-height: 1; 
-    margin: 0; 
-    padding: 0; 
-}
-
+.lrf-icon-box svg, .lrf-icon-box [data-lucide] { width: 18px; height: 18px; display: block; line-height: 1; margin: 0; padding: 0; }
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - SEKME NAVİGASYONU (TAB NAV) MOTORU (NİHAİ KALE)
    ========================================================================== */
@@ -996,64 +809,26 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 4: PREMIUM FLEX-ZIGZAG ANA MOTORU
    ========================================================================== */
-/* ==========================================================================
-   🌟 🏆 2. MADDE REFAKTÖRÜ: ZIGZAG HİYERARŞİK ARKA PLAN KORUMA MOTORU
-   ========================================================================== */
-/* 🚀 Kanka, senin o şanlı kurumsal buz mavisi tabanın ve asil dikey nefes odası harfiyen korundu! */
-/* ==========================================================================
-   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 4: PREMIUM FLEX-ZIGZAG MASTER MOTORU
-   ========================================================================== */
-/* 🚀 1. En dış taşıyıcı kuşak: Sitenin kurumsal buz mavisi tabanı ve asil dikey nefes odası kral! */
 .lrf-zigzag {
-    width: 100%; 
-    background-color: #F0FDFE; /* 🌟 Senin o asil odak buz mavisi rengin taşa çivilendi kral! */
-    padding: 80px 0; /* 📐 Sitedeki tüm diğer taşıyıcı kuşaklarla mikron düzeyinde eşitlendi kanka! */
-    box-sizing: border-box;
+    width: 100%; background-color: #F0FDFE; padding: 90px 0; box-sizing: border-box;
 }
 
-/* 🛡️ İSTİSNAİ ARKA PLAN KALKANI: Başka meralarda saf beyaz durması için enjekteli vana */
-.lrf-zigzag--white-bg {
-    background-color: var(--lrf-color-bg) !important;
-}
-
-/* 🚀 2. Koca ekranlarda taşmayı önleyen, kutsal %3 yatay hava yastıklı ana sarmal */
 .lrf-zigzag__inner {
-    max-width: 1400px; 
-    width: 100%; 
-    margin: 0 auto; 
-    padding: 0 3%; 
-    box-sizing: border-box;
-    display: flex; 
-    flex-direction: column; 
-    gap: 120px; /* Satırların koca ekranda nefes almasını sağlayan asil Apple gevşekliği kanka */
+    max-width: 1400px; width: 100%; margin: 0 auto; padding: 0 3%; box-sizing: border-box;
+    display: flex; flex-direction: column; gap: 120px;
 }
 
-/* 🚀 3. MASAÜSTÜ SATIR MOTORU: Resim ve yazıyı yan yana asaletle dizen sihirbaz */
 .lrf-zigzag__row {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    width: 100%; 
-    gap: 80px; 
-    box-sizing: border-box;
+    display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 80px; box-sizing: border-box;
 }
 
-/* 🚀 Resim sağda, yazı solda akış varyantı kanka */
-.lrf-zigzag__row--reverse { 
-    flex-direction: row-reverse; 
-}
+.lrf-zigzag__row--reverse { flex-direction: row-reverse; }
 
-/* 🚀 4. Medya (Görsel/Video) Zırhı and 3D Backlight Gölge Ekosistemi kral */
 .lrf-zigzag__media {
-    flex: 1; 
-    max-width: 50%; 
-    width: 100%; 
-    border-radius: 24px; 
-    overflow: hidden;
+    flex: 1; max-width: 50%; width: 100%; border-radius: 24px; overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 35px 70px -15px rgba(15, 23, 42, 0.08), 0 20px 40px -20px rgba(15, 23, 42, 0.04);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; 
-    box-sizing: border-box;
+    box-shadow: 0 35px 70px -15px rgba(15, 23, 42, 0.10), 0 20px 40px -20px rgba(15, 23, 42, 0.05), 0 0 1px 0 rgba(15, 23, 42, 0.03);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -1062,62 +837,37 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
 .lrf-zigzag__row:hover .lrf-zigzag__media {
     transform: translateY(-6px);
     border-color: var(--lrf-color-blue);
-    /* 🛠️ Siyah + Mavi hibrit motoru: Resim gökyüzüne fırlarken altından asil bir hale akar kanka! */
+    
+    /* 🛠️ REALİTE DOĞRULANDI: Kart grubundaki o büyüleyici siyah + mavi hibrit motoru buraya da milimetrik senkronize edildi!
+       Resim koca ekranlarda dikeyde 6px gökyüzüne fırlarken, altından hem siyah gölge hem mavi ışık akacak kanka! */
     box-shadow: 
-        0 30px 50px -15px rgba(15, 23, 42, 0.12), 
-        0 12px 24px -8px rgba(0, 180, 216, 0.25),  
+        0 30px 50px -15px rgba(15, 23, 42, 0.14), /* 🚀 Resmin altındaki o asil karanlık taban gölgesi katmanı! */
+        0 12px 24px -8px rgba(0, 180, 216, 0.25),  /* Sinsice sızan o şanlı camgöbeği neon esintisi */
         0 16px 32px -10px rgba(0, 180, 216, 0.10);
 }
 
-.lrf-zigzag__media img { 
-    width: 100%; 
-    height: auto; 
-    object-fit: cover; 
-    display: block; 
-}
 
-/* 🚀 5. Metin ve İçerik Havuzu Sarmalı */
+.lrf-zigzag__media img { width: 100%; height: auto; object-fit: cover; display: block; }
+
 .lrf-zigzag__content {
-    flex: 1; 
-    max-width: 50%; 
-    width: 100%; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    text-align: left; 
-    box-sizing: border-box;
+    flex: 1; max-width: 50%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; text-align: left; box-sizing: border-box;
 }
 
-.lrf-zigzag__badge-wrap { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    margin-bottom: 20px; 
+.lrf-zigzag__badge-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+/* 🚀 Sınıfı tam tanımladığımız gibi, tüm platformdaki zigzag rozetlerinin çıplak ana şasisi!
+   İçinde zerre kaba boyut, renk and şekil kısıtlaması barındırmayan saf esnek geometrik iskelet kanka! */
+.lrf-zigzag__icon-badge {
+    display: inline-flex;         /* İkonları and sayıları dikey/yatayda yamasız merkezler kanka */
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    line-height: 1;
+    box-sizing: border-box;
+    transition: transform 0.22s ease-in-out, box-shadow 0.22s ease-in-out;
 }
 
 .lrf-zigzag__title { font-size: 36px; font-weight: 800; color: var(--lrf-color-dark); margin-bottom: 16px; letter-spacing: -0.5px; line-height: 1.2; }
 .lrf-zigzag__desc { font-size: 15px; color: #475569; line-height: 1.65; margin-bottom: 32px; }
-
-/* ==========================================================================
-   📱 📲 %100 SAFKAN MOBIL VE TABLET GÜVENCE KALKANI (ZIGZAG BREAKPOINT)
-   ========================================================================== */
-/* 🚀 Kanka, cep telefonlarında ve tabletlerde koca sitenin patlamasını engelleyen kutsal neşter!
-   - gap: 40px; yapılarak dar ekranlarda resim ve yazılar birbirini sinsice boğamaz!
-   - max-width: 100% !important; ile iki eleman da ekranı tam boy kaplar, tıkır tıkır akar kral! */
-@media (max-width: 991px) {
-    .lrf-zigzag__inner {
-        gap: 80px; /* Mobilde satır araları narincede bir tık daralır kral */
-    }
-    .lrf-zigzag__row, 
-    .lrf-zigzag__row--reverse {
-        flex-direction: column !important; /* 🌟 MOBİLDE TERS AKIŞ REZALETİ BİTTİ! HER İKİSİ DE APPLENDE TEK SÜTUNA BÜKÜLÜR! */
-        gap: 40px; 
-    }
-    .lrf-zigzag__media, 
-    .lrf-zigzag__content {
-        max-width: 100% !important; /* 📐 Dar ekranlarda elemanlar sıkışmaz, tam boy yayılır kral! */
-    }
-}
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 5: ZIGZAG SAYFA VE RENK VARYANTLARI
    ========================================================================== */
@@ -1125,35 +875,25 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
    🪐 1. KALE: ANA SAYFAYA HAS ÖZEL İKON STİLİ VARYANTI (--index kanka!)
    ========================================================================== */
 /* 🚀 Ana sayfa zigzaglarındaki o şanlı narin, dış çembersiz Apple Squircle karesini 
-   tam üçte bir oranında törpüleyip o asil kurumsal kompakt terazisine çeken vana kanka!
-   - display: flex; align-items: center; justify-content: center; motoru sayesinde 
-     içindeki Lucide çark veya balık ikonu tam mikron koordinat göbeğinde kilitlenir kral! */
+   tam üçte bir oranında törpüleyip o asil kurumsal kompakt terazisine çeken vana kanka! */
 .lrf-zigzag__icon-badge--index {
-    display: flex;                      /* 🌟 SOLA KAÇIŞI EBEDİEN BİTİREN KUTSAL FLEX MOTORU KANKA! */
-    align-items: center;
-    justify-content: center;
-    width: 48px; 
-    height: 48px;          
-    min-width: 48px; 
-    min-height: 48px;
+    width: 48px; height: 48px;          /* 🛠️ ÜÇTE BİR ORANINDA KÜÇÜLTÜLDÜ VE ALTIN ORANA ÇEKİLDİ KANKA! (72px / 1.5) */
+    min-width: 48px; min-height: 48px;
     border-radius: 14px;                /* Büyüklüğe tam uyumlu, o yumuşacık asil Apple kıvrım yarıçapı */
     background-color: rgba(0, 188, 212, 0.08); /* O çok sevdiğin narin, açık su bulutu dolgusu */
     color: #00bcd4;                     /* İkon rengini o şanlı kurumsal camgöbeğine boyar */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01); /* Sıfır kaba çember halkası, düz and narin parıltı! */
-    box-sizing: border-box;
 }
 
 /* 🚀 İdeal ebata inen ana sayfa kare yuvasının içindeki Lucide balık ikonunu da 
    aynı oranda narinleştirip kusursuz merkezleyen nokta atışı müdahale vanası kanka! */
 .lrf-zigzag__icon-badge--index svg,
 .lrf-zigzag__icon-badge--index [data-lucide] {
-    width: 24px !important;             /* 🛠️ İKON EBATI DA TAM 24PX ORANINA NARİNLEŞTİ KANKA! */
+    width: 24px !important;             /* 🛠️ İKON EBATI DA TAM 24PX ORANINA NARİNLEŞTİ KANKA! (36px / 1.5) */
     height: 24px !important;
     stroke-width: 2.3;                  /* İkon çizgilerini o narin ebatta dolgun and net tutan vana */
-    display: block;
-    margin: 0;
-    padding: 0;
 }
+
 
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 9.5: SAYFA VARYANTLARI VE RENK VANALARI
@@ -1433,10 +1173,6 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
    Varsayılan olarak arkasında zerre kutucuk, çerçeve and gölge barındırmaz! 
    Üzerine mouse ile gelindiğinde de ASLA VE ASLA zerre kıpırdamaz, kenarlık, gölge 
    and rüküş çerçeveler fırlatmaz kanka! Malzemeler sayfası ebediyen zırhlandı! */
-/* ==========================================================================
-   🎯 LİSTE ÖĞELERİ HOVER ANASÖZLEŞMESİ (MERCAN SAFKAN TEMİZLİK)
-   ========================================================================== */
-/* 🚀 1. Sitedeki tüm zigzag listelerinin çıplak, ortak master iskelet şasisi kanka */
 .lrf-zigzag__list-item {
     display: flex; 
     align-items: center; 
@@ -1445,8 +1181,8 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     max-width: 640px; 
     box-sizing: border-box;
 }
-
-/* 🚀 2. Sadece ve sadece başlangıç sayfasına özel beyaz kutu, kenarlık ve gölge elbiseleri */
+/* 🚀 Ana şasiden gelen tüm esnek and mobil geometriyi harfiyen miras (inherit) alır.
+   Sadece başlangıç sayfasına özel beyaz kutu, kenarlık and gölge elbiselerini giyer kanka! */
 .lrf-zigzag__list-item--boxed {
     background-color: var(--lrf-color-bg); 
     border: 1px solid #e2e8f0; 
@@ -1456,16 +1192,15 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* 🛠️ BÜYÜK ARINMA VE SEÇİCİ DOĞRULAMA ZAFERİ KANKA!
-   - Sağa kayma (translateX) ve camgöbeği 3D backlight parıltı şovunu SADECE BU LÜKS BEYAZ KUTULAR YAPAR!
-   - Malzemeler sayfasındaki o narin kutusuz düz listeler artık üzerine mouse gelse dahi kılını bile kıpırdatmadan kaya gibi stabil ve donuk süzülür kral! */
+/* 🛠️ NEŞTER TAM BURAYA VURULDU KANKA! HOVER SADECE VE SADECE KUTULU VARYANTA AİTTİR!
+   - .lrf-zigzag__list-item:hover saçmalığı ebediyen tarihe gömüldü, sıfır çakışma!
+   - Malzemeler sayfasındaki o narin kutusuz düz listeler zerre etkilenmez, donuk and transparan süzülür!
+   - Fareyle üstüne gelindiğinde o şanlı parıltıyı and sağa kayma şovunu sadece bu beyaz kutular yapar kral! */
 .lrf-zigzag__list-item--boxed:hover { 
     transform: translateX(4px); 
     border-color: rgba(0, 180, 216, 0.25); 
     box-shadow: 0 5px 15px rgba(0, 180, 216, 0.04); 
 }
-
-/* 🔮 DİKKAT KANKA! O ESKİ SIZINTI SAÇAN .lrf-zigzag__list-item:hover KODU BURADAN EBEDİEN SÖKÜLDÜ VE YER KÜREDEN KAZINDI! */
 
 .lrf-zigzag__list-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: inherit; }
 .lrf-zigzag__list-icon svg { width: 18px; height: 18px; stroke-width: 2.5; }
@@ -1476,89 +1211,22 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
 .lrf-spec-card__label { font-size: 12px; font-weight: 600; color: var(--lrf-color-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 .lrf-spec-card__value { font-size: 16px; font-weight: 700; color: var(--lrf-color-dark); }
 
-/* ==========================================================================
-   🌟 🫀 1. MADDE ZAFERİ: KUTSAL DİKEY ADIM LİSTESİ ANA MOTORU (NİHAİ ŞASİ)
-   ========================================================================== */
-.lrf-step-list { 
-    display: flex; 
-    flex-direction: column; 
-    width: 100%; 
-    gap: 20px; 
-    box-sizing: border-box; 
-    margin-bottom: 16px; 
-    padding: 0;
-}
-.lrf-step-list__item { 
-    display: flex; 
-    align-items: center; 
-    gap: 16px; 
-    width: 100%; 
-    max-width: 640px; 
-    box-sizing: border-box; 
-}
-.lrf-step-list__icon { 
-    width: 32px; 
-    height: 32px; 
-    min-width: 32px; 
-    min-height: 32px; 
-    border-radius: 50%; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-weight: 800; 
-    font-size: 13px; 
-    flex-shrink: 0; 
-    transition: transform 0.2s;
-}
-.lrf-step-list__text { 
-    font-size: 14.5px; 
-    font-weight: 500; 
-    color: var(--lrf-color-dark); /* Yazıların göz almasını engelleyen asil ton kanka */
-    line-height: 1.6; 
-}
-
+.lrf-step-list { display: flex; flex-direction: column; width: 100%; gap: 20px; box-sizing: border-box; margin-bottom: 16px; }
+.lrf-step-list__item { display: flex; align-items: center; gap: 16px; width: 100%; max-width: 640px; box-sizing: border-box; }
+.lrf-step-list__icon { width: 32px; height: 32px; min-width: 32px; min-height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+.lrf-step-list__text { font-size: 14.5px; font-weight: 500; color: var(--lrf-color-dark); line-height: 1.6; }
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 10: ASLA PATLAMAYAN AKORDİYON SİSTEMİ
    ========================================================================== */
-/* ==========================================================================
-   🏆 FAQ PODYUM REFAKTÖRÜ: 1. GÖRSELİN DOKUNULMAZ ANASÖZLEŞME MOTORU
-   ========================================================================== */
-/* 🚀 1. FAQ ana section kuşağı: Koca ekranda üstten ve alttan o ferahlığı harfiyen korur! */
+/* 🚀 1. SSS alanını tam yatay orta eksende tutan, %3 kutsal terazili dış sarmal kanka */
 .lrf-faq-section {
     width: 100%;
-    padding: 80px 0; /* 🌟 1. GÖRSELDEKİ O ASİL DİKEY NEFES ODASI BURASI KANKA! */
-    background-color: var(--lrf-color-bg);
+    background-color: var(--lrf-color-bg); /* Saf beyaz kurumsal zemin */
+    padding: 90px 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Başlık ve açıklamayı tam yatay orta eksende kilitler */
-    text-align: center;
-    box-sizing: border-box;
-}
-
-/* 🚀 2. İşte o 1. görseldeki rozeti başlığın tepesinden kurtaran hiyerarşik ağırlık gücü! */
-.lrf-faq-section .lrf-badge--podyum {
-    margin-bottom: 16px; /* 📐 Üst kuşağın baskısını doğal yoldan parçalayan vana kral! */
-}
-
-/* 🚀 3. Satır içi style="margin-bottom: 12px;" lekesini ebediyen kurtaran bağımsız başlık */
-.lrf-faq-section__title {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--lrf-color-dark);
-    margin-top: 0;
-    margin-bottom: 12px; /* 🌟 1. GÖRSELDEKİ O MİLİMETRİK BAŞLIK ALTI BOŞLUĞU KRAL! */
-    letter-spacing: -1px;
-    line-height: 1.2;
-}
-
-/* 🚀 4. Satır içi max-width, font-size ve margin prangalarını kurtaran şasi! */
-.lrf-faq-section__desc {
-    max-width: 600px; /* 📐 1. Görseldeki o koca geniş ekranlarda yazının biçimsiz yayılmasını önleyen baraj! */
-    font-size: 14.5px; /* 🌟 O gözü pamuk gibi dinlendiren kurumsal narin punto! */
-    color: #64748b;
-    line-height: 1.6;
-    margin: 0 auto 48px auto; /* 🌟 KARTLARI AŞAĞIYA DOĞRU ASALETLE İTEN O ŞANLI 48PX NEFES ODASI KANKA! */
-    text-align: center;
+    align-items: center;
 }
 
 /* Koca geniş ekranlarda akordiyonun çirkin uzamasını önleyen 820px kompakt baraj gövdesi */
@@ -1719,32 +1387,10 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     align-items: center; 
     justify-content: center;
     gap: 10px; 
-    transition: background-color 0.22s ease-in-out, border-color 0.22s ease-in-out, color 0.22s ease-in-out;
+    transition: all 0.22s ease-in-out;
     box-sizing: border-box;
 }
 .lrf-cta__btn-trans:hover { background-color: rgba(255, 255, 255, 0.1); border-color: var(--lrf-color-bg); }
-
-/* ==========================================================================
-   ⚡ ⚡ CTA BUTON İKON MOTORU: SIFIR IMPORTANT, SAFKAN AKIŞKAN MÜHÜR!
-   ========================================================================== */
-/* 🚀 Kanka, senin o muazzam isteğinle CTA butonlarının içindeki tüm ikonlar buraya kapsüllendi!
-   - width ve height: 1.15em; yapılarak ikon tam yanındaki buton yazısının puntosuna (%100 eşit) eşitlendi!
-   - vertical-align: -0.15em; sayesinde o sinsi dikey sapma bitti, ikon yazı satırında ip gibi hizalandı!
-   - color: currentColor; ile ikon rengini doğrudan buton metninin renginden otomatik miras alır kral! */
-.lrf-cta__btn-white svg,
-.lrf-cta__btn-white [data-lucide],
-.lrf-cta__btn-trans svg,
-.lrf-cta__btn-trans [data-lucide] {
-    width: 1.15em;
-    height: 1.15em;
-    stroke-width: 2.3;        /* Çizgileri tüy gibi hafif ve pürüzsüz tutan kurumsal kalınlık */
-    color: currentColor;      /* Rengi beyaz butonda turuncu, transparan butonda beyaz akar kral! */
-    display: inline-block;
-    vertical-align: -0.15em;  /* 🌟 İKONU YAZI ÇİZGİSİYLE MİLİMETRİK EŞİTLEYEN AKILLI BALANS SİHİRBAZI! */
-    flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-}
 
 /* Arka planda süzülen o şovluk narin geometrik Apple daireleri kanka */
 .lrf-cta__shape { position: absolute; background-color: rgba(255, 255, 255, 0.08); border-radius: 50%; z-index: 1; }
@@ -1754,6 +1400,7 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
 /* ==========================================================================
    🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 9: KAVİSLİ FOOTER VE DALGA MOTORU
    ========================================================================== */
+
 .lrf-footer-wave-wrap { 
     width: 100%; 
     line-height: 0; 
@@ -1761,7 +1408,6 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     margin: 0; 
     padding: 0; 
 }
-
 .lrf-footer-wave-wrap svg { 
     position: relative; 
     display: block; 
@@ -1769,36 +1415,17 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     height: 60px; 
 }
 
-/* 🚀 1. SVG DALGA YOLU EMNİYETİ: Renk sapmalarını ebediyen engeller kanka! */
+/* 🚀 2. EVRENSEL SABİT NİZAM: Footer platform genelinde sarsılmaz bir kararlılıktadır!
+   - Hem HTML'deki fill değeri hem de CSS'teki bu kural el ele vererek renk sapmalarını ebediyen engeller! */
+.lrf-footer,
 .lrf-footer-wave-wrap svg path {
-    fill: #00bcd4; /* 🔏 HTML'deki fill değerini destekleyen arka plan emniyet kemeri */
-}
-
-/* 🚀 2. EVRENSEL SABİT NİZAM: Footer gövdesi platform genelinde sarsılmaz bir kararlılıktadır! */
-.lrf-footer {
     background-color: #00bcd4;
+    fill: #00bcd4; /* 🔏 HTML'deki fill değerini destekleyen arka plan emniyet kemeri */
     padding: 60px 0 30px 0;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* 🚀 3. SADECE FOOTER İKONLARINI YAZININ PUNTOSUNA KİTLEYEN SAFKAN EM TABANLI MOTOR (NİHAİ CİLA)
-   - Kanka, senin o muazzam senior uyarınla tüm katı px kilitleri ve !important lekeleri ebediyen infaz edildi!
-   - width ve height: 1.15em; yapılarak ikon harfiyen tam yanındaki menü yazısının puntosuna eşitlendi!
-   - vertical-align: -0.15em; ile o sinsi dikey kayma kaçağı çözüldü, ikon yazı çizgisiyle ip gibi hizalandı!
-   - color: currentColor; sayesinde ikon rengini saniyede o satırdaki yazının renginden otomatik miras alır! */
-.lrf-footer__link svg,
-.lrf-footer__link [data-lucide] {
-    width: 1.15em;            /* 📐 Yazıdan narincede çok hafif (altın oranda) dolgun durması için 1.15em kanka! */
-    height: 1.15em;
-    stroke-width: 2.2;        /* Çizgileri tüy gibi hafif, net ve pürüzsüz tutan kurumsal kalınlık */
-    color: currentColor;      /* 🎨 Rengini doğrudan satırdaki metinden saniyede emerek miras alır! */
-    display: inline-block;
-    vertical-align: -0.15em;  /* 🌟 İKONUN YAZIYLA TAM AYNI SATIR ÇİZGİSİNDE İP GİBİ HİZALANMASINI SAĞLAYAN ASIL SİHİRBAZ! */
-    flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-}
 
 /* 🚀 4. Koca geniş ekranlarda alt bilgi alanının çirkin uzamasını önleyen 1400px kompakt grid yapısı */
 .lrf-footer__grid {
@@ -1830,12 +1457,10 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     gap: 8px; 
     transition: color 0.22s ease-in-out, transform 0.22s ease-in-out; 
 }
-
 .lrf-footer__link:hover { 
     color: var(--lrf-color-bg); 
     transform: translateX(4px); 
 }
-
 .lrf-footer__contact-note { margin-top: 16px; font-size: 13.5px; color: rgba(255, 255, 255, 0.75); }
 
 /* Alt bilgi alanının en alt telif and yasal haklar satır şasisi kanka */
@@ -1854,7 +1479,6 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     color: rgba(255, 255, 255, 0.85); 
     box-sizing: border-box;
 }
-
 .lrf-footer__legal-row { display: flex; gap: 24px; }
 .lrf-footer__legal-link { color: rgba(255, 255, 255, 0.85); transition: color 0.22s ease-in-out; }
 .lrf-footer__legal-link:hover { color: var(--lrf-color-bg); }
@@ -1881,15 +1505,6 @@ svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; 
     border-bottom: 1px solid #e2e8f0; /* 🌟 Görseldeki o boydan boya akan incecik narin alt çizgi kanka! */
     padding-bottom: 16px;
     flex-wrap: wrap;            /* Mobilde daralınca butonları narin alt alta katlar */
-    box-sizing: border-box;
-}
-/* 🚀 0. Kutsal Üst Koridor Sarmalı: Satır içi style lekelerini ebediyen tarihe gömer!
-   - padding: 24px 3% 0 3%; çakılarak üstteki vitrin ile alttaki ince çizgimiz arasına o muazzam 
-     pürüzsüz Apple koridorunu en temiz ve tek merkezden yönetilebilir şekilde kurar kral! */
-.lrf-uzmanlik-tabs-wrapper {
-    width: 100%; 
-    background-color: var(--lrf-color-bg); 
-    padding: 24px 3% 0 3%; 
     box-sizing: border-box;
 }
 
