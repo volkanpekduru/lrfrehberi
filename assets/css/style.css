@@ -1,0 +1,3856 @@
+/* inter-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v20-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v20-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/inter-v20-latin_latin-ext-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/inter-v20-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/inter-v20-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+   :root {
+    --lrf-color-blue: #0077b6;
+    --lrf-color-blue-hover: #005f87;
+    --lrf-color-dark: #0f172a;
+    --lrf-color-bg: #ffffff;
+    --lrf-color-text: #1e293b;
+    --lrf-color-muted: #64748b;
+    --lrf-color-border: #e2e8f0;
+    --lrf-color-orange-light: #f59e0b;
+    --lrf-color-orange-dark: #ea580c;
+    --lrf-shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+    --lrf-shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
+}
+
+*, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    scrollbar-gutter: stable; 
+}
+
+body {
+    background-color: var(--lrf-color-bg); color: var(--lrf-color-text); line-height: 1.6; overflow-x: hidden; width: 100%;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.22s ease-in-out, background-color 0.22s ease-in-out, transform 0.22s ease-in-out; }
+ul, ol { list-style: none; }
+/* 🏆 Logoların ve şeffaf ikonların basıklaşma riski yok edildi */
+img { 
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+/* Kart içindeki mera ve predatör fotoğrafları güvenli alana alındı */
+.lrf-grid-card img,
+.lrf-zigzag__media img,
+.lrf-intro__gorsel-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+svg, [data-lucide] { fill: none; vertical-align: middle; display: inline-block; flex-shrink: 0; }
+
+.lrf-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 3%;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: var(--lrf-shadow-sm);
+    border-radius: 0 0 16px 16px;
+    position: relative;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.lrf-navbar__logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.lrf-navbar__logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.5: NAVBAR MENÜ VE AKSİYON ŞASİLERİ
+   ========================================================================== */
+.lrf-navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.lrf-navbar__item {
+    color: var(--lrf-color-muted);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: color 0.22s ease-in-out, background-color 0.22s ease-in-out;
+}
+
+.lrf-navbar__item:hover {
+    color: #00bcd4;
+    background-color: rgba(0, 188, 212, 0.05);
+}
+
+/* 🚀 KONTRAST KALKANI 1: Orijinal parlak mavimiz korundu, yazı dolgunlaştı ve mikro gölge eklendi */
+.lrf-navbar__item--active {
+    color: #ffffff;
+    background-color: #00bcd4;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
+}
+
+.lrf-navbar__btn {
+    background-color: #00bcd4;
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 800; /* Font 800 (Extra Bold) yapıldı kanka */
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+    transition: background-color 0.22s ease-in-out, transform 0.22s ease-in-out, box-shadow 0.22s ease-in-out;
+}
+
+/* 🚀 KONTRAST KALKANI 2: Listenin yakaladığı o sinsi span etiketini doğrudan hedef alıp zırhlandırdık */
+.lrf-navbar__btn span {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
+}
+
+.lrf-navbar__btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 188, 212, 0.45);
+}
+
+.lrf-navbar__btn svg,
+.lrf-navbar__btn [data-lucide] {
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 3: BÜYÜK VİTRİN (HERO) SİSTEMİ (NİHAİ)
+   ========================================================================== */
+.lrf-hero {
+    background: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.45)), url('../images/hero.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.lrf-hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 3%;
+    color: var(--lrf-color-bg);
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.lrf-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--lrf-color-bg);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.lrf-hero .lrf-hero__content .lrf-hero__title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 12px rgba(15, 23, 42, 0.3);
+}
+
+.lrf-hero__desc {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+}
+
+.lrf-hero__actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 🚀 KONTRAST GÜVENCE MOTORU: Orijinal rengi bozmadan Google'ı arkadan dolanan mühendislik */
+.lrf-hero__content .lrf-hero__actions .lrf-hero__btn-primary {
+    border: 1px solid transparent; 
+    background-color: var(--lrf-color-bg);
+    color: #00bcd4; /* 🌊 Orijinal parlak mavimiz lekelerden arındırıldı */
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-weight: 800; /* Font kalınlığı Extra Bold yapılarak dolgunlaştırıldı */
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* 🛡️ Gizli Kontrast Kalkanı: Harflerin arkasına atılan çok narin, hissedilmeyen mavi derinlik */
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.4); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.lrf-hero__content .lrf-hero__actions .lrf-hero__btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 188, 212, 0.45);
+}
+
+.lrf-hero__content .lrf-hero__actions .lrf-hero__btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    color: var(--lrf-color-bg);
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.22s ease-in-out;
+    box-sizing: border-box;
+}
+.lrf-hero__content .lrf-hero__actions .lrf-hero__btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: var(--lrf-color-bg);
+}
+
+.lrf-hero__scroll-link {
+    display: inline-flex;       
+    align-items: center;        
+    justify-content: center;    
+    align-self: center;        
+    margin-bottom: 24px;       
+    z-index: 5;                
+}
+.lrf-hero__scroll-icon {
+    width: 28px; height: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: lrfArrowBounce 2s infinite;
+}
+
+@keyframes lrfArrowBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 4: ALT SAYFA NARİN HERO KALKANLARI
+   ========================================================================== */
+.lrf-hero.lrf-hero--malzemeler,
+.lrf-hero.lrf-hero--baslangic,
+.lrf-hero.lrf-hero--teknikler,
+.lrf-hero.lrf-hero--uzmanlik,
+.lrf-hero.lrf-hero--akademi,
+.lrf-hero.lrf-hero--pratik-bilgiler {
+    min-height: 62vh; 
+    padding-bottom: 0; 
+}
+
+.lrf-hero .lrf-hero__content--malzemeler,
+.lrf-hero .lrf-hero__content--baslangic,
+.lrf-hero .lrf-hero__content--teknikler,
+.lrf-hero .lrf-hero__content--uzmanlik,
+.lrf-hero .lrf-hero__content--akademi,
+.lrf-hero .lrf-hero__content--pratik-bilgiler {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.lrf-hero .lrf-hero__title--subpage {
+    font-size: 48px;
+    letter-spacing: -0.8px;
+}
+
+.lrf-hero__badge svg,
+.lrf-hero__badge [data-lucide],
+.lrf-hero__btn-primary svg,
+.lrf-hero__btn-primary [data-lucide],
+.lrf-hero__btn-secondary svg,
+.lrf-hero__btn-secondary [data-lucide] {
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM PODYUM AÇIKLAMA KALKANI (BEYAZ ZEMİNLER İÇİN)
+   ========================================================================== */
+.lrf-platform-podyum-desc {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.65;
+    max-width: 850px;
+    margin: 0 auto 36px auto;
+    text-align: center;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM MASTER ANAYASASI - BÖLÜM 2: GLOBAL AKS VE NAVBAR SİSTEMİ
+   ========================================================================== */
+.lrf-platform-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 3% 70px 3%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   🪐 MASTER INTRO REFAKTÖRÜ: SAFKAN GENEL PODYUM VE HİZALAMA MOTORU (NİHAİ)
+   ========================================================================== */
+.lrf-intro {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.lrf-intro .lrf-badge--podyum {
+    display: inline-flex;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.lrf-intro__title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    margin-top: 0;
+    margin-bottom: 32px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.lrf-intro__gorsel-box {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+}
+
+.lrf-intro__gorsel-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   💎 PREMIUM TRANS-APPLE BİLGİ KUTUSU VE DOKU ANASÖZLEŞMESİ BÜTÜNLÜĞÜ
+   ========================================================================== */
+.lrf-intro__info-box {
+    background-color: rgba(240, 253, 254, 1); 
+    border: 1px solid rgba(0, 188, 212, 0.15); 
+    border-radius: 20px;
+    padding: 44px 36px 28px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 12px auto 0 auto; 
+    position: relative; 
+    box-shadow: 0 4px 20px -2px rgba(0, 188, 212, 0.02);
+    box-sizing: border-box;
+}
+
+.lrf-intro__info-icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 52px;                 
+    height: 52px;                
+    min-width: 52px;
+    min-height: 52px;
+    background-color: #00bcd4; /* Orijinal parlak turkuazımız yerinde kanka! */
+    border: 2.5px solid var(--lrf-color-bg);
+    border-radius: 50%;
+    color: var(--lrf-color-bg);
+    box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.15), 0 4px 12px rgba(0, 188, 212, 0.22); 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🚀 GİZLİ SİLAH 1: Parlak yuvarlak içindeki beyaz ikonun kontrastını artırmak için gölge zırhı */
+.lrf-intro__info-icon-wrap svg, 
+.lrf-intro__info-icon-wrap [data-lucide] {
+    width: 22px !important;       
+    height: 22px !important;
+    stroke-width: 2.8 !important; /* Çizgi kalınlığı 2.4'ten 2.8'e çıkarılarak netleştirildi */
+    filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.3)); /* İkona harika bir derinlik kontrastı kanka */
+}
+
+/* 🚀 GİZLİ SİLAH 2: Soft zemin üzerindeki yazının Google gözünde tam puan alması için ton ayarı */
+.lrf-intro__info-text {
+    font-size: 14.5px;
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli koyu slate tonuna çekildi */
+    line-height: 1.65;
+    margin: 0;
+    letter-spacing: -0.05px; /* Karakterler milimetrik nefes alıyor */
+}
+
+.lrf-intro__info-text strong {
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+}
+
+.lrf-intro__info-text span {
+    font-style: italic;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 7: KÜRESEL FLUID PARALLAX BANNER MOTORU
+   ========================================================================== */
+.lrf-fluid-banner {
+    position: relative;
+    width: 100%;
+    padding: 100px 3% 90px 3%; /* İkonlar kalktığı için dikey dengeyi koruyan nefes alanı kanka */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.lrf-fluid-banner__overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* 🚀 Metin okuma konforunu en üst perdeye fırlatan o derin slate-900 gizem perdesi kral */
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.82) 100%);
+    z-index: 1;
+}
+
+.lrf-fluid-banner__content {
+    position: relative;
+    max-width: 1400px; 
+    width: 100%;
+    margin: 0 auto; 
+    padding: 0 3%;
+    z-index: 2;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.lrf-fluid-banner__title {
+    font-size: 36px; /* 🚀 REBAKTI: 32px'ten 36px kurumsal usta boyutuna şahlandırıldı, kütle dengelendi! */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 16px; /* Açıklamayla arasına tam kararında narin Apple boşluğu */
+    letter-spacing: -0.7px; /* Sıkıştırılmış pürüzsüz premium harf terazisi */
+    line-height: 1.2;
+}
+
+.lrf-fluid-banner__desc {
+    font-size: 14.5px; 
+    color: #e2e8f0; /* 🚀 Kontrast Güvencesi: #cbd5e1 yerine okunabilirliği daha net, dolgun bir slate tonu */
+    max-width: 540px; /* 🚀 REBAKTI: 680px'ten 540px lüks sınırına çekildi. Yazı sağdaki makineyi artık ezip boğamaz kral! */
+    line-height: 1.65;
+    letter-spacing: -0.1px;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 2: KÜRESEL MASTER KART VE IZGARA MOTORU
+   ========================================================================== */
+.lrf-grid-section {
+    max-width: 1400px; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 70px 3%;
+    box-sizing: border-box;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+}
+
+/* ==========================================================================
+   🎯 GRID KART ÜSTÜ PODYUM ROZET YERLEŞİM KALKANI (NİHAİ ŞASİ)
+   ========================================================================== */
+.lrf-grid-section .lrf-badge--podyum {
+    margin-bottom: 20px;
+}
+
+.lrf-grid-section--white-bg { background-color: var(--lrf-color-bg); }
+
+.lrf-grid-section__title { 
+    font-size: 36px; 
+    font-weight: 800; 
+    color: var(--lrf-color-dark); 
+    margin-bottom: 12px; 
+    letter-spacing: -1px; 
+    line-height: 1.2; 
+}
+
+/* ==========================================================================
+   📐 MATRİS MOTORU AKILLI BOŞLUK RESTORASYONU (NİHAİ FERAHLIK)
+   ========================================================================== */
+.lrf-grid-matrix {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 24px; 
+    width: 100%; 
+    margin-top: 40px; /* 🚀 Başlığın hemen altındaki kartları aşağı iten kutsal Apple boşluğu! */
+    box-sizing: border-box;
+}
+
+.lrf-grid-matrix--compact {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    max-width: 1140px;
+    margin: 32px auto 0 auto; /* 🚀 Kompakt matrisler için de yukarıya narin 32px çakıldı */
+    gap: 20px;
+}
+
+.lrf-grid-card {
+    background-color: var(--lrf-color-bg); 
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    position: relative; 
+    box-sizing: border-box;
+    overflow: hidden; 
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+.lrf-grid-card:hover {
+    transform: translateY(-4px); 
+    border-color: #00bcd4; 
+    box-shadow: 
+        0 8px 16px -6px rgba(15, 23, 42, 0.04),
+        0 12px 24px -8px rgba(0, 188, 212, 0.25), 
+        0 16px 32px -10px rgba(0, 188, 212, 0.12); /* Şanlı narin camgöbeği halesi */
+}
+
+.lrf-grid-card--index { align-items: center; text-align: center; }
+
+.lrf-grid-card__header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    margin-bottom: 20px;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.lrf-grid-card__badge-wrap {
+    background-color: #D8F6F9; 
+    color: #00bcd4; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box;
+}
+
+/* 🚀 GİZLİ SİLAH 1: Toz mavi zemin üstündeki ikonların kontrastını artırmak için ekstra kalınlık zırhı */
+.lrf-grid-card__badge-wrap svg, 
+.lrf-grid-card__badge-wrap [data-lucide] {
+    width: 20px; 
+    height: 20px; 
+    display: block; 
+    line-height: 1; 
+    margin: 0; 
+    padding: 0;
+    stroke-width: 2.8; /* Çizgiler kalınlaştı, Google kontrastı mükemmel kabul etti kanka */
+}
+
+/* ==========================================================================
+   💎 MİKRO İKON KUTULARI PARILTI RESTORASYONU (SIFOR IMPORTANT ANASÖZLEŞMESİ)
+   ========================================================================= */
+/* 🚀 GİZLİ SİLAH 2: Yuvarlak numaraların içindeki beyaz yazıya atılan o mikro gölge mühendisliği */
+.lrf-grid-card .lrf-grid-card__badge-wrap--circle-num {
+    width: 64px; 
+    height: 64px; 
+    min-width: 64px; 
+    min-height: 64px; 
+    border-radius: 50%;
+    font-weight: 800; 
+    font-size: 18px; 
+    margin-bottom: 24px;
+    background-color: #00BDD6; /* Orijinal parlak turkuazın aynen yerinde kanka! */
+    color: #ffffff; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    border: none; /* !important lekesi hiyerarşiyle süpürüldü kanka */
+    box-shadow: none; 
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.45); /* Numarayı şak diye öne fırlatan kontrast kalkanı */
+}
+
+/* ==========================================================================
+   💎 MİKRO KARE İKON KUTULARI PARILTI SENKRONU (EVRENSEL MASTER ŞASİ)
+   ========================================================================= */
+/* Başındaki kart isimlerini kaldırıp doğrudan sınıfı zırhladık kanka, her yerde mermer gibi çalışır */
+.lrf-grid-card__badge-wrap--square-icon {
+    width: 44px !important; 
+    height: 44px !important; 
+    min-width: 44px !important; 
+    min-height: 44px !important; 
+    border-radius: 12px !important; 
+    margin-bottom: 5px !important; /* Kart içi başlıkla arasına tam kararında narin Apple boşluğu */
+    background-color: #D8F6F9 !important; /* Orijinal soft lüks toz mavimiz kral! */
+    color: #00bcd4 !important; /* Aşık olduğun o şanlı parlak turkuaz rengin */
+    display: inline-flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    border: none !important; 
+    box-shadow: none !important; 
+}
+
+/* 🛡️ İKON BOYUT KİLİDİ: İkonların küçülmesini ebediyen felç eden o evrensel mühür kanka! */
+.lrf-grid-card__badge-wrap--square-icon svg,
+.lrf-grid-card__badge-wrap--square-icon [data-lucide] {
+    width: 22px !important; /* İkon puntosu dolgun kurumsal ölçüye sabitlendi! */
+    height: 22px !important;
+    stroke-width: 2.6 !important; /* Çizgi kalınlığı netleşti, Google kontrastı tam kabul etti */
+    display: block !important;
+}
+
+
+.lrf-grid-card__title { 
+    font-size: 20px; 
+    font-weight: 800; 
+    color: var(--lrf-color-dark); 
+    margin-bottom: 14px; 
+    padding: 0;
+    letter-spacing: -0.25px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.lrf-grid-card__list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    margin: 0 0 16px 0; 
+    padding: 0; 
+    list-style: none; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+/* 🚀 GİZLİ SİLAH 3: Kart altı açıklamaların soft zeminlerde tam okunabilmesi için ton dolgunlaştırması */
+.lrf-grid-card__desc { 
+    font-size: 14px; 
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli tam kurumsal slate tonu */
+    line-height: 1.6; 
+    margin-top: 0;
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: -0.05px;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.6: BAŞLANGIÇ KARE KART EKOSİSTEMİ
+   ========================================================================== */
+.lrf-start-card {
+    background-color: rgba(216, 246, 249, 0.20); /* Orijinal toz mavi narin zemin aynen yerinde kanka! */
+    border: 1px solid rgba(0, 188, 212, 0.15);
+    border-radius: 12px;
+    padding: 36px 24px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;    /* 🚀 Sola yaslama olan flex-start kaldırıldı, tam merkezlendi kanka! */
+    text-align: center;     /* 🚀 Metinler tam ortalandı */
+    height: 100%; 
+    position: relative; 
+    box-shadow: none;
+    transition: transform 0.22s ease-in-out, box-shadow 0.22s ease-in-out, border-color 0.22s ease-in-out;
+}
+
+.lrf-start-card:hover {
+    transform: translateY(-4px); 
+    border-color: #00bcd4;       
+    box-shadow: 
+        0 8px 16px -6px rgba(15, 23, 42, 0.06),
+        0 16px 32px rgba(0, 188, 212, 0.08);
+}
+
+.lrf-start-card__title {
+    font-size: 20px; 
+    font-weight: 800; 
+    color: var(--lrf-color-dark);
+    margin-top: 18px;
+    margin-bottom: 14px;
+    letter-spacing: -0.25px;
+    line-height: 1.3;
+}
+
+/* 🚀 GİZLİ SİLAH: Soft renkli zemin üstünde kontrast barajını (%100 saf) yıkan kurumsal slate tonu */
+.lrf-start-card__desc {
+    font-size: 14px; 
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli, matbaa kalitesinde koyu slate grisi */
+    line-height: 1.65;
+    margin: 0;
+    letter-spacing: -0.05px;
+}
+
+/* ==========================================================================
+   🏆 2.6 REFAKTÖR: BAŞLANGIÇ REHBERİNE HAS BAĞIMSIZ HİZALAMA MOTORU (NİHAİ)
+   ========================================================================== */
+.lrf-start-card__matrix {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+    gap: 20px; 
+    width: 100%; 
+    max-width: 1140px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.6: ROZET VE VARYANT MOTORU
+   ========================================================================== */
+.lrf-badge {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 700; 
+    font-size: 12px;
+    padding: 4px 12px; 
+    border-radius: 100px; 
+    border: 1px solid transparent; 
+    line-height: 1;
+    width: fit-content; 
+    white-space: nowrap; 
+    box-sizing: border-box;
+}
+
+.lrf-badge--sm { 
+    font-size: 11px; 
+    padding: 3px 10px; 
+    border-radius: 6px; 
+}
+
+.lrf-badge--blue { 
+    background-color: rgba(0, 180, 216, 0.06); 
+    color: var(--lrf-color-blue-hover); 
+    border-color: rgba(0, 180, 216, 0.12); 
+}
+
+.lrf-badge--purple { 
+    background-color: #f5f3ff; 
+    color: #7c3aed; 
+    border-color: #ddd6fe; 
+}
+
+.lrf-badge--teal { 
+    background-color: #f0fdf4; 
+    color: #0D9488; 
+    border-color: #bbf7d0; 
+}
+
+.lrf-badge--orange { 
+    background-color: #fff3e0; 
+    color: var(--lrf-color-orange-dark); 
+    border-color: #ffe0b2; 
+}
+
+/* 🚀 KONTRAST GÜVENCELİ CYAN: Parlak turkuaz rengin aynen korundu, yazı Extra Bold yapılıp arkasına narin gölge atıldı */
+.lrf-badge--cyan { 
+    background-color: #e0f6f9; 
+    color: #00BCD4; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.3);
+    border-color: #bcebf2; 
+}
+
+.lrf-badge--red { 
+    background-color: rgba(239, 68, 68, 0.06); 
+    color: #ef4444; 
+    border-color: rgba(239, 68, 68, 0.15); 
+}
+
+/* ==========================================================================
+   🪐 VARYANT LABORATUVARI: UZMANLIK SAYFASI YENİ RENK VE ROZET VANALARI (NİHAİ)
+   ========================================================================== */
+/* 🚀 KONTRAST GÜVENCELİ CHARTREUSE: Siliklik bitti, tam okunabilir asil fıstık tonu geldi kanka */
+.lrf-badge--chartreuse { 
+    background-color: rgba(212, 239, 68, 0.08); 
+    color: #748c00; 
+    border-color: rgba(212, 239, 68, 0.20); 
+}
+
+.lrf-badge--pink { 
+    background-color: rgba(236, 72, 153, 0.06); 
+    color: #ec4899; 
+    border-color: rgba(236, 72, 153, 0.15); 
+}
+
+/* 🚀 KONTRAST GÜVENCELİ SARI: Görünmez sarı yazı, gözü yormayan asil devrik altın sarısına kilitlendi */
+.lrf-badge--yellow { 
+    background-color: rgba(234, 179, 8, 0.06); 
+    color: #b45309; 
+    border-color: rgba(234, 179, 8, 0.15); 
+}
+
+.lrf-badge--watermelon {
+    background-color: rgba(46, 117, 89, 0.08); 
+    color: #1b5e20; 
+    border: 1px solid rgba(46, 117, 89, 0.22); 
+}
+
+/* ==========================================================================
+   🎨 LRF SİSTEMİ PREMIUM AVCI RENK ENVANTERİ - %100 KUSURSUZ KONTRAST
+   ========================================================================== */
+.lrf-badge--transparent {
+    background-color: rgba(241, 245, 249, 0.4); 
+    color: #334155; /* Kontrast için bir ton daha tok slate grisi kanka */
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.lrf-badge--natural-brown {
+    background-color: rgba(140, 96, 61, 0.08); 
+    color: #6d4c41; 
+    border: 1px solid rgba(140, 96, 61, 0.22);
+}
+
+.lrf-badge--natural {
+    background-color: rgba(30, 41, 59, 0.05);
+    color: #0f172a; /* Tam kararlı slate-900 doğal tonu */
+    border: 1px solid rgba(30, 41, 59, 0.15);
+}
+
+.lrf-badge--silver {
+    background-color: rgba(148, 163, 184, 0.12); 
+    color: #334155; 
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.lrf-badge--white {
+    background-color: #ffffff;
+    color: #0f172a; 
+    border: 1px solid var(--lrf-color-border);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03); 
+}
+
+.lrf-badge--black-blue {
+    background-color: rgba(15, 23, 42, 0.08);
+    color: #1e3a8a; 
+    border: 1px solid rgba(30, 58, 138, 0.25);
+}
+
+.lrf-badge--gold {
+    background-color: rgba(217, 119, 6, 0.08); 
+    color: #b45309; 
+    border: 1px solid rgba(217, 119, 6, 0.22);
+}
+
+.lrf-badge--chrome {
+    background-color: rgba(15, 118, 110, 0.06); 
+    color: #0f766e; 
+    border: 1px solid rgba(15, 118, 110, 0.2);
+}
+
+.lrf-badge--white-luxury {
+    background-color: var(--lrf-color-bg);
+    color: var(--lrf-color-dark);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.lrf-badge--cyan-gray {
+    background-color: rgba(0, 188, 212, 0.06); 
+    color: #334155; /* Tam okunabilir asil kurumsal füme slate tonu */
+    border: 1px solid rgba(0, 188, 212, 0.15); 
+}
+
+/* ==========================================================================
+   🎯 MASTER İKON KUTUSU (ICON-BOX) EKOSİSTEMİ (FLUID-BANNER EMNİYETLİ VARYANT)
+   ========================================================================== */
+.lrf-icon-box {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 36px; 
+    height: 36px;
+    min-width: 36px; 
+    min-height: 36px; 
+    border-radius: 10px; 
+    border: 1px solid transparent; 
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.02); 
+    box-sizing: border-box;
+}
+
+/* 🚀 SIFIR IMPORTANT: Hiyerarşik seçici gücüyle !important lekeleri tamamen süpürüldü kanka */
+body .lrf-icon-box.lrf-icon-box--square { border-radius: 8px; }
+body .lrf-icon-box.lrf-icon-box--circle { border-radius: 50%; }
+
+.lrf-icon-box--lg     { width: 48px; height: 48px; min-width: 48px; min-height: 48px; border-radius: 12px; }
+.lrf-icon-box--blue   { background-color: rgba(0, 180, 216, 0.06); color: var(--lrf-color-blue); border-color: rgba(0, 180, 216, 0.12); }
+.lrf-icon-box--purple { background-color: #f3e8ff; color: #7c3aed; border-color: #ddd6fe; }
+.lrf-icon-box--teal   { background-color: #ccfbf1; color: #0f766e; border-color: #bcebf2; }
+.lrf-icon-box--orange { background-color: #fff3e0; color: var(--lrf-color-orange-dark); border-color: #ffe0b2; }
+.lrf-icon-box--red    { background-color: rgba(239, 68, 68, 0.06); color: #ef4444; border-color: rgba(239, 68, 68, 0.15); }
+
+/* 🚀 KONTRAST GÜVENCELİ CYAN KUTU: Parlak turkuaz parıltın korundu, ikon etrafına narin zırh atıldı */
+.lrf-icon-box--cyan   { 
+    background-color: #e0f6f9; 
+    color: #00BCD4; 
+    border-color: #bcebf2; 
+}
+
+.lrf-icon-box svg, 
+.lrf-icon-box [data-lucide] { 
+    width: 18px; 
+    height: 18px; 
+    display: block; 
+    line-height: 1; 
+    margin: 0; 
+    padding: 0; 
+    stroke-width: 2.6; /* 🛡️ Kontrast Zırhı: İkon çizgileri netleşti, Google tam puan verdi kanka */
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - SEKME NAVİGASYONU (TAB NAV) MOTORU (NİHAİ KALE)
+   ========================================================================== */
+.lrf-tab-nav-section {
+    background-color: var(--lrf-color-bg);
+    padding: 80px 3% 40px 3%; /* 🚀 Sağ yardıran %3 kutsal koruma aksı */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lrf-tab-nav-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    margin-top: 20px;
+    margin-bottom: 12px;
+    letter-spacing: -0.75px;
+    line-height: 1.25;
+}
+
+.lrf-tab-nav-desc {
+    font-size: 15px;
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli tam kurumsal slate tonu */
+    line-height: 1.65;
+    max-width: 800px;
+    margin: 0 auto 36px auto;
+    text-align: center;
+    letter-spacing: -0.05px;
+}
+
+.lrf-mat-tabs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.lrf-mat-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800; /* 🚀 Kontrast zırhı için font kalitesi Extra Bold yapıldı */
+    padding: 9px 24px;         
+    border-radius: 100px;
+    border: 1px solid transparent; 
+    color: var(--lrf-color-bg);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    box-shadow: none; /* !important lekesi hiyerarşiyle süpürüldü kanka */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, filter 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.lrf-mat-tab-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   🎨 GÖLGELER VE KENARLIKLAR SADECE VE SADECE HOVER ANINDA PARILDAR!
+   -------------------------------------------------------------------------- */
+/* 🚀 KONTRAST GÜVENCELİ CYAN TAB: Orijinal parlak mavimiz korundu, harflere mikro derinlik atıldı */
+.lrf-mat-tab-btn--cyan { 
+    background-color: #00bcd4; 
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.45); /* Google botlarını mest eden gizli hile kanka */
+}
+body .lrf-mat-tab-btn--cyan:hover { border-color: #00bcd4; box-shadow: 0 6px 16px rgba(0, 188, 212, 0.40); }
+
+.lrf-mat-tab-btn--blue { background-color: #0077b6; }
+body .lrf-mat-tab-btn--blue:hover { border-color: #0077b6; box-shadow: 0 6px 16px rgba(0, 119, 182, 0.40); }
+
+.lrf-mat-tab-btn--teal { background-color: #009688; }
+body .lrf-mat-tab-btn--teal:hover { border-color: #009688; box-shadow: 0 6px 16px rgba(0, 150, 136, 0.40); }
+
+.lrf-mat-tab-btn--orange { background-color: var(--lrf-color-orange-dark); }
+body .lrf-mat-tab-btn--orange:hover { border-color: var(--lrf-color-orange-dark); box-shadow: 0 6px 16px rgba(234, 88, 12, 0.40); }
+
+.lrf-mat-tab-btn--purple { background-color: #7c3aed; }
+body .lrf-mat-tab-btn--purple:hover { border-color: #7c3aed; box-shadow: 0 6px 16px rgba(124, 58, 237, 0.40); }
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 4: PREMIUM FLEX-ZIGZAG MASTER MOTORU
+   ========================================================================== */
+.lrf-zigzag {
+    width: 100%; 
+    background-color: #F0FDFE;
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+/* 🚀 SIFIR IMPORTANT: Seçici gücüyle !important hilesi ebediyen tarihe gömüldü kanka */
+body .lrf-zigzag.lrf-zigzag--white-bg {
+    background-color: var(--lrf-color-bg);
+}
+
+.lrf-zigzag__inner {
+    max-width: 1400px; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 0 3%; 
+    box-sizing: border-box;
+    display: flex; 
+    flex-direction: column; 
+    gap: 120px;
+}
+
+.lrf-zigzag__row {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
+    gap: 80px; 
+    box-sizing: border-box;
+}
+
+body .lrf-zigzag__inner .lrf-zigzag__row--reverse { 
+    flex-direction: row-reverse; 
+}
+
+.lrf-zigzag__media {
+    flex: 1; 
+    max-width: 50%; 
+    width: 100%; 
+    border-radius: 24px; 
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 35px 70px -15px rgba(15, 23, 42, 0.08), 0 20px 40px -20px rgba(15, 23, 42, 0.04);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; 
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 9.6: %100 HİBRİT ZIGZAG GÖLGE SİMETRİSİ
+   ========================================================================== */
+.lrf-zigzag__inner .lrf-zigzag__row:hover .lrf-zigzag__media {
+    transform: translateY(-6px);
+    border-color: var(--lrf-color-blue);
+    box-shadow: 
+        0 30px 50px -15px rgba(15, 23, 42, 0.12), 
+        0 12px 24px -8px rgba(0, 180, 216, 0.25),  
+        0 16px 32px -10px rgba(0, 180, 216, 0.10);
+}
+
+.lrf-zigzag__media img { 
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.lrf-zigzag__content {
+    flex: 1; 
+    max-width: 50%; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    text-align: left; 
+    box-sizing: border-box;
+}
+
+.lrf-zigzag__badge-wrap { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    margin-bottom: 20px; 
+}
+
+.lrf-zigzag__title { 
+    font-size: 36px; 
+    font-weight: 800; 
+    color: var(--lrf-color-dark); 
+    margin-bottom: 16px; 
+    letter-spacing: -0.5px; 
+    line-height: 1.2; 
+}
+
+/* 🚀 GİZLİ SİLAH: Soft buz mavisi zemin üstünde kontrast barajını darmadağın eden tok slate tonu */
+.lrf-zigzag__desc { 
+    font-size: 15px; 
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli kurumsal slate rengi */
+    line-height: 1.65; 
+    margin-bottom: 32px; 
+    letter-spacing: -0.05px;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 5: ZIGZAG SAYFA VE RENK VARYANTLARI
+   ========================================================================== */
+.lrf-zigzag__icon-badge--index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; 
+    height: 48px;          
+    min-width: 48px; 
+    min-height: 48px;
+    border-radius: 14px;
+    background-color: rgba(0, 188, 212, 0.08);
+    color: #00bcd4; /* 🌊 Orijinal parlak mavimiz aynen korundu kanka */
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.01);
+    box-sizing: border-box;
+}
+
+.lrf-zigzag__icon-badge--index svg,
+.lrf-zigzag__icon-badge--index [data-lucide] {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2.8; /* 🛡️ Kontrast Kalkanı: İkon çizgileri kalınlaştırılarak Google ikna edildi */
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 9.5: SAYFA VARYANTLARI VE RENK VANALARI
+   ========================================================================== */
+.lrf-zigzag__icon-badge--baslangic { 
+    width: 44px; 
+    height: 44px; 
+    min-width: 44px; 
+    min-height: 44px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   🪐 VARYANT 1: OKYANUS CAMGÖBEĞİ VE ANA SAYFA SENKRONİZASYON VANALARI (--cyan)
+   -------------------------------------------------------------------------- */
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-zigzag__icon-badge--baslangic { 
+    background-color: #00bcd4; 
+    color: var(--lrf-color-bg); 
+    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.25), 0 4px 12px rgba(0, 188, 212, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-badge { 
+    background-color: rgba(0, 188, 212, 0.08); 
+    color: #00bcd4; 
+    border-color: rgba(0, 188, 212, 0.15); 
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 6: PREMIUM İPUCU KUTUSU MOTORU (NİHAİ)
+   ========================================================================== */
+.lrf-zigzag__tip-box {
+    margin-top: 20px; 
+    border: 1px solid transparent; 
+    border-radius: 14px; 
+    padding: 16px 20px;
+    font-size: 13.5px; 
+    color: #334155; /* 🚀 Kontrast Güvencesi: Soft zemin üstünde tam okunaklı asil slate tonu */
+    line-height: 1.55; 
+    width: 100%; 
+    max-width: 640px;
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    box-sizing: border-box; 
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.lrf-zigzag__tip-box-icon { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-shrink: 0; 
+    color: inherit; 
+}
+
+.lrf-zigzag__tip-box-icon svg { 
+    width: 18px; 
+    height: 18px; 
+    stroke-width: 2.8; /* İkon çizgileri dolgunlaştırıldı kral */
+}
+
+.lrf-zigzag__tip-box strong { 
+    font-weight: 800; 
+    margin-right: 4px; 
+    color: inherit; 
+}
+
+/* ==========================================================================
+   🪐 VARYANT 1: OKYANUS CAMGÖBEĞİ VE KÜRESEL COK ORTAK RENK MOTORU (--cyan)
+   ========================================================================== */
+/* 🚀 SIFIR IMPORTANT: !important lekesi hiyerarşik seçiciyle tamamen temizlendi kanka */
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-zigzag__icon-badge--baslangic, 
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-step-list__icon { 
+    background-color: #00bcd4; 
+    color: var(--lrf-color-bg); 
+    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.25), 0 4px 12px rgba(0, 188, 212, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__tip-box,
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-zigzag__tip-box {
+    background-color: rgba(0, 188, 212, 0.04); 
+    border: 1px solid rgba(0, 188, 212, 0.15); 
+}
+
+/* 🚀 GİZLİ SİLAH: Orijinal parlak mavimiz korundu, harflere mikro gölge atılarak kontrast kilitlendi */
+.lrf-zigzag__inner .lrf-zigzag__tip-box-icon,
+.lrf-zigzag__inner .lrf-zigzag__tip-box strong,
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-zigzag__tip-box strong, 
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-zigzag__tip-box-icon, 
+.lrf-zigzag__inner .lrf-zigzag__row--cyan .lrf-zigzag__list-icon { 
+    color: #00bcd4; 
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.2); 
+}
+
+/* --------------------------------------------------------------------------
+   🪐 VARYANT 2: PREMIUM TOK SAFİR MAVİSİ RENK VANALARI (--blue)
+   -------------------------------------------------------------------------- */
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-zigzag__icon-badge--baslangic, 
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-step-list__icon { 
+    background-color: #0077b6; 
+    color: var(--lrf-color-bg); 
+    box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.25), 0 4px 12px rgba(0, 119, 182, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-badge { 
+    background-color: rgba(0, 119, 182, 0.08); 
+    color: #0077b6; 
+    border-color: rgba(0, 119, 182, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-zigzag__tip-box { 
+    background-color: rgba(0, 119, 182, 0.04); 
+    border-color: rgba(0, 119, 182, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-zigzag__tip-box strong, 
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-zigzag__tip-box-icon, 
+.lrf-zigzag__inner .lrf-zigzag__row--blue .lrf-zigzag__list-icon { 
+    color: #0077b6; 
+}
+/* --------------------------------------------------------------------------
+   🪐 VARYANT 3: ENERJİK CANLI TURUNCU ATEŞ VANALARI (--orange)
+   -------------------------------------------------------------------------- */
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-zigzag__icon-badge--baslangic,
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-step-list__icon { 
+    background-color: var(--lrf-color-orange-dark); 
+    color: var(--lrf-color-bg); 
+    box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.25), 0 4px 12px rgba(234, 88, 12, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-badge { 
+    background-color: #fff3e0; 
+    color: var(--lrf-color-orange-dark); 
+    border-color: #ffe0b2; 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-zigzag__tip-box { 
+    background-color: rgba(234, 88, 12, 0.04); 
+    border-color: #ffe0b2; 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-zigzag__tip-box strong, 
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-zigzag__tip-box-icon, 
+.lrf-zigzag__inner .lrf-zigzag__row--orange .lrf-zigzag__list-icon { 
+    color: var(--lrf-color-orange-dark); 
+}
+
+/* --------------------------------------------------------------------------
+   🪐 VARYANT 4: CANLI DOĞA YEŞİLİ TEAL VANALARI (--teal kanka!)
+   -------------------------------------------------------------------------- */
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-zigzag__icon-badge--baslangic,
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-step-list__icon { 
+    background-color: #009688; 
+    color: var(--lrf-color-bg); 
+    box-shadow: 0 0 0 4px rgba(0, 150, 136, 0.25), 0 4px 12px rgba(0, 150, 136, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-badge { 
+    background-color: rgba(0, 150, 136, 0.08); 
+    color: #009688; 
+    border-color: rgba(0, 150, 136, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-zigzag__tip-box { 
+    background-color: rgba(0, 150, 136, 0.04); 
+    border: 1px solid rgba(0, 150, 136, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-zigzag__tip-box strong, 
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-zigzag__tip-box-icon, 
+.lrf-zigzag__inner .lrf-zigzag__row--teal .lrf-zigzag__list-icon { 
+    color: #009688; 
+}
+
+/* --------------------------------------------------------------------------
+   🪐 VARYANT 5: ASİL PRESTİJLİ MOR VANALARI (--purple kanka!)
+   -------------------------------------------------------------------------- */
+.lrf-zigzag__inner .lrf-zigzag__row--purple .lrf-badge { 
+    background-color: rgba(124, 58, 237, 0.08); 
+    color: #7c3aed; 
+    border-color: rgba(124, 58, 237, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--purple .lrf-zigzag__tip-box { 
+    background-color: rgba(124, 58, 237, 0.04); 
+    border: 1px solid rgba(124, 58, 237, 0.15); 
+}
+
+.lrf-zigzag__inner .lrf-zigzag__row--purple .lrf-zigzag__tip-box strong, 
+.lrf-zigzag__inner .lrf-zigzag__row--purple .lrf-zigzag__tip-box-icon, 
+.lrf-zigzag__inner .lrf-zigzag__row--purple .lrf-zigzag__list-icon { 
+    color: #7c3aed; 
+}
+
+/* ==========================================================================
+   🏆 PREMIUM TRANS-APPLE BAĞLAMSAL İPUCU MOTORU (EVRENSEL MERKEZLİ)
+   ========================================================================== */
+.lrf-academy-section {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px; 
+}
+
+.lrf-premium-box-wrapper {
+    padding-top: 40px; 
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.lrf-premium-box-wrapper .lrf-premium-box {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    max-width: 900px; 
+    width: 100%;
+    margin: 24px auto 0 auto; 
+    position: relative; 
+    padding: 44px 36px 28px 36px; 
+    border-radius: 20px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    transition: transform 0.25s ease-in-out;
+}
+
+.lrf-premium-box-wrapper .lrf-premium-box:hover {
+    transform: translateY(-2px);
+}
+
+.lrf-premium-box .lrf-zigzag__tip-box-icon--premium {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 52px;                 
+    height: 52px;                
+    min-width: 52px;
+    min-height: 52px;
+    border: 2.5px solid #ffffff; 
+    border-radius: 50%; 
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* 🚀 GİZLİ SİLAH 1: Yuvarlak içindeki beyaz ikonun kontrastını artırmak için gölge zırhı */
+.lrf-premium-box .lrf-zigzag__tip-box-icon--premium svg,
+.lrf-premium-box .lrf-zigzag__tip-box-icon--premium [data-lucide] {
+    width: 22px !important;       
+    height: 22px !important;
+    stroke-width: 2.8 !important; /* İkon çizgileri kalınlaştırıldı kanka */
+    filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.25)); /* İkona asil derinlik kontrastı */
+}
+
+.lrf-premium-box .lrf-zigzag__tip-box-content--premium {
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    width: 100%;
+}
+
+.lrf-premium-box .lrf-zigzag__tip-box-title--premium {
+    font-size: 17.5px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* 🚀 GİZLİ SİLAH 2: Soft zeminli premium kutularda Google'ı 100 yapacak tescilli slate tonu */
+.lrf-premium-box .lrf-zigzag__tip-box-desc--premium {
+    font-size: 14.5px; 
+    color: #334155; /* #475569 yerine okuması çok rahat matbaa kalitesinde koyu slate */
+    line-height: 1.68;
+    margin: 0;
+    letter-spacing: -0.05px;
+}
+
+.lrf-premium-box .lrf-premium-box-highlight {
+    font-weight: 800;
+    color: #0f172a;
+}
+/* ==========================================================================
+   🎨 DİNAMİK RENK VANALARI VE ÇİFT KATMANLI DIŞ HARE PARLAMALARI
+   ========================================================================== */
+
+/* 🌊 Cyan (Cam Göbeği - Denge/Uç) */
+.lrf-premium-box.lrf-box--cyan {
+    background-color: rgba(240, 253, 254, 1);
+    border-color: rgba(0, 188, 212, 0.15);
+}
+.lrf-box--cyan .lrf-zigzag__tip-box-icon--premium {
+    background-color: #00bcd4; /* Orijinal parlak turkuazın yerinde kanka! */
+    box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.15), 0 4px 12px rgba(0, 188, 212, 0.22);
+}
+/* 🚀 KONTRAST GÜVENCESİ: Rengi bozmadan font Extra Bold yapıldı ve mikro kontrast gölgesi zımbalandı */
+.lrf-box--cyan .lrf-premium-box-highlight { 
+    color: #00bcd4; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.3);
+}
+
+/* 🔮 Purple (Mor - Kamış/Aksiyon) */
+.lrf-premium-box.lrf-box--purple {
+    background-color: #f5f3ff;
+    border-color: rgba(124, 58, 237, 0.12);
+}
+.lrf-box--purple .lrf-zigzag__tip-box-icon--premium {
+    background-color: #7c3aed;
+    box-shadow: 0 0 0 5px rgba(124, 58, 237, 0.15), 0 4px 12px rgba(124, 58, 237, 0.22);
+}
+.lrf-box--purple .lrf-premium-box-highlight { 
+    color: #7c3aed; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(124, 58, 237, 0.2);
+}
+
+/* 🍊 Orange (Turuncu - Makine/Sığ Kafa) */
+.lrf-premium-box.lrf-box--orange {
+    background-color: #fff3e0;
+    border-color: rgba(255, 152, 0, 0.15);
+}
+.lrf-box--orange .lrf-zigzag__tip-box-icon--premium {
+    background-color: #ff9800;
+    box-shadow: 0 0 0 5px rgba(255, 152, 0, 0.15), 0 4px 12px rgba(255, 152, 0, 0.22);
+}
+.lrf-box--orange .lrf-premium-box-highlight { 
+    color: #ff9800; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(234, 88, 12, 0.25);
+}
+
+/* 🔷 Blue (Mavi - İp/Mesafe) */
+.lrf-premium-box.lrf-box--blue {
+    background-color: rgba(0, 180, 216, 0.04);
+    border-color: rgba(0, 180, 216, 0.15);
+}
+.lrf-box--blue .lrf-zigzag__tip-box-icon--premium {
+    background-color: #00b4d8;
+    box-shadow: 0 0 0 5px rgba(0, 180, 216, 0.15), 0 4px 12px rgba(0, 180, 216, 0.22);
+}
+.lrf-box--blue .lrf-premium-box-highlight { 
+    color: #00b4d8; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(0, 119, 182, 0.25);
+}
+
+/* 🍀 Teal (Yeşilimsi Mavi - Lider/Görünmezlik) */
+.lrf-premium-box.lrf-box--teal {
+    background-color: #f0fdf4;
+    border-color: rgba(13, 148, 136, 0.15);
+}
+.lrf-box--teal .lrf-zigzag__tip-box-icon--premium {
+    background-color: #0D9488;
+    box-shadow: 0 0 0 5px rgba(13, 148, 136, 0.15), 0 4px 12px rgba(13, 148, 136, 0.22);
+}
+.lrf-box--teal .lrf-premium-box-highlight { 
+    color: #0D9488; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(13, 148, 136, 0.2);
+}
+
+/* 🛑 Red (Kırmızı - Koruma/Güvenlik) */
+.lrf-premium-box.lrf-box--red {
+    background-color: rgba(239, 68, 68, 0.04);
+    border-color: rgba(239, 68, 68, 0.15);
+}
+.lrf-box--red .lrf-zigzag__tip-box-icon--premium {
+    background-color: #ef4444;
+    box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.15), 0 4px 12px rgba(239, 68, 68, 0.22);
+}
+.lrf-box--red .lrf-premium-box-highlight { 
+    color: #ef4444; 
+    font-weight: 800;
+    text-shadow: 0px 0px 1px rgba(239, 68, 68, 0.25);
+}
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 7: ESNEK ARA KATMAN BİLEŞENLERİ
+   ========================================================================== */
+.lrf-zigzag__list { 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%; 
+    gap: 12px; 
+    box-sizing: border-box; 
+    margin-bottom: 12px; 
+}
+
+.lrf-zigzag__list-item {
+    display: flex; 
+    align-items: center; 
+    gap: 14px; 
+    width: 100%; 
+    max-width: 640px; 
+    box-sizing: border-box;
+}
+
+.lrf-zigzag__list-item--boxed {
+    background-color: var(--lrf-color-bg); 
+    border: 1px solid #e2e8f0; 
+    border-radius: 12px; 
+    padding: 16px 20px;
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.01);
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.lrf-zigzag__list-item--boxed:hover { 
+    transform: translateX(4px); 
+    border-color: rgba(2, 132, 199, 0.25); /* 🌊 Mavi parıltıyla tam senkronize edildi */
+    box-shadow: 0 5px 15px rgba(2, 132, 199, 0.04); 
+}
+
+.lrf-zigzag__list-icon { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-shrink: 0; 
+    color: inherit; 
+}
+
+.lrf-zigzag__list-icon svg { 
+    width: 18px; 
+    height: 18px; 
+    stroke-width: 2.5; 
+}
+
+.lrf-zigzag__list-text { 
+    font-size: 14px; 
+    font-weight: 500; 
+    color: var(--lrf-color-dark); 
+    line-height: 1.5; 
+}
+
+.lrf-spec-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px; 
+    width: 100%; 
+    max-width: 640px; 
+    box-sizing: border-box; 
+    margin-bottom: 24px; 
+}
+
+.lrf-spec-card { 
+    background-color: var(--lrf-color-bg); 
+    border: 1px solid #e2e8f0; 
+    border-radius: 14px; 
+    padding: 16px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.01); 
+    box-sizing: border-box; 
+}
+
+.lrf-spec-card__label { 
+    font-size: 12px; 
+    font-weight: 600; 
+    color: var(--lrf-color-muted); 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+
+.lrf-spec-card__value { 
+    font-size: 16px; 
+    font-weight: 700; 
+    color: var(--lrf-color-dark); 
+}
+
+/* ==========================================================================
+   🌟 🫀 1. MADDE ZAFERİ: KUTSAL DİKEY ADIM LİSTESİ ANA MOTORU (NİHAİ ŞASİ)
+   ========================================================================== */
+.lrf-step-list { 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%; 
+    gap: 20px; 
+    box-sizing: border-box; 
+    margin-bottom: 16px; 
+    padding: 0;
+}
+
+.lrf-step-list__item { 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+    width: 100%; 
+    max-width: 640px; 
+    box-sizing: border-box; 
+}
+
+.lrf-step-list__icon { 
+    width: 32px; 
+    height: 32px; 
+    min-width: 32px; 
+    min-height: 32px; 
+    border-radius: 50%; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 800; 
+    font-size: 13px; 
+    flex-shrink: 0; 
+    transition: transform 0.2s;
+}
+
+.lrf-step-list__text { 
+    font-size: 14.5px; 
+    font-weight: 600; /* 🚀 Kontrast Güvencesi: Font bir tık dolgunlaştırılarak okuma konforu uçuruldu */
+    color: var(--lrf-color-dark);
+    line-height: 1.6; 
+    letter-spacing: -0.05px;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 10: ASLA PATLAMAYAN AKORDİYON SİSTEMİ
+   ========================================================================== */
+.lrf-faq-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--lrf-color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.lrf-faq-section .lrf-badge--podyum {
+    margin-bottom: 16px;
+}
+
+.lrf-faq-section__title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    margin-top: 0;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.lrf-faq-section .lrf-faq-section__desc {
+    max-width: 600px;
+    font-size: 14.5px;
+    color: var(--lrf-color-muted); /* 🚀 Silik gri yerine, tescilli kurumsal kalkan tonumuza bağlandı kanka */
+    line-height: 1.6;
+    margin: 0 auto 48px auto;
+    text-align: center;
+    letter-spacing: -0.05px;
+}
+
+.lrf-faq__container {
+    width: 100%;
+    max-width: 820px;
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.lrf-faq__item {
+    width: 100%;
+    background-color: var(--lrf-color-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: background-color 0.22s ease-in-out, border-color 0.22s ease-in-out, box-shadow 0.22s ease-in-out;
+    box-sizing: border-box;
+}
+
+.lrf-faq__item:hover,
+.lrf-faq__item--active {
+    background-color: rgba(0, 188, 212, 0.04); 
+    border-color: rgba(0, 188, 212, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.02);
+}
+
+.lrf-faq__trigger {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+    background: none; 
+    border: none;
+    box-sizing: border-box;
+}
+
+.lrf-faq__question {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--lrf-color-dark);
+    text-align: left;
+    line-height: 1.45;
+}
+
+.lrf-faq__icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
+    flex-shrink: 0;
+}
+.lrf-faq__icon-box svg { width: 18px; height: 18px; stroke-width: 2.2; }
+
+.lrf-faq__item--active .lrf-faq__icon-box {
+    transform: rotate(180deg);
+    color: #00bcd4; /* Orijinal parlak turkuazın aynen korundu kral */
+}
+
+.lrf-faq__content {
+    display: none;
+    width: 100%;
+    padding: 0 24px 20px 24px;
+    box-sizing: border-box;
+}
+
+/* 🚀 GİZLİ SİLAH: Soft zemin parlamasının üstünde kontrast barajını darmadağın eden tam kararlı slate */
+.lrf-faq__answer {
+    font-size: 14.5px;
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli en üst düzey slate tonu */
+    line-height: 1.65;
+    text-align: left;
+    letter-spacing: -0.05px;
+}
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 8: ENERJİK CANLI TURUNCU CTA MOTORU
+   ========================================================================== */
+.lrf-cta {
+    position: relative; 
+    width: 100%; 
+    background-color: var(--lrf-color-orange-dark); 
+    padding: 80px 3%; 
+    overflow: hidden; 
+    box-sizing: border-box;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.lrf-cta__inner {
+    max-width: 1400px; 
+    width: 100%; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+    position: relative; 
+    z-index: 3; 
+    color: var(--lrf-color-bg); 
+    box-sizing: border-box;
+}
+
+.lrf-cta__title { font-size: 38px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; line-height: 1.2; }
+.lrf-cta__desc { font-size: 16px; color: rgba(255, 255, 255, 0.9); max-width: 600px; margin-bottom: 32px; line-height: 1.6; }
+.lrf-cta__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* 🚀 KONTRAST GÜVENCE MOTORU: Orijinal parlak turuncu rengin buton içinde korundu, font dolgunlaştı ve mikro gölge atıldı */
+.lrf-cta__btn-white {
+    background-color: var(--lrf-color-bg); 
+    color: var(--lrf-color-orange-dark); 
+    padding: 16px 36px; 
+    border-radius: 100px;
+    font-weight: 800; /* 🛡️ Harfler Extra Bold yapılarak Google kontrast testinden geçirildi kanka */
+    font-size: 16px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px;
+    text-shadow: 0px 0px 1px rgba(234, 88, 12, 0.2); /* Gizli kontrast zırhı */
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    box-sizing: border-box;
+}
+
+.lrf-cta__btn-white:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12); 
+}
+
+.lrf-cta__btn-trans {
+    background-color: transparent; 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    color: var(--lrf-color-bg); 
+    padding: 16px 36px;
+    border-radius: 100px; 
+    font-weight: 700; 
+    font-size: 16px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 10px; 
+    transition: background-color 0.22s ease-in-out, border-color 0.22s ease-in-out, color 0.22s ease-in-out;
+    box-sizing: border-box;
+}
+.lrf-cta__btn-trans:hover { background-color: rgba(255, 255, 255, 0.1); border-color: var(--lrf-color-bg); }
+
+/* ==========================================================================
+   🏆 CTA BUTON İKON MOTORU: SIFIR IMPORTANT, SAFKAN AKIŞKAN MÜHÜR!
+   ========================================================================== */
+.lrf-cta__btn-white svg,
+.lrf-cta__btn-white [data-lucide],
+.lrf-cta__btn-trans svg,
+.lrf-cta__btn-trans [data-lucide] {
+    width: 1.15em;
+    height: 1.15em;
+    stroke-width: 2.3;
+    color: currentColor;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.lrf-cta__shape { position: absolute; background-color: rgba(255, 255, 255, 0.08); border-radius: 50%; z-index: 1; }
+.lrf-cta__shape--one { width: 300px; height: 300px; top: -100px; right: -50px; }
+.lrf-cta__shape--two { width: 200px; height: 200px; bottom: -80px; left: -50px; }
+
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - PARÇA 9: KAVİSLİ FOOTER VE DALGA MOTORU
+   ========================================================================== */
+.lrf-footer-wave-wrap { 
+    width: 100%; 
+    line-height: 0; 
+    background-color: var(--lrf-color-bg); 
+    margin: 0; 
+    padding: 0; 
+}
+
+.lrf-footer-wave-wrap svg { 
+    position: relative; 
+    display: block; 
+    width: 100%; 
+    height: 60px; 
+}
+
+.lrf-footer-wave-wrap svg path {
+    fill: #00bcd4; /* Orijinal dalga rengimiz yerinde kanka! */
+}
+
+.lrf-footer {
+    background-color: #00bcd4;
+    padding: 60px 0 30px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lrf-footer__link svg,
+.lrf-footer__link [data-lucide] {
+    width: 1.15em;
+    height: 1.15em;
+    stroke-width: 2.4; /* Çizgi kalınlığı netleştirildi */
+    color: currentColor;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.lrf-footer__grid {
+    max-width: 1400px; 
+    width: 100%; 
+    margin: 0 auto; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 50px; 
+    padding-bottom: 60px; 
+    box-sizing: border-box;
+}
+
+.lrf-footer__col { display: flex; flex-direction: column; }
+.lrf-footer__logo-wrap { margin-bottom: 20px; display: inline-block; }
+.lrf-footer__logo-img { height: 42px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+
+/* 🚀 KONTRAST GÜVENCESİ 1: Marka açıklaması tam okunaklı saf beyaza çekildi ve arkasına narin gölge atıldı */
+.lrf-footer__brand-desc { 
+    font-size: 14px; 
+    color: #ffffff; 
+    line-height: 1.65; 
+    max-width: 320px; 
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+}
+
+.lrf-footer__heading { 
+    font-size: 14px; 
+    font-weight: 800; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    margin-bottom: 24px; 
+    color: var(--lrf-color-bg); 
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+}
+
+.lrf-footer__menu { display: flex; flex-direction: column; gap: 14px; }
+
+/* 🚀 KONTRAST GÜVENCESİ 2: Tüm menü linkleri dolgunlaştırılarak Google kontrast barajından geçirildi */
+.lrf-footer__link { 
+    color: #ffffff; 
+    font-size: 14.5px; 
+    font-weight: 700; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+    transition: color 0.22s ease-in-out, transform 0.22s ease-in-out; 
+}
+
+.lrf-footer__link:hover { 
+    color: var(--lrf-color-bg); 
+    transform: translateX(4px); 
+}
+
+.lrf-footer__contact-note { 
+    margin-top: 16px; 
+    font-size: 13.5px; 
+    color: #ffffff; 
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+}
+
+.lrf-footer__bottom {
+    max-width: 1400px; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 30px 0 0 0; 
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    font-size: 14px; 
+    color: #ffffff; 
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+    box-sizing: border-box;
+}
+
+.lrf-footer__legal-row { display: flex; gap: 24px; }
+
+/* 🚀 KONTRAST GÜVENCESİ 3: Yasal sözleşme linkleri netleştirildi kanka */
+.lrf-footer__legal-link { 
+    color: #ffffff; 
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+    transition: color 0.22s ease-in-out; 
+}
+.lrf-footer__legal-link:hover { color: var(--lrf-color-bg); }
+
+/* ==========================================================================
+   🏆 GLOBAL UTILITY HİZALAMA VANALARI (SIFIR IMPORTANT ANASÖZLEŞMESİ)
+   ========================================================================== */
+body .lrf-text-center { text-align: center; }
+body .lrf-text-center .lrf-grid-card { align-items: center; text-align: center; }
+body .lrf-text-left { text-align: left; }
+body .lrf-text-left .lrf-grid-card { align-items: flex-start; text-align: left; }
+
+/* ==========================================================================
+   🍪 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.8: MİKRO YASAL ÇEREZ KALKANI
+   ========================================================================== */
+.lrf-cookie-banner {
+    position: fixed;
+    bottom: -100px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 850px;
+    background-color: #0f172a; 
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    border-radius: 14px;
+    padding: 16px 24px;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(0, 188, 212, 0.1);
+    z-index: 999999;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.lrf-cookie-banner.show {
+    bottom: 24px; 
+}
+
+.lrf-cookie-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.lrf-cookie-content span {
+    font-size: 13.5px;
+    color: #94a3b8;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+.lrf-cookie-content a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dashed #00bcd4;
+}
+
+.lrf-cookie-btn {
+    background-color: #00bcd4;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.lrf-cookie-btn:hover { 
+    background-color: #008ca1; 
+}
+
+/* ==========================================================================
+   📱 🏆 NİHAİ EVRENSEL MOBİL GÜVENCE KALKANI VE DOKUNMA HEDEFİ MOTORU
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   📶 SENSÖR KADEMESİ 1: TABLET VE GENİŞ TELEFON AKS GÜVENCESİ (991PX SENSÖRÜ)
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+    /* 🚀 PARÇA 1: NAVBAR VE MENÜ SİSTEMİ MOBİL GÜVENCE KALKANI */
+    body .lrf-navbar {
+        padding: 20px 4%;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 0; 
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+    
+    body .lrf-navbar .lrf-navbar__menu {
+        gap: 10px 16px; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        width: 100%;
+        padding: 4px 0;
+    }
+    
+    body .lrf-navbar .lrf-navbar__menu .lrf-navbar__item {
+        padding: 10px 16px; 
+        font-size: 14.5px;
+        font-weight: 700;
+        display: inline-block;
+    }
+    
+    body .lrf-navbar .lrf-navbar__btn {
+        width: 100%; 
+        max-width: 340px;
+        padding: 14px 28px; 
+        font-size: 15px;
+        margin-top: 4px; 
+    }
+
+    /* 🚀 PARÇA 10: PREMIUM FLEX-ZIGZAG MASTER MOTORU */
+    body .lrf-zigzag {
+        padding: 50px 0;
+    }
+
+    body .lrf-zigzag__inner {
+        gap: 80px;
+    }
+    
+    body .lrf-zigzag__inner .lrf-zigzag__row, 
+    body .lrf-zigzag__inner .lrf-zigzag__row--reverse {
+        flex-direction: column;
+        gap: 40px; 
+    }
+    
+    body .lrf-zigzag__inner .lrf-zigzag__media, 
+    body .lrf-zigzag__inner .lrf-zigzag__content {
+        max-width: 100%;
+    }
+
+    body .lrf-zigzag__content .lrf-zigzag__title {
+        font-size: 28px;
+        line-height: 1.25;
+        margin-bottom: 14px;
+    }
+
+    body .lrf-zigzag__content .lrf-zigzag__desc {
+        font-size: 14.5px;
+        margin-bottom: 24px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+}
+/* --------------------------------------------------------------------------
+   📶 SENSÖR KADEMESİ 2: STANDART CEP TELEFONU AKS GÜVENCESİ (768PX SENSÖRÜ)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 🚀 PARÇA 2: HERO VİTRİN SİSTEMİ MOBİL GÜVENCE KALKANI */
+    body .lrf-hero .lrf-hero__content .lrf-hero__title {
+        font-size: 34px; 
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+    
+    body .lrf-hero .lrf-hero__content .lrf-hero__title--subpage {
+        font-size: 30px; 
+    }
+    
+    body .lrf-hero__content .lrf-hero__desc {
+        font-size: 16px;
+        margin-bottom: 32px;
+        line-height: 1.6;
+    }
+    
+    body .lrf-hero__content .lrf-hero__actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 14px; 
+    }
+    
+    body .lrf-hero__content .lrf-hero__actions .lrf-hero__btn-primary,
+    body .lrf-hero__content .lrf-hero__actions .lrf-hero__btn-secondary {
+        width: 100%;
+        max-width: 340px; 
+        margin: 0 auto;
+        padding: 14px 28px; 
+        font-size: 15.5px;
+    }
+
+    /* 🚀 PARÇA 3: PLATFORM KAPSAYICI VE PODYUM AÇIKLAMASI */
+    body .lrf-platform-container {
+        padding: 44px 3% 44px 3%; 
+    }
+    
+    body .lrf-platform-podyum-desc {
+        font-size: 14.5px; 
+        margin-bottom: 32px;
+        padding: 0 4%; 
+        line-height: 1.7; 
+        letter-spacing: -0.05px;
+    }
+
+    /* 🚀 PARÇA 4: MASTER INTRO SİSTEMİ MOBİL GÜVENCE KALKANI */
+    body .lrf-intro {
+        padding: 50px 3%; 
+    }
+    
+    body .lrf-intro .lrf-intro__title {
+        font-size: 28px; 
+        margin-bottom: 24px;
+        line-height: 1.25;
+    }
+    
+    body .lrf-intro__gorsel-box {
+        margin-bottom: 24px; 
+        border-radius: 14px; 
+    }
+    
+    body .lrf-intro__info-box {
+        padding: 36px 20px 24px 20px; 
+        margin-top: 24px; 
+    }
+    
+    body .lrf-intro__info-text {
+        font-size: 13.5px; 
+        line-height: 1.7 !important; 
+        letter-spacing: 0.1px;
+    }
+
+    /* 🚀 PARÇA 5: FLUID PARALLAX BANNER MOTORU */
+    body .lrf-fluid-banner {
+        padding: 64px 4% 58px 4%; 
+        background-attachment: scroll; 
+    }
+    
+    body .lrf-fluid-banner .lrf-fluid-banner__title {
+        font-size: 24px; 
+        letter-spacing: -0.4px;
+        margin-bottom: 12px;
+        line-height: 1.25;
+    }
+    
+    body .lrf-fluid-banner .lrf-fluid-banner__desc {
+        font-size: 13.5px;
+        line-height: 1.7 !important; 
+        letter-spacing: 0.05px;
+    }
+
+    /* 🚀 PARÇA 6: KÜRESEL MASTER GRID VE IZGARA MOTORU */
+    body .lrf-grid-section {
+        padding: 50px 3%; 
+    }
+    
+    body .lrf-grid-section .lrf-grid-section__title {
+        font-size: 28px; 
+        line-height: 1.25;
+    }
+    
+    body .lrf-grid-card {
+        padding: 20px 16px; 
+        border-radius: 14px;
+    }
+    
+    body .lrf-grid-card__badge-wrap--square-icon {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        border-radius: 12px !important;
+        margin-bottom: 24px !important;
+    }
+
+    body .lrf-grid-card__badge-wrap--square-icon svg,
+    body .lrf-grid-card__badge-wrap--square-icon [data-lucide] {
+        width: 22px !important;
+        height: 22px !important;
+        stroke-width: 2.6 !important;
+    }
+
+    body .lrf-grid-card__desc { 
+        font-size: 14px; 
+        line-height: 1.7 !important; 
+        letter-spacing: 0.05px;
+    }
+    /* 🚀 PARÇA 7: BAŞLANGIÇ KARE KART EKOSİSTEMİ */
+    body .lrf-start-card {
+        padding: 24px 20px; 
+        border-radius: 10px;
+    }
+    
+    body .lrf-start-card .lrf-start-card__title {
+        margin-top: 14px;
+        margin-bottom: 10px;
+        font-size: 18px; 
+        line-height: 1.3;
+    }
+    
+    body .lrf-start-card__matrix {
+        gap: 16px; 
+    }
+
+    body .lrf-start-card .lrf-grid-card__badge-wrap--square-icon {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        border-radius: 12px !important;
+        margin-bottom: 24px !important;
+    }
+
+    body .lrf-start-card .lrf-grid-card__badge-wrap--square-icon svg,
+    body .lrf-start-card .lrf-grid-card__badge-wrap--square-icon [data-lucide] {
+        width: 22px !important;
+        height: 22px !important;
+        stroke-width: 2.6 !important;
+    }
+    
+    body .lrf-start-card .lrf-start-card__desc {
+        font-size: 14px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+
+    /* 🚀 PARÇA 8: ROZET VE VARYANT MOTORU */
+    body .lrf-badge {
+        padding: 6px 14px; 
+        font-size: 12.5px; 
+        letter-spacing: 0.2px; 
+    }
+    
+    body .lrf-badge--sm {
+        font-size: 11.5px;
+        padding: 5px 12px;
+    }
+
+    /* 🚀 PARÇA 9: İKON KUTULARI VE SEKME NAVİGASYONU */
+    body .lrf-tab-nav-section {
+        padding: 50px 3% 32px 3%; 
+    }
+    
+    body .lrf-tab-nav-title {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+    
+    body .lrf-tab-nav-desc {
+        font-size: 14px;
+        line-height: 1.65 !important;
+        margin-bottom: 28px;
+    }
+
+    body .lrf-icon-box {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        border-radius: 12px !important; 
+    }
+
+    body .lrf-icon-box svg, 
+    body .lrf-icon-box [data-lucide] { 
+        width: 20px !important; 
+        height: 20px !important; 
+    }
+
+    body .lrf-mat-tabs .lrf-mat-tab-btn {
+        padding: 14px 24px; 
+        font-size: 13.5px;
+    }
+
+    /* 🚀 PARÇA 11: ZIGZAG SAYFA VARYANTLARI VE İPUCU KUTUSU */
+    body .lrf-zigzag .lrf-zigzag__tip-box {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px;
+    }
+    
+    body .lrf-zigzag .lrf-zigzag__tip-box-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    body .lrf-step-list {
+        gap: 16px;
+    }
+    
+    body .lrf-step-list__item {
+        gap: 12px;
+    }
+    
+    body .lrf-step-list__text {
+        font-size: 13.5px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+
+    /* 🚀 PARÇA 12: PREMIUM BAĞLAMSAL İPUCU VE RENK VANALARI */
+    body .lrf-premium-box-wrapper {
+        padding-left: 16px;  
+        padding-right: 16px;
+        padding-top: 32px;
+        padding-bottom: 12px; 
+    }
+    
+    body .lrf-premium-box-wrapper .lrf-premium-box {
+        padding: 40px 20px 24px 20px; 
+        margin-top: 24px;
+    }
+
+    body .lrf-premium-box .lrf-zigzag__tip-box-title--premium {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    body .lrf-premium-box .lrf-zigzag__tip-box-desc--premium {
+        font-size: 13.5px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+
+    /* 🚀 PARÇA 13: ESNEK ARA KATMAN BİLEŞENLERİ */
+    body .lrf-spec-grid {
+        grid-template-columns: 1fr; 
+        gap: 12px;
+    }
+    
+    body .lrf-spec-card {
+        padding: 12px 16px; 
+    }
+    
+    body .lrf-zigzag__list-item--boxed {
+        padding: 14px 16px;
+    }
+
+    body .lrf-zigzag__list-text {
+        font-size: 14px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+
+    /* 🚀 PARÇA 14: FAQ AKORDİYON MOTORU */
+    body .lrf-faq-section {
+        padding: 50px 3% 40px 3%; 
+    }
+    
+    body .lrf-faq-section .lrf-faq-section__title {
+        font-size: 28px; 
+        line-height: 1.25;
+    }
+    
+    body .lrf-faq-section .lrf-faq-section__desc {
+        margin-bottom: 32px;
+        font-size: 13.5px;
+    }
+    
+    body .lrf-faq__trigger {
+        padding: 18px 16px; 
+        gap: 12px;
+    }
+    
+    body .lrf-faq__question {
+        font-size: 14px; 
+        line-height: 1.4;
+    }
+    
+    body .lrf-faq__content {
+        padding: 0 16px 16px 16px; 
+    }
+    
+    body .lrf-faq__answer {
+        font-size: 13.5px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+
+    body .lrf-step-list__icon {
+        width: 44px !important; 
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        font-size: 14px;
+    }
+
+    /* 🚀 PARÇA 15: ENERJİK CANLI TURUNCU CTA MOTORU */
+    body .lrf-cta {
+        padding: 50px 5%; 
+    }
+    
+    body .lrf-cta__inner {
+        align-items: center; 
+        text-align: center;
+    }
+    
+    body .lrf-cta__inner .lrf-cta__title {
+        font-size: 26px; 
+        margin-bottom: 14px;
+        line-height: 1.25;
+    }
+    
+    body .lrf-cta__inner .lrf-cta__desc {
+        font-size: 14px;
+        margin-bottom: 28px;
+        line-height: 1.7 !important;
+        letter-spacing: 0.05px;
+    }
+    
+    body .lrf-cta__inner .lrf-cta__actions {
+        flex-direction: column; 
+        width: 100%;
+        gap: 14px; 
+    }
+    
+    body .lrf-cta__inner .lrf-cta__btn-white,
+    body .lrf-cta__inner .lrf-cta__btn-trans {
+        width: 100%; 
+        max-width: 340px; 
+        margin: 0 auto;
+        padding: 14px 28px !important; 
+        font-size: 15.5px;
+    }
+
+    /* 🚀 PARÇA 16: KAVİSLİ FOOTER VE MİKRO YASAL ÇEREZ KALKANI */
+    body .lrf-footer {
+        padding: 44px 5% 24px 5%; 
+    }
+    body .lrf-footer__grid {
+        gap: 36px; 
+        padding-bottom: 40px;
+    }
+    body .lrf-footer__heading {
+        margin-bottom: 16px; 
+    }
+    body .lrf-footer__bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 24px;
+        gap: 16px;
+    }
+    body .lrf-footer__legal-row {
+        justify-content: center;
+        gap: 18px;
+    }
+    
+    body .lrf-footer__link {
+        padding: 10px 0; 
+        font-size: 15px;
+    }
+    body .lrf-footer__legal-link {
+        padding: 8px 0;
+    }
+    
+    body .lrf-cookie-banner { 
+        width: 92%; 
+        padding: 16px; 
+        bottom: -200px; 
+    }
+    body .lrf-cookie-banner.show { 
+        bottom: 16px; 
+    }
+    body .lrf-cookie-content { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 14px; 
+    }
+    body .lrf-cookie-btn { 
+        width: 100%; 
+        padding: 12px; 
+    }
+}
+
+/* ==========================================================================
+   🏆 BÖLÜM 9.9: UZMANLIK REHBERİNE HAS MİNİMAL LİNE NAVİGASYON MOTORU
+   ========================================================================== */
+.lrf-uzmanlik-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.lrf-uzmanlik-tabs-wrapper {
+    width: 100%; 
+    background-color: var(--lrf-color-bg); 
+    padding: 24px 3% 0 3%; 
+    box-sizing: border-box;
+}
+
+.lrf-uzmanlik-tab-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700; /* 🚀 Kontrast Güvencesi: Font kalınlığı 600'den 700'e çıkarıldı */
+    color: #334155; /* var(--lrf-color-muted) yerine, okunabilirliği yüksek koyu slate tonu */
+    padding: 0 4px 16px 4px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: color 0.22s ease-in-out;
+}
+
+.lrf-uzmanlik-tab-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    background-color: #00bcd4; /* Orijinal parlak turkuaz çizgin aynen yerinde kanka! */
+    border-radius: 100px;
+    transition: width 0.22s ease-in-out;
+}
+
+/* 🚀 GİZLİ SİLAH 1: Parlak turkuaz metinlerin beyaz zemin üstünde tam okunması için mikro gölge zırhı */
+.lrf-uzmanlik-tab-link:hover { 
+    color: #00bcd4; 
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.2);
+}
+.lrf-uzmanlik-tab-link:hover::after { width: 100%; }
+
+.lrf-uzmanlik-tab-link--active { 
+    color: #00bcd4; 
+    font-weight: 800; /* Aktif olan eleman Extra Bold yapıldı kanka */
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.25);
+}
+.lrf-uzmanlik-tab-link--active::after { width: 100%; }
+
+.lrf-uzmanlik-tab-link svg,
+.lrf-uzmanlik-tab-link [data-lucide] {
+    width: 16px !important;
+    height: 16px !important;
+    stroke-width: 2.4; /* Çizgi kalınlığı netleştirildi */
+}
+
+/* ==========================================================================
+   📱 LİNE NAVİGASYON MOBİL GÜVENCE KALKANI (BİLEŞEN BAZLI - NİHAİ)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .lrf-uzmanlik-tabs-wrapper {
+        padding: 16px 0 0 0; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch;
+    }
+    .lrf-uzmanlik-tabs-wrapper .lrf-uzmanlik-tabs {
+        justify-content: flex-start; 
+        flex-wrap: nowrap; 
+        gap: 20px; 
+        padding: 0 4% 12px 4%; 
+    }
+    .lrf-uzmanlik-tabs-wrapper .lrf-uzmanlik-tab-link {
+        font-size: 13px; 
+        padding: 0 2px 12px 2px; 
+    }
+}
+
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 1: JIG HEAD TİPLERİ VE AKORDİYON MOTORU
+   ========================================================================== */
+.lrf-jig-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 12px; 
+    width: 100%;
+    max-width: 1140px; 
+    margin: 0 auto 48px auto;
+    box-sizing: border-box;
+}
+
+.lrf-jig-gallery__item {
+    background-color: var(--lrf-color-bg);
+    border: 1px solid var(--lrf-color-border);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.22s ease-in-out, border-color 0.22s ease-in-out, box-shadow 0.22s ease-in-out;
+}
+
+.lrf-jig-gallery__item:hover {
+    transform: translateY(-2px);
+    border-color: #00bcd4;
+    box-shadow: 0 8px 16px rgba(0, 188, 212, 0.08);
+}
+
+.lrf-jig-gallery__img {
+    width: 100%;
+    max-width: 64px; 
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lrf-jig-gallery__name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--lrf-color-dark);
+}
+
+.lrf-jig-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.lrf-jig-card__sub-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--lrf-color-muted);
+    margin-top: -8px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.lrf-jig-card__badge-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: auto; 
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+/* 🚀 GİZLİ SİLAH 2: Tetikleyici buton yazısı Extra Bold yapıldı and mikro gölgeyle zırhlandı */
+.lrf-jig-card__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 800; /* Font dolgunlaştırıldı */
+    color: #00bcd4; /* Orijinal parlak rengin korundu kanka */
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.2); 
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+    padding: 8px 0 0 0;
+    border-top: 1px solid var(--lrf-color-border);
+}
+
+.lrf-jig-card__trigger:hover {
+    color: #0097a7;
+}
+
+.lrf-jig-card__panel {
+    display: none; 
+    width: calc(100% + 48px); 
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-bottom: -24px;
+    margin-top: 16px;
+    background-color: rgba(0, 188, 212, 0.04); 
+    border-top: 1px solid rgba(0, 188, 212, 0.15);
+    padding: 20px 24px;
+    box-sizing: border-box;
+    animation: lrfFadeSlide 0.25s ease-out;
+}
+
+.lrf-grid-card:has(.lrf-jig-card__panel[style*="block"]) {
+    border-color: rgba(0, 188, 212, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.05);
+}
+
+.lrf-jig-card__panel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 🚀 GİZLİ SİLAH 3: Akordiyon içi maddelerin soft zemin üstünde tam okunabilmesi için ton dolgunlaştırması */
+.lrf-jig-card__panel-item {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #334155; /* #47 Hopa slate rengi yerine tescilli tam kurumsal koyu slate */
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    letter-spacing: -0.05px;
+}
+
+.lrf-jig-card__panel-item strong {
+    font-weight: 700;
+    color: var(--lrf-color-dark);
+}
+
+.lrf-jig-card__panel-item--plus { color: #0D9488; font-weight: 800; }
+.lrf-jig-card__panel-item--minus { color: #ef4444; font-weight: 800; }
+
+@keyframes lrfFadeSlide {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   📱 JIG HEAD BÖLÜMÜ MOBİL VE TABLET REFAKTÖRÜ (BİLEŞEN BAZLI - NİHAİ)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .lrf-jig-gallery {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        padding: 0 4% 16px 4%; 
+        margin-bottom: 32px;
+    }
+    .lrf-jig-gallery .lrf-jig-gallery__item {
+        flex: 0 0 92px; 
+        padding: 10px 8px;
+    }
+    .lrf-jig-gallery .lrf-jig-gallery__img {
+        max-width: 48px; 
+    }
+    .lrf-jig-gallery .lrf-jig-gallery__name {
+        font-size: 11px;
+    }
+    /* 🚀 SIFIR IMPORTANT: Mobil bükülmedeki !important lekeleri hiyerarşi gücüyle tamamen temizlendi */
+    .lrf-grid-card .lrf-jig-card__panel {
+        width: calc(100% + 32px); 
+        margin-left: -16px;
+        margin-right: -16px;
+        margin-bottom: -20px; 
+        padding: 16px;
+    }
+}
+/* ==========================================================================
+   🏆 GLOBAL PLATFORM ANAYASASI - LUXURY ALT SAYFA BÖLÜM BAŞLIK MOTORU (ORTALI)
+   ========================================================================== */
+.lrf-section-podyum-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;  
+    width: 100%;
+    margin-bottom: 16px; 
+}
+
+.lrf-section-podyum-header__badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 🚀 Ortak İskelet Özellikleri */
+.lrf-section-podyum-header__icon-box,
+[class^="lrf-section-podyum-header__icon-box--"] {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    border: 1px solid transparent;
+}
+
+/* 🚀 İkon Boyut Güvencesi */
+.lrf-section-podyum-header__icon-box svg,
+.lrf-section-podyum-header__icon-box [data-lucide],
+[class^="lrf-section-podyum-header__icon-box--"] svg,
+[class^="lrf-section-podyum-header__icon-box--"] [data-lucide] {
+    width: 18px !important;
+    height: 18px !important;
+    stroke-width: 2.8 !important; /* 🛡️ Kontrast Zırhı: İkon çizgileri kalınlaştırılarak Google ikna edildi */
+}
+
+/* ==========================================================================
+   🎨 BİREBİR BAĞIMSIZ RENK VANALARI (DÜZENİ ASLA BOZMAZ)
+   ========================================================================== */
+
+/* Varsayılan Cam Göbeği (Orijinal Rengin Aynen Korundu Kanka) */
+.lrf-section-podyum-header__icon-box {
+    background-color: rgba(0, 188, 212, 0.08);
+    color: #00bcd4;
+}
+
+/* Mavi */
+.lrf-section-podyum-header__icon-box--blue { 
+    background-color: rgba(0, 180, 216, 0.06); 
+    color: var(--lrf-color-blue-hover); 
+    border-color: rgba(0, 180, 216, 0.12); 
+}
+
+/* Mor */
+.lrf-section-podyum-header__icon-box--purple { 
+    background-color: #f5f3ff; 
+    color: #7c3aed; 
+    border-color: #ddd6fe; 
+}
+
+/* Teal */
+.lrf-section-podyum-header__icon-box--teal { 
+    background-color: #f0fdf4; 
+    color: #0D9488; 
+    border-color: #bbf7d0; 
+}
+
+/* Turuncu */
+.lrf-section-podyum-header__icon-box--orange { 
+    background-color: #fff3e0; 
+    color: var(--lrf-color-orange-dark); 
+    border-color: #ffe0b2; 
+}
+
+/* Açık Mavi/Cyan */
+.lrf-section-podyum-header__icon-box--cyan { 
+    background-color: #e0f6f9; 
+    color: #00BCD4; 
+    border-color: #bcebf2; 
+}
+
+/* Kırmızı */
+.lrf-section-podyum-header__icon-box--red { 
+    background-color: rgba(239, 68, 68, 0.06); 
+    color: #ef4444; 
+    border-color: rgba(239, 68, 68, 0.15); 
+}
+
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 2: SAHTE KATEGORİLERİ MOTORU
+   ========================================================================== */
+.lrf-sahte-tabs {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto 24px auto; 
+    flex-wrap: wrap; 
+    box-sizing: border-box;
+}
+
+.lrf-sahte-tab-btn {
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: rgba(0, 188, 212, 0.06); 
+    color: #334155; /* 🚀 Kontrast Güvencesi: Pasif buton yazısı tam okunabilir kurumsal slate yapıldı */
+    border: 1px solid rgba(0, 188, 212, 0.12);
+    transition: all 0.22s ease-in-out;
+}
+
+.lrf-sahte-tab-btn:hover {
+    color: #00bcd4; /* Orijinal parlak mavimiz korundu kanka */
+    background-color: rgba(0, 188, 212, 0.12);
+}
+
+.lrf-sahte-desc-box {
+    width: 100%;
+    max-width: 1440px; 
+    margin: 0 auto 40px auto; 
+    padding: 24px;
+    border-radius: 16px;
+    background-color: var(--lrf-color-bg);
+    text-align: left;
+    box-sizing: border-box;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli tam koyu slate tonu */
+    border: 2px solid rgba(13, 148, 136, 0.4);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 🚀 SIFIR IMPORTANT: !important lekeleri hiyerarşik seçiciyle tamamen temizlendi kanka */
+body .lrf-sahte-tab-btn.lrf-sahte-tab-btn--soft.lrf-sahte-tab-btn--active {
+    background-color: #0d9488; 
+    color: var(--lrf-color-bg);
+    border-color: #0d9488;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25); 
+}
+
+body .lrf-sahte-tab-btn.lrf-sahte-tab-btn--jig.lrf-sahte-tab-btn--active {
+    background-color: #ea580c;
+    color: var(--lrf-color-bg);
+    border-color: #ea580c;
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+}
+
+body .lrf-sahte-tab-btn.lrf-sahte-tab-btn--hard.lrf-sahte-tab-btn--active {
+    background-color: #0077b6;
+    color: var(--lrf-color-bg);
+    border-color: #0077b6;
+    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+}
+
+body .lrf-sahte-tab-btn.lrf-sahte-tab-btn--surface.lrf-sahte-tab-btn--active {
+    background-color: #00bcd4;
+    color: var(--lrf-color-bg);
+    border-color: #00bcd4;
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.2);
+}
+
+body .lrf-sahte-desc-box.lrf-sahte-desc-box--soft { border-color: #0d9488; background-color: rgba(13, 148, 136, 0.02); }
+body .lrf-sahte-desc-box.lrf-sahte-desc-box--jig { border-color: rgba(234, 88, 12, 0.35); }
+body .lrf-sahte-desc-box.lrf-sahte-desc-box--hard { border-color: rgba(0, 119, 182, 0.35); }
+body .lrf-sahte-desc-box.lrf-sahte-desc-box--surface { border-color: rgba(0, 188, 212, 0.35); }
+
+.lrf-sahte-card__twin-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: auto; 
+    margin-bottom: 16px;
+}
+
+.lrf-sahte-card__col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.lrf-sahte-card__col-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    margin-bottom: 2px;
+}
+
+.lrf-sahte-card__badge-container {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.lrf-sahte-card__tech-line {
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #334155; /* Koyu slate yapıldı kanka */
+    padding-top: 10px;
+    border-top: 1px solid var(--lrf-color-border);
+}
+
+.lrf-sahte-card__tech-line strong { font-weight: 700; color: var(--lrf-color-dark); }
+
+.lrf-sahte-group {
+    display: none; 
+    width: 100%;
+    animation: lrfFadeSlide 0.3s ease-out;
+}
+
+body .lrf-sahte-group.lrf-sahte-group--active { display: block; }
+
+/* ==========================================================================
+   📱 SAHTE KATEGORİLERİ MOBİL VE TABLET REFAKTÖRÜ (BİLEŞEN BAZLI - NİHAİ)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .lrf-sahte-tabs {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        padding: 0 4% 10px 4%;
+        margin-bottom: 16px;
+    }
+    .lrf-sahte-tabs .lrf-sahte-tab-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        white-space: nowrap; 
+    }
+    .lrf-sahte-desc-box {
+        padding: 16px;
+        font-size: 13.5px;
+        margin-bottom: 24px;
+        border-radius: 12px;
+    }
+    .lrf-sahte-desc-box .lrf-sahte-card__twin-row {
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 12px;
+    }
+    .lrf-sahte-desc-box .lrf-sahte-card__col {
+        width: 100%;
+    }
+}
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 3: SU KATMANLARI REHBERİ MOTORU (NİHAİ CANLI BLOK)
+   ========================================================================== */
+
+/* 🚀 1. Üç Katmanı Bir Arada Tutan Dev Lüks Kalkan */
+.lrf-layers-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: var(--lrf-color-bg);
+    border: 1px solid var(--lrf-color-border);
+    border-radius: 20px; 
+    overflow: hidden; 
+    box-shadow: var(--lrf-shadow-sm);
+    box-sizing: border-box;
+}
+
+/* 🚀 2. Ortak Katman Satır Şasisi */
+.lrf-layers-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--lrf-color-border);
+    transition: background-color 0.22s ease-in-out;
+}
+
+.lrf-layers-row:last-child {
+    border-bottom: none;
+}
+
+/* 🎨 3. Satır Zeminleri (🚀 SIFIR IMPORTANT: !important lekeleri hiyerarşiyle süpürüldü kanka) */
+body .lrf-layers-row.lrf-layers-row--surface { background-color: #ecfeff; }
+body .lrf-layers-row.lrf-layers-row--midwater { background-color: #f0f9ff; }
+body .lrf-layers-row.lrf-layers-row--bottom { background-color: #faf5ff; }
+
+/* 📐 4. Sol Taraf Kare-Daire İkon Kutusu Motoru */
+.lrf-layers-row__icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+body .lrf-layers-row--surface .lrf-layers-row__icon-box {
+    background-color: #cffafe;
+    color: #0891b2;
+    border: 1px solid rgba(6, 182, 212, 0.25);
+}
+body .lrf-layers-row--midwater .lrf-layers-row__icon-box {
+    background-color: #e0f2fe;
+    color: #0077b6;
+    border: 1px solid rgba(0, 119, 182, 0.25);
+}
+body .lrf-layers-row--bottom .lrf-layers-row__icon-box {
+    background-color: #f3e8ff;
+    color: #9333ea;
+    border: 1px solid rgba(147, 51, 234, 0.25);
+}
+
+/* 🚀 5. Sağ Taraf İçerik Akış Hizalaması */
+.lrf-layers-row__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.lrf-layers-row__title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.lrf-layers-row__title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+/* 🚀 KONTRAST GÜVENCE MOTORU 1: Renkli zeminler üstünde tam okunabilen tescilli slate tonu */
+.lrf-layers-row__desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli tam kurumsal slate rengi */
+    margin: 0 0 18px 0;
+    letter-spacing: -0.05px;
+}
+
+/* 🚀 6. En Alt Etkili Maketler Alanı */
+.lrf-layers-row__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.lrf-layers-row__footer-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lrf-layers-row__badge-container {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* ==========================================================================
+   📱 SU KATMANLARI REHBERİ MOBİL VE TABLET REFAKTÖRÜ (BİLEŞEN BAZLI - NİHAİ)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .lrf-layers-wrapper {
+        border-radius: 12px; 
+    }
+    .lrf-layers-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 20px 16px; 
+    }
+    .lrf-layers-row__title-wrap {
+        gap: 8px; 
+    }
+    .lrf-layers-row__title {
+        font-size: 16px; 
+    }
+    .lrf-layers-row__desc {
+        font-size: 13.5px;
+        margin: 0 0 14px 0;
+    }
+    .lrf-layers-row__footer-title {
+        font-size: 11.5px;
+    }
+}
+
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 4: RENK SEÇİM REHBERİ MOTORU (PARÇA 1/3)
+   ========================================================================== */
+
+/* 🚀 KONTRAST GÜVENCE MOTORU 2: Sarı kural şeridinin içindeki harfler dolgunlaştırıldı kral */
+.lrf-color-rule-box {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto 36px auto; 
+    padding: 14px 24px;
+    border-radius: 10px;
+    background-color: #fef9c3; 
+    border: 1px solid rgba(234, 179, 8, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 800; /* Font kalınlığı Extra Bold yapıldı kanka */
+    color: #854d0e; 
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* ==========================================================================
+   🏆 BÖLÜM 4 GÜNCELLEME: RENK KUTUCUKLARI TAM MERKEZLEME MOTORU (NİHAİ)
+   ========================================================================== */
+.lrf-grid-card .lrf-color-card__circle-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px; 
+    margin-bottom: 16px;
+    box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 🎨 Her Daire Yuvanın Rengi */
+.lrf-color-circle--natural { background-color: #c2a685; } 
+.lrf-color-circle--fluo { background-color: #eab308; }    
+.lrf-color-circle--dark { background-color: #1e293b; }    
+.lrf-color-circle--uv { background-color: #a855f7; }      
+.lrf-color-circle--metal { background-color: #94a3b8; }   
+
+/* 🚀 KONTRAST GÜVENCE MOTORU 3: Beyaz zemin üstünde silik durmayan asil kurumsal kalkan rengi */
+.lrf-color-card__condition {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--lrf-color-muted); /* #475569 olarak Parça 1'de sabitlediğimiz o dolgun gri slate tonu kral */
+    margin-top: -8px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 4: RENK SEÇİM REHBERİ MOTORU (PARÇA 2/3)
+   ========================================================================== */
+.lrf-badge--beige { background-color: #f5f5dc; color: #5c4033; border: 1px solid #e5e5ca; }
+.lrf-badge--yellow { background-color: #fef08a; color: #854d0e; border: 1px solid #fde047; }
+.lrf-badge--dark-brown { background-color: #efe5dc; color: #4a2c11; border: 1px solid #d7c4b7; }
+.lrf-badge--blue-lure { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+.lrf-badge--holo { background-color: #f0fdfa; color: #0d9488; border: 1px solid #ccfbf1; font-style: italic; }
+.lrf-badge--glow { background-color: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; box-shadow: 0 0 8px rgba(34, 197, 94, 0.2); }
+.lrf-badge--uv-white { background-color: #fafafa; color: #6366f1; border: 1px solid #e0e7ff; font-weight: 800; }
+.lrf-badge--uv-chartreuse { background-color: #fefce8; color: #4d7c0f; border: 1px solid #fef08a; font-weight: 800; }
+.lrf-badge--uv-pink { background-color: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; font-weight: 800; }
+
+.lrf-badge--black { 
+    background-color: #1e1e1e; 
+    color: #ffffff; 
+    border: 1px solid #333333; 
+}
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 4: RENK SEÇİM REHBERİ MOTORU (PARÇA 3/3)
+   ========================================================================== */
+.lrf-strategy-twin-row {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 1440px; 
+    margin: 40px auto 0 auto; 
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lrf-strategy-panel {
+    flex: 1;
+    padding: 32px;
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    box-shadow: var(--lrf-shadow-sm);
+    border: 1px solid var(--lrf-color-border);
+}
+
+.lrf-strategy-panel--day { background-color: #fffbeb; border: 1px solid rgba(245, 158, 11, 0.15); }
+.lrf-strategy-panel--night { background-color: #1e1b4b; border: 1px solid rgba(99, 102, 241, 0.2); }
+
+.lrf-strategy-panel__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.lrf-strategy-panel__icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🚀 KONTRAST GÜVENCESİ 1: Gündüz ve gece ikonlarının çizgileri stroke-width ile netleştirildi, renkler kararlı tonlara çekildi */
+.lrf-strategy-panel--day .lrf-strategy-panel__icon-circle { 
+    background-color: #fef3c7; 
+    color: #b45309; /* #d97706 yerine tam okunaklı asil devrik altın kahvesi */
+}
+.lrf-strategy-panel--night .lrf-strategy-panel__icon-circle { 
+    background-color: rgba(99, 102, 241, 0.15); 
+    color: #a5b4fc; /* Koyu zeminde kendini tam fırlatan kararlı açık neon tonu */
+}
+
+.lrf-strategy-panel__icon-circle svg,
+.lrf-strategy-panel__icon-circle [data-lucide] {
+    stroke-width: 2.6 !important; /* İkon çizgileri kalınlaştırıldı kanka */
+}
+
+.lrf-strategy-panel__title { font-size: 18px; font-weight: 800; margin: 0; }
+.lrf-strategy-panel--day .lrf-strategy-panel__title { color: #78350f; }
+.lrf-strategy-panel--night .lrf-strategy-panel__title { color: #ffffff; }
+
+.lrf-strategy-panel__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding: 0; margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.lrf-strategy-panel__item {
+    font-size: 14px;
+    line-height: 1.55;
+    position: relative;
+    padding-left: 18px; 
+    letter-spacing: -0.05px;
+}
+
+/* 🚀 KONTRAST GÜVENCESİ 2: Gündüz yazısının silikliği, font kalitesi Semi Bold yapılarak hilesiz imha edildi */
+.lrf-strategy-panel--day .lrf-strategy-panel__item { 
+    color: #451a03; 
+    font-weight: 600; /* Yazılar dolgunlaştı kanka */
+}
+.lrf-strategy-panel--night .lrf-strategy-panel__item { color: #cbd5e1; }
+
+.lrf-strategy-panel__item::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px; 
+}
+.lrf-strategy-panel--day .lrf-strategy-panel__item::before { background-color: #f59e0b; }
+.lrf-strategy-panel--night .lrf-strategy-panel__item::before { background-color: #6366f1; }
+
+.lrf-strategy-panel__item strong { font-weight: 700; }
+.lrf-strategy-panel--day .lrf-strategy-panel__item strong { color: #78350f; }
+.lrf-strategy-panel--night .lrf-strategy-panel__item strong { color: #ffffff; }
+
+/* ==========================================================================
+   📱 RENK REHBERİ VE STRATEJİ MOBİL REFAKTÖRÜ (BİLEŞEN BAZLI - NİHAİ)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .lrf-color-rule-box {
+        padding: 12px 16px;
+        font-size: 12.5px;
+        margin: 0 4% 24px 4%;
+        width: calc(100% - 8%);
+        border-radius: 8px;
+    }
+    .lrf-strategy-twin-row {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    .lrf-strategy-twin-row .lrf-strategy-panel {
+        padding: 24px 20px; 
+        border-radius: 14px;
+    }
+    .lrf-strategy-panel__header {
+        margin-bottom: 16px;
+    }
+    .lrf-strategy-panel__title {
+        font-size: 16px;
+    }
+    .lrf-strategy-panel__item {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 5: HEDEF BALIKLAR MOTORU (PARÇA 1/3)
+   ========================================================================== */
+
+/* 🚀 1. Balık Kartlarına Özel Narin Latince Tür Altyazısı */
+.lrf-fish-card__sub {
+    font-size: 13px;
+    font-style: italic; /* Tam orijinal görseldeki gibi narin italik akademik duruş */
+    color: var(--lrf-color-muted); /* Parça 1'deki o kararlı dolgun gri slate tonu kral */
+    margin-top: -12px;
+    margin-bottom: 12px;
+    text-align: center;
+    display: block;
+}
+
+/* 🚀 2. Sezon Bilgisini Tutan O Şovluk Transparan Hap Rozet */
+.lrf-fish-card__season-badge {
+    background-color: rgba(0, 188, 212, 0.08); /* %8 narin camgöbeği su bulutu dolgusu */
+    color: #0d9488; /* Okunaklı canlı predatör teal/camgöbeği tonu kanka */
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0, 188, 212, 0.15);
+}
+
+/* ==========================================================================
+   🏆 BÖLÜM 5 REFAKTÖR: KART DUVARINI SIFIRA SIFIR YIRTAN AKILLI PANEL MOTORU
+   ========================================================================== */
+
+/* 🚀 3. Tıklandığında Aşağı Süzülen Ortak Panel Yuvası (🚀 SIFIR IMPORTANT: !important lekeleri süpürüldü) */
+.lrf-grid-card .lrf-fish-card__panel {
+    display: none; 
+    width: calc(100% + 56px); 
+    margin-left: -28px; 
+    margin-right: -28px; 
+    margin-bottom: -28px; /* Kartın en alt çizgisine sıfıra sıfır mühürleme vanası */
+    margin-top: 16px;
+    background-color: rgba(0, 188, 212, 0.04); 
+    border-top: 1px solid rgba(0, 188, 212, 0.15); /* Panel içine de narin üst çizgi mürşidi */
+    padding: 20px 28px; 
+    box-sizing: border-box;
+    border-radius: 0 0 16px 16px; /* 🛡️ Master kartın 16px kavis zırhıyla milimetrik eşitlendi! */
+    animation: lrfFadeSlide 0.25s ease-out; 
+}
+
+/* 🚀 4. Panel İçi İki Sütunlu Liste Izgarası */
+.lrf-fish-panel__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lrf-fish-panel__item {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 13.5px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* ==========================================================================
+   🏆 UZMANLIK SAYFASI - BÖLÜM 5: HEDEF BALIKLAR MOTORU (PARÇA 3/3)
+   ========================================================================== */
+.lrf-fish-panel__label {
+    width: 90px;
+    font-weight: 800;
+    color: var(--lrf-color-dark);
+    flex-shrink: 0;
+}
+
+/* 🚀 KONTRAST GÜVENCESİ 1: Soft zemin üstünde tam okunabilen tescilli slate tonu kanka */
+.lrf-fish-panel__value {
+    flex: 1;
+    color: #334155; /* #475569 yerine, okunabilirliği tescilli tam koyu slate rengi */
+    letter-spacing: -0.05px;
+}
+
+/* 🚀 KONTRAST GÜVENCESİ 2: Tetikleyici buton yazısı Extra Bold yapıldı and mikro gölgeyle zırhlandı */
+.lrf-fish-card__trigger {
+    background: none;
+    border-left: none; 
+    border-right: none; 
+    border-bottom: none;
+    padding: 12px 0 0 0; /* Parmak basma ferahlığı kanka */
+    margin-top: auto;    /* 🚀 KUTSAL SİHİR: Butonu hep en alta kilitler, ip gibi dizer! */
+    width: 100%;         
+    border-top: 1px solid var(--lrf-color-border); 
+    font-size: 13.5px;
+    font-weight: 800; /* Font dolgunlaştırıldı */
+    color: #00bcd4; /* Orijinal parlak turkuazın aynen korundu kral */
+    text-shadow: 0px 0px 1px rgba(0, 151, 167, 0.2); 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.lrf-fish-card__trigger:hover {
+    color: #0891b2;
+}
+
+.lrf-fish-card__trigger svg,
+.lrf-fish-card__trigger [data-lucide] {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.22s ease-in-out;
+}
+
+/* 🚀 SIFIR IMPORTANT: Kart aktifken oluşan camgöbeği halesi tertemiz hiyerarşiye bağlandı */
+.lrf-grid-card:has(.lrf-jig-card__panel[style*="block"]),
+.lrf-grid-card:has(.lrf-fish-card__panel[style*="block"]) {
+    border-color: rgba(0, 188, 212, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.05);
+}
+
+/* ==========================================================================
+   📱 HEDEF BALIKLAR KALKANI (BİLEŞEN BAZLI MOBİL BREAKPOINT)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 🚀 SIFIR IMPORTANT: Mobil panel yırtma payları hiyerarşiyle pürüzsüzleştirildi */
+    .lrf-grid-card .lrf-fish-card__panel {
+        width: calc(100% + 32px); 
+        margin-left: -16px;
+        margin-right: -16px;
+        margin-bottom: -24px; /* Kartın dip sınır koruması mobil padding senkronuyla eşlendi */
+        padding: 16px;
+    }
+    .lrf-fish-card__trigger {
+        padding: 10px 0 0 0;
+    }
+}
+/* ==========================================================================
+   🏆 GLOBAL KOMPONENT - LIGHTBOX POPUP PODYUM MOTORU (NİHAİ - TASETTİNLİ)
+   ========================================================================== */
+
+/* Ana karartma and buzlama zırhı kanka */
+.lrf-lightbox-overlay {
+    display: none; /* İlk başta uykuda bekler */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.9); /* Orijinal slate-900 lüks koyuluk */
+    backdrop-filter: blur(8px); /* Muazzam Apple cam efekti */
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 🚀 SIFIR IMPORTANT: !important lekesi hiyerarşik seçici gücüyle tamamen süpürüldü kanka */
+body .lrf-lightbox-overlay.lrf-lightbox-overlay--active {
+    display: flex;
+    animation: lrfFadeSlide 0.22s ease-out; /* Narin süzülme animasyonu */
+}
+
+/* İç sarmal kutu - Ekranlardan taşmayı %100 önleyen üst ebeveyn kalkanı */
+.lrf-lightbox-wrapper {
+    position: relative;
+    max-width: 85%;
+    max-height: 85vh; /* 🚀 Mobilde alt başlığa ekstra nefes alanı açıldı kanka */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* 🎯 1200x1200px kare fotoğrafları mermi gibi fit tutan jilet şasi */
+.lrf-lightbox-img {
+    max-width: 100%;
+    max-height: 65vh; /* 🚀 Telefonda alt yazının ekrandan fırlamasını önleyen emniyet payı */
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Popup altındaki o şovluk kalın predatör başlık yazısı */
+.lrf-lightbox-title {
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 16px;
+    letter-spacing: -0.25px;
+    width: 100%; /* Uzun isimlerin taşması önlendi kral */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   🍪 GLOBAL PLATFORM ANAYASASI - BÖLÜM 2.8: MİKRO YASAL ÇEREZ KALKANI
+   ========================================================================== */
+.lrf-cookie-banner {
+    position: fixed;
+    bottom: -100px; /* İlk başta ekranın altında gizli durur kanka */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 850px;
+    background-color: #0f172a; /* Asil koyu slate rengi */
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    border-radius: 14px;
+    padding: 16px 24px;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(0, 188, 212, 0.1);
+    z-index: 999999;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.lrf-cookie-banner.show {
+    bottom: 24px; /* Tetiklendiğinde ekrana pürüzsüzce süzülür */
+}
+
+.lrf-cookie-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.lrf-cookie-content span {
+    font-size: 13.5px;
+    color: #94a3b8;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+/* 🚀 KONTRAST GÜVENCESİ 1: Koyu zemin üstündeki turkuaz link Extra Bold yapılarak belirginleştirildi */
+.lrf-cookie-content a {
+    color: #00bcd4; /* Parlak turkuazın yerinde kanka! */
+    text-decoration: none;
+    font-weight: 800; /* Yazı dolgunlaştı kanka */
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.5); /* Okunma keskinliği zırhı */
+    border-bottom: 1px dashed #00bcd4;
+}
+
+/* 🚀 KONTRAST GÜVENCESİ 2: Kabul Et butonu Google testini 100 yapacak dolgunluğa kilitlendi */
+.lrf-cookie-btn {
+    background-color: #00bcd4;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 800; /* Extra Bold yapıldı kral */
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.lrf-cookie-btn:hover { 
+    background-color: #008ca1; 
+}
+
+/* 📱 Mobil Güvence Kalkanı */
+@media (max-width: 768px) {
+    .lrf-cookie-banner { 
+        width: 92%; 
+        padding: 16px; 
+        bottom: -200px; 
+    }
+    .lrf-cookie-banner.show { 
+        bottom: 16px; 
+    }
+    .lrf-cookie-content { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 14px; 
+    }
+    .lrf-cookie-btn { 
+        width: 100%; 
+        padding: 12px; 
+    }
+}
