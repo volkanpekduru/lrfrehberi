@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRF Rehberi - Light Rock Fishing Türkiye</title>
+    <meta name="description" content="Türkiye'nin en kapsamlı LRF olta balıkçılığı rehberi. LRF kamış, makine, misina and teknik ipuçlarıyla avcılığa ilk adımı atın.">
+    
+    <!-- 🚀 KUSURSUZ CSS YÜKLEME MOTORU: CSS'i HTML'i kesintiye uğratmadan arka planda indirip anında stylesheet'e çevirir kanka -->
+    <link rel="preload" href="assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
+    
+    <!-- 🌊 FONTLAR İÇİN SİHİRLİ EMNİYET KİLİTLERİ: Kritik istek zincirini (Critical Request Chain) yok eden mürşit satırlar kanka -->
+    <link rel="preload" href="assets/fonts/inter-v20-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-v20-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-v20-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-v20-latin_latin-ext-800.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+
+    <!-- 🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 1: ÜST VİTRİN VE SEMANTİK ÜST BİLGİ -->
+    <div class="lrf-hero">
+        
+        <!-- 🚀 1. SEMANTİK HEADER KALKANI: Logo and menü artık Google'ın istediği gibi üst bilgi zırhında kanka -->
+        <header>
+            <nav class="lrf-navbar">
+                <a href="index.html" class="lrf-navbar__logo-link">
+                    <!-- 🛡️ CLS KİLİDİ: Genişlik and yükseklik değerleri HTML niteliği olarak mühürlendi kral -->
+                    <img src="assets/images/logo.webp" width="400" height="100" alt="LRF Rehberi" class="lrf-navbar__logo-img">
+                </a>
+                <ul class="lrf-navbar__menu">
+                    <li><a href="index.html" class="lrf-navbar__item lrf-navbar__item--active">Ana Sayfa</a></li>
+                    <li><a href="malzemeler.html" class="lrf-navbar__item">Malzemeler</a></li>
+                    <li><a href="baslangic.html" class="lrf-navbar__item">Başlangıç</a></li>
+                    <li><a href="teknikler.html" class="lrf-navbar__item">Teknikler</a></li>
+                    <li><a href="uzmanlik.html" class="lrf-navbar__item">Uzmanlık</a></li>
+                    <li><a href="akademi.html" class="lrf-navbar__item">LRF Akademi</a></li>
+                    <li><a href="pratik-bilgiler.html" class="lrf-navbar__item">Pratik Bilgiler</a></li>
+                </ul>
+                <a href="baslangic.html" class="lrf-navbar__btn">
+                    <i data-lucide="waves"></i>
+                    <span>Başla</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- 🌊 2. VİTRİN İÇERİK ŞASİSİ -->
+        <div class="lrf-hero__content">
+            <div class="lrf-hero__badge">
+                <i data-lucide="layers"></i>
+                <span>Türkiye'nin LRF Rehberi</span>
+            </div>
+
+            <h1 class="lrf-hero__title">LRF Olta Balıkçılığına Hoş Geldiniz</h1>
+            <p class="lrf-hero__desc">Türkiye'nin en kapsamlı LRF Rehberi. Malzemeleri tanı, teknikleri öğren and denize çık.</p>
+            <div class="lrf-hero__actions">
+                <a href="baslangic.html" class="lrf-hero__btn-primary">
+                    <i data-lucide="book-open"></i>
+                    <span>Başlangıç Rehberi</span>
+                </a>
+                <a href="malzemeler.html" class="lrf-hero__btn-secondary">
+                    <span>Malzemeleri Keşfet</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <a href="#lrf-nedir" class="lrf-hero__scroll-link" aria-label="Aşağı Kaydır">
+            <i data-lucide="chevron-down" class="lrf-hero__scroll-icon"></i>
+        </a>
+    </div> <!-- .lrf-hero BURADA BİTTİ -->
+
+<main>
+<section class="lrf-intro" id="lrf-nedir">
+    <span class="lrf-badge lrf-badge--cyan lrf-badge--sm lrf-badge--podyum">Hafiflik Sanatı!</span>
+    <h2 class="lrf-intro__title">LRF Nedir?</h2>
+    <div class="lrf-intro__gorsel-box">
+        <img src="assets/images/lrf-nedir.webp" width="1600" height="1000" loading="lazy" alt="Light Rock Fishing Sunumu">
+    </div>
+    <div class="lrf-intro__info-box">
+        <div class="lrf-intro__info-icon-wrap">
+            <i data-lucide="info"></i> 
+        </div>
+        <p class="lrf-intro__info-text">
+            <strong>LRF</strong>, İngilizce <span>Light Rock Fishing</span> kelimelerinin baş harflerinden oluşan, Türkçeye <strong>"Hafif Kaya Balıkçılığı"</strong> olarak çevrilebilen, Japonya kökenli, ultra hafif (0,5-10 gr atış ağırlığı aralığındaki) narin kamışlar, ince ipler ve mikro yemlerle kıyıdan yapılan bir at-çek avcılık disiplinidir. Yüksek hassasiyet ve aksiyon üzerine kuruludur.
+        </p>
+    </div>
+</section>
+
+<!-- ==========================================================================
+     🏆 GLOBAL PLATFORM ANAYASASI - BÖLÜM 7: KÜRESEL FLUID PARALLAX BANNER (SAF MİNİMALİST VARYANT)
+     ========================================================================== -->
+<section class="lrf-fluid-banner" id="lrf-seti-nelerden-olusur" style="background-image: url('assets/images/banner-set.webp');">
+    <!-- 🚀 Görsel üstü metin okunurluğunu zirveye çıkaran o şanlı derin slate-900 perdesi! -->
+    <div class="lrf-fluid-banner__overlay"></div>
+    
+    <div class="lrf-fluid-banner__content">
+        <!-- 🚀 Tüm hantal lüks rozet ve ikon gürültüleri tamamen infaz edildi, pürüzsüz saf podyum kurtarıldı! -->
+        <h2 class="lrf-fluid-banner__title">LRF Seti Nelerden Oluşur?</h2>
+        <p class="lrf-fluid-banner__desc">Doğru kamış, makine, ip ve lider kombinasyonu, av sahasında mikro sahtelere vereceğiniz aksiyonun ve iri balıklarla mücadelenizin omurgasını oluşturur.</p>
+    </div>
+</section>
+
+    <!-- ==========================================================================
+         🏆 ANA SAYFA - BÖLÜM 3: PREMIUM EKİPMAN REHBERİ (4'LÜ DEV ZIGZAG KALESİ)
+         ========================================================================== -->
+    <section class="lrf-zigzag">
+        <div class="lrf-zigzag__inner">
+            <div class="lrf-zigzag__row">
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/kamis.webp" width="1200" height="800" loading="lazy" alt="LRF Kamışı">
+                </div>
+                <div class="lrf-zigzag__content">
+                    <div class="lrf-zigzag__badge-wrap">
+                        <div class="lrf-zigzag__icon-badge lrf-zigzag__icon-badge--index">
+                            <i data-lucide="fishing-rod"></i> 
+                        </div>
+                    </div>
+                    <h3 class="lrf-zigzag__title">LRF Kamışı</h3>
+                    <p class="lrf-zigzag__desc">
+                        LRF kamışları genellikle 1,8-2,4 metre uzunluğunda, hafif ve hassas yapıdadır. İnce misina ve küçük maketlerle uyumlu olması için özel olarak tasarlanmıştır. Atış hassasiyeti ve balık hissini doğrudan etkiler.
+                    </p>
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb"></i></div>
+                        <span><strong>İpucu:</strong> Başlangıç için 2-10 gram atış ağırlığına sahip bir kamış idealdir.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lrf-zigzag__row lrf-zigzag__row--reverse">
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/makine.webp" width="1200" height="800" loading="lazy" alt="Makine">
+                </div>
+                <div class="lrf-zigzag__content">
+                    <div class="lrf-zigzag__badge-wrap">
+                        <div class="lrf-zigzag__icon-badge lrf-zigzag__icon-badge--index">
+                            <i data-lucide="settings"></i>
+                        </div>
+                    </div>
+                    <h3 class="lrf-zigzag__title">Spinning Makine</h3>
+                    <p class="lrf-zigzag__desc">
+                        Spinning makine, LRF'nin vazgeçilmez parçasıdır. 1000-2500 numara arası makineler bu set için uygundur. İyi bir fren sistemi ve hafif yapı, uzun süreli balıkçılıkta yorgunluğu azaltır. 
+                    </p>
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb"></i></div>
+                        <span><strong>İpucu:</strong> 2000 numara bir makine çoğu LRF senaryosu için mükemmeldir.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lrf-zigzag__row">
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/maketler.webp" width="1200" height="800" loading="lazy" alt="Maketler ve Jigler">
+                </div>
+                <div class="lrf-zigzag__content">
+                    <div class="lrf-zigzag__badge-wrap">
+                        <div class="lrf-zigzag__icon-badge lrf-zigzag__icon-badge--index">
+                            <i data-lucide="fish"></i>
+                        </div>
+                    </div>
+                    <h3 class="lrf-zigzag__title">Maketler ve Jigler</h3>
+                    <p class="lrf-zigzag__desc">
+                        Soft plastik maketler, metal jigler ve küçük spinner'lar LRF'nin temel yemleridir. Renk ve boyut seçimi, avlanılan balık türüne ve su koşullarına göre değişir.
+                    </p>
+                    <div class="lrf-zigzag__tip-box">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb"></i></div>
+                        <span><strong>İpucu:</strong> 2-5 gram arası jighead ile 2-3 inç (5-7,5 cm) soft plastik kombinasyonu çok yönlüdür.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lrf-zigzag__row lrf-zigzag__row--reverse">
+                <div class="lrf-zigzag__media">
+                    <img src="assets/images/aksesuarlar.webp" width="1200" height="800" loading="lazy" alt="Aksesuarlar">
+                </div>
+                <div class="lrf-zigzag__content">
+                    <div class="lrf-zigzag__badge-wrap">
+                        <div class="lrf-zigzag__icon-badge lrf-zigzag__icon-badge--index">
+                            <i data-lucide="handbag"></i>
+                        </div>
+                    </div>
+                    <h3 class="lrf-zigzag__title">Aksesuarlar</h3>
+                    <p class="lrf-zigzag__desc">
+                        Kırmızı-beyaz led'li kafa lambaları, narin balıkçı penseleri, katlanır fileler, balık maşaları ve mikro yem kutuları av esnasında hızınızı ve konforunuzu artırır. Küçük dokunuşlar, büyük balıkları kıyıya hasarsız almanızı sağlar.
+                    </p>
+                    <div class="lrf-zigzag__tip-box ">
+                        <div class="lrf-zigzag__tip-box-icon"><i data-lucide="lightbulb"></i></div>
+                        <span><strong>İpucu:</strong> İnce ipleri zedelemeyen korozyon dirençli titanyum makaslar LRF avcısının gizli silahıdır.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========================================================================
+         🏆 ANA SAYFA - BÖLÜM 4: 3 ADIMDA LRF BALIKÇILIĞI (KÜRESEL LÜKS KART MATRİSİ)
+         ========================================================================== -->
+    <section class="lrf-grid-section lrf-text-center">
+        <span class="lrf-badge lrf-badge--cyan lrf-badge--sm lrf-badge--podyum">Nasıl Çalışır?</span>
+        <h2 class="lrf-grid-section__title">3 Adımda LRF Balıkçılığı</h2>
+
+        <div class="lrf-grid-matrix">
+            
+            <div class="lrf-grid-card lrf-grid-card--index">
+                <div class="lrf-grid-card__badge-wrap lrf-grid-card__badge-wrap--circle-num">01</div>
+                <h3 class="lrf-grid-card__title">Ekipmanı Tanı</h3>
+                <p class="lrf-grid-card__desc">Kamış, makine, misina ve maket seçimini öğren. Doğru ekipman, başarılı bir balıkçılığın temelidir.</p>
+            </div>
+
+            <!-- KART 02 -->
+            <div class="lrf-grid-card lrf-grid-card--index">
+                <div class="lrf-grid-card__badge-wrap lrf-grid-card__badge-wrap--circle-num">02</div>
+                <h3 class="lrf-grid-card__title">Tekniği Öğren</h3>
+                <p class="lrf-grid-card__desc">Atış teknikleri, maket kullanımı ve balık davranışlarını anla. Pratik yaparak gelişirsin.</p>
+            </div>
+
+            <!-- KART 03 -->
+            <div class="lrf-grid-card lrf-grid-card--index">
+                <div class="lrf-grid-card__badge-wrap lrf-grid-card__badge-wrap--circle-num">03</div>
+                <h3 class="lrf-grid-card__title">Denize Çık</h3>
+                <p class="lrf-grid-card__desc">Doğru noktayı seç, sabırlı ol ve keyfini çıkar. Her atış yeni bir deneyimdir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         🏆 ANA SAYFA - BÖLÜM 5: BÜYÜK AKSİYON ÇAĞRISI (ENERJİK TURUNCU CTA MOTORU)
+         ========================================================================== -->
+    <div class="lrf-cta">
+        <div class="lrf-cta__shape lrf-cta__shape--one"></div>
+        <div class="lrf-cta__shape lrf-cta__shape--two"></div>
+        
+        <div class="lrf-cta__inner">
+            <h2 class="lrf-cta__title">Hazır Hissediyorsun, Değil mi?</h2>
+            <p class="lrf-cta__desc">
+                Malzeme Rehberimizle ekipmanını seç, Başlangıç Rehberi ile ilk atışına hazırlan.
+            </p>
+            
+            <div class="lrf-cta__actions">
+                <a href="malzemeler.html" class="lrf-cta__btn-white">
+                    <i data-lucide="package"></i> 
+                    <span>Malzeme Rehberine Git</span>
+                    <i data-lucide="arrow-right"></i> 
+                </a>
+                <a href="baslangic.html" class="lrf-cta__btn-trans">
+                    <span>Başlangıç Rehberi</span>
+                </a>
+            </div>
+        </div> 
+    </div>
+</main>
+    <!-- ==========================================================================
+         🏆 ANA SAYFA - BÖLÜM 6: PREMIUM SU TONU VE DALGA BÜKÜMLÜ FOOTER SİSTEMİ
+         ========================================================================== -->
+    <div class="lrf-footer-wave-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#00bcd4" fill-opacity="1" d="M0,0C120,96,360,160,720,160C1080,160,1320,96,1440,0L1440,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <footer class="lrf-footer">
+        <div class="lrf-footer__grid">
+            
+            <div class="lrf-footer__col">
+                <div class="lrf-footer__logo-wrap">
+                    <img src="assets/images/logo.webp" width="400" height="100" loading="lazy" alt="LRF Rehberi" class="lrf-footer__logo-img">
+                </div>
+                <p class="lrf-footer__brand-desc">
+                    LRF olta balıkçılığını öğrenmek için Türkiye'nin en kapsamlı rehberi. Her seviyeden balıkçıya adım adım rehberlik.
+                </p>
+            </div>
+
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">Rehberler</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="baslangic.html" class="lrf-footer__link">
+                            <i data-lucide="book-open"></i>
+                            <span>Başlangıç Rehberi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="malzemeler.html" class="lrf-footer__link">
+                            <i data-lucide="package"></i>
+                            <span>Malzeme Rehberi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teknikler.html" class="lrf-footer__link">
+                            <i data-lucide="activity"></i>
+                            <span>Teknik İpuçları</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">Keşfet</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="index.html#lrf-nedir" class="lrf-footer__link">
+                            <i data-lucide="fishing-rod"></i>
+                            <span>LRF Nedir?</span>
+                        </a>
+                    </li>
+                    <!-- 🚀 Sadece senin istediğin o 2 nokta atışı sayfa eklendi -->
+                    <li>
+                        <a href="hedef-baliklar.html" class="lrf-footer__link">
+                            <i data-lucide="fish"></i>
+                            <span>Hedef Balıklar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="zehirli-baliklar.html" class="lrf-footer__link">
+                            <i data-lucide="skull"></i>
+                            <span>Zehirli Balıklar</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lrf-footer__col">
+                <h4 class="lrf-footer__heading">İletişim</h4>
+                <ul class="lrf-footer__menu">
+                    <li>
+                        <a href="mailto:info@lrfrehberi.com" class="lrf-footer__link">
+                            <i data-lucide="mail"></i>
+                            <span>Bize Ulaşın</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="lrf-footer__contact-note">Sorularınız için her zaman buradayız.</p>
+            </div>
+        </div>
+
+        <div class="lrf-footer__bottom">
+            <p>© 2026 LRF Rehberi. Tüm hakları saklıdır.</p>
+            <div class="lrf-footer__legal-row">
+                <a href="gizlilik-politikasi.html" class="lrf-footer__legal-link">Gizlilik Politikası</a>
+                <a href="kullanim-kosullari.html" class="lrf-footer__legal-link">Kullanım Koşulları</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🍪 MİKRO YASAL ÇEREZ KALKANI İSKELETİ -->
+    <div id="lrfCookieBanner" class="lrf-cookie-banner">
+        <div class="lrf-cookie-content">
+            <span>🍪 Sitemizde, kullanıcı deneyimini optimize etmek amacıyla KVKK normlarına uygun şeffaf çerezler kullanılmaktadır. Detaylar için <a href="gizlilik-politikasi.html" target="_blank">Gizlilik Politikamızı</a> inceleyebilirsiniz.</span>
+            <button onclick="kabulEtCerez()" class="lrf-cookie-btn">Anladım, Kabul Et</button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         🚀 JAVASCRIPT ÇALIŞTIRMA VE KANONİK ENGINE SIRALAMASI (SAFKAN 100 REKOR MOTORU)
+         ========================================================================== -->
+    
+    <!-- 🚀 defer kalkanları sayesinde scriptler indirme zincirini tamamen kırar kanka -->
+    <script src="assets/js/main.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    
+    <script>
+        // Sayfa çizimi %100 bitene kadar bekler and ana ileti dizisini (Main Thread) asla kilitlemez kral!
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
