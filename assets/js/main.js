@@ -377,25 +377,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  /* ── 5. AKILLI ÇEREZ KALKANI SENSÖRÜ (GÜVENLİ LOCALSTORAGE & INERT + FOCUS RETURN) ── */
-  const getCookieConsent = () => {
+  /* ── 5. AKILLI ÇEREZ KALKANI SENSÖRÜ (KABUL ET / REDDET + CONSENT MODE V2) ── */
+  const getCookieDecision = () => {
     try {
-      return localStorage.getItem("lrf_cookie_accepted") === "true";
+      const decision = localStorage.getItem("lrf_cookie_consent");
+      if (decision === "accepted" || decision === "rejected") return decision;
+      if (localStorage.getItem("lrf_cookie_accepted") === "true") return "accepted";
+      return null;
     } catch {
-      return false;
+      return null;
     }
   };
 
-  const setCookieConsent = () => {
+  const saveCookieDecision = (decision) => {
     try {
-      localStorage.setItem("lrf_cookie_accepted", "true");
+      localStorage.setItem("lrf_cookie_consent", decision);
+      if (decision === "accepted") {
+        localStorage.setItem("lrf_cookie_accepted", "true");
+      } else {
+        localStorage.removeItem("lrf_cookie_accepted");
+      }
     } catch {
       // Gizli sekme veya depolama kısıtlamasında sessizce devam et
     }
   };
 
   if (cookieBanner) {
-    if (!getCookieConsent()) {
+    if (!getCookieDecision()) {
       setTimeout(() => {
         cookieBanner.removeAttribute("inert");
         cookieBanner.setAttribute("aria-hidden", "false");
@@ -407,13 +415,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const acceptCookies = () => {
+  const handleCookieDecision = (decision) => {
     if (cookieBanner) {
       const wasFocusedInside = cookieBanner.contains(document.activeElement);
       cookieBanner.classList.remove("show");
       cookieBanner.setAttribute("aria-hidden", "true");
       cookieBanner.setAttribute("inert", "");
-      setCookieConsent();
+      saveCookieDecision(decision);
+
+      if (typeof window.__lrfUpdateGaConsent === "function") {
+        window.__lrfUpdateGaConsent(decision === "accepted");
+      }
 
       if (wasFocusedInside && mainContent) {
         focusTargetSection(mainContent, false);
@@ -546,10 +558,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // F. Çerez Kabul Butonu
-    const cookieBtn = target.closest("#lrfCookieAcceptBtn");
-    if (cookieBtn) {
-      acceptCookies();
+    // F. Çerez Kabul ve Reddet Butonları
+    const cookieAcceptBtn = target.closest("#lrfCookieAcceptBtn");
+    if (cookieAcceptBtn) {
+      handleCookieDecision("accepted");
+      return;
+    }
+
+    const cookieRejectBtn = target.closest("#lrfCookieRejectBtn");
+    if (cookieRejectBtn) {
+      handleCookieDecision("rejected");
       return;
     }
 
@@ -637,53 +655,83 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 /* ==========================================================================
-   GOOGLE ANALYTICS 4 (G-GGELV2X6X1) - KVKK & 100 PAGESPEED DOSTU YÜKLEME
+   GOOGLE ANALYTICS 4 (G-GGELV2X6X1) - CONSENT MODE V2 & 100 PAGESPEED UYUMLU
    ========================================================================== */
 (function () {
   const GA_MEASUREMENT_ID = "G-GGELV2X6X1";
-  const TRIGGER_EVENTS = ["scroll", "mousemove", "touchstart", "keydown"];
-  let gaLoaded = false;
 
-  function loadGoogleAnalytics() {
-    if (gaLoaded) return;
-    gaLoaded = true;
+  function hasAcceptedCookies() {
+    try {
+      return localStorage.getItem("lrf_cookie_consent") === "accepted" || localStorage.getItem("lrf_cookie_accepted") === "true";
+    } catch {
+      return false;
+    }
+  }
 
-    TRIGGER_EVENTS.forEach(function (evt) {
-      window.removeEventListener(evt, loadGoogleAnalytics);
-    });
-
+  function ensureGtagStub() {
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-    window.gtag = gtag;
-
-    gtag("js", new Date());
-    gtag("config", GA_MEASUREMENT_ID, {
-      cookie_flags: "SameSite=Lax;Secure",
-    });
-
-    const script = document.createElement("script");
-    script.src = ["https://www.googletagmanager.com", "/gtag/js?id=", GA_MEASUREMENT_ID].join("");
-    script.async = true;
-    document.head.appendChild(script);
+    window.gtag =
+      window.gtag ||
+      function () {
+        window.dataLayer.push(arguments);
+      };
   }
 
-  let hasConsent = false;
-  try {
-    hasConsent = localStorage.getItem("lrf_cookie_accepted") === "true";
-  } catch (e) {}
+  function initGoogleAnalytics() {
+    if (window.__lrfGaInitialized) return;
+    window.__lrfGaInitialized = true;
 
-  if (hasConsent) {
-    TRIGGER_EVENTS.forEach(function (evt) {
-      window.addEventListener(evt, loadGoogleAnalytics, { once: true, passive: true });
+    ensureGtagStub();
+
+    const granted = hasAcceptedCookies();
+    window.gtag("consent", "default", {
+      analytics_storage: granted ? "granted" : "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
     });
+
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      cookie_flags: "SameSite=None;Secure",
+    });
+
+    if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
+      script.async = true;
+      document.head.appendChild(script);
+    }
   }
 
-  document.addEventListener("click", function (e) {
-    if (e.target && e.target.closest("#lrfCookieAcceptBtn")) {
-      loadGoogleAnalytics();
+  // Kabul Et / Reddet tıklandığında GA4 izin durumunu anında güncelle
+  window.__lrfUpdateGaConsent = function (isAccepted) {
+    if (!window.__lrfGaInitialized) {
+      initGoogleAnalytics();
     }
-  });
+    ensureGtagStub();
+    window.gtag("consent", "update", {
+      analytics_storage: isAccepted ? "granted" : "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+  };
+
+  function scheduleAnalyticsLoad() {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(initGoogleAnalytics, { timeout: 1500 });
+    } else {
+      window.setTimeout(initGoogleAnalytics, 1500);
+    }
+  }
+
+  if (document.readyState === "complete") {
+    scheduleAnalyticsLoad();
+  } else {
+    window.addEventListener("load", scheduleAnalyticsLoad, { once: true });
+  }
 })();
