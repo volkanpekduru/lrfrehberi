@@ -12,7 +12,7 @@
     <link rel="preload" href="assets/images/hero-desktop.webp" as="image" media="(min-width: 769px)" fetchpriority="high" />
 
     <link rel="stylesheet" href="assets/css/style.css" media="all" />
-      <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://lrfrehberi.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="tr_TR" />
@@ -26,37 +26,37 @@
     <meta name="twitter:description" content="Türkiye'nin en kapsamlı LRF olta balıkçılığı rehberi. LRF kamış, makine, misina ve teknik ipuçlarıyla avcılığa ilk adımı atın." />
     <meta name="twitter:image" content="https://lrfrehberi.com/assets/images/hero-desktop.webp" />
     <script type="application/ld+json">
-    {
+      {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "Organization",
-                "@id": "https://lrfrehberi.com/#organization",
-                "name": "LRF Rehberi",
-                "url": "https://lrfrehberi.com/",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://lrfrehberi.com/assets/images/logo.webp",
-                    "width": 168,
-                    "height": 42
-                },
-                "email": "info@lrfrehberi.com"
+          {
+            "@type": "Organization",
+            "@id": "https://lrfrehberi.com/#organization",
+            "name": "LRF Rehberi",
+            "url": "https://lrfrehberi.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://lrfrehberi.com/assets/images/logo.webp",
+              "width": 168,
+              "height": 42
             },
-            {
-                "@type": "WebSite",
-                "@id": "https://lrfrehberi.com/#website",
-                "url": "https://lrfrehberi.com/",
-                "name": "LRF Rehberi - Light Rock Fishing Türkiye",
-                "description": "Türkiye'nin en kapsamlı LRF olta balıkçılığı rehberi. LRF kamış, makine, misina ve teknik ipuçlarıyla avcılığa ilk adımı atın.",
-                "inLanguage": "tr-TR",
-                "publisher": {
-                    "@id": "https://lrfrehberi.com/#organization"
-                }
+            "email": "info@lrfrehberi.com"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://lrfrehberi.com/#website",
+            "url": "https://lrfrehberi.com/",
+            "name": "LRF Rehberi - Light Rock Fishing Türkiye",
+            "description": "Türkiye'nin en kapsamlı LRF olta balıkçılığı rehberi. LRF kamış, makine, misina ve teknik ipuçlarıyla avcılığa ilk adımı atın.",
+            "inLanguage": "tr-TR",
+            "publisher": {
+              "@id": "https://lrfrehberi.com/#organization"
             }
+          }
         ]
-    }
+      }
     </script>
-</head>
+  </head>
   <body>
     <a href="#ana-icerik" class="lrf-skip-link">Ana İçeriğe Atla</a>
 
@@ -161,7 +161,7 @@
       <!-- 📦 BÖLÜM 4: PREMIUM EKİPMAN REHBERİ (ZIGZAG SİSTEMİ) -->
       <section class="lrf-zigzag" aria-label="LRF Ekipman Detayları">
         <div class="lrf-zigzag__inner">
-            <h2 class="lrf-sr-only">LRF Ekipman ve Temel Bileşen Detayları</h2>
+          <h2 class="lrf-sr-only">LRF Ekipman ve Temel Bileşen Detayları</h2>
           <!-- SATIR 1: KAMIŞ -->
           <div class="lrf-zigzag__row lrf-zigzag__row--cyan">
             <figure class="lrf-zigzag__media">
@@ -367,10 +367,14 @@
       </div>
     </footer>
 
+    <!-- 🍪 ÇEREZ BİLGİLENDİRME BANNER -->
     <aside id="lrfCookieBanner" class="lrf-cookie-banner" role="dialog" aria-label="Çerez Bilgilendirmesi" aria-describedby="lrfCookieDesc" aria-hidden="true" inert>
       <div class="lrf-cookie-content">
         <span id="lrfCookieDesc">🍪 Sitemizde, kullanıcı deneyimini optimize etmek amacıyla KVKK normlarına uygun şeffaf çerezler kullanılmaktadır. Detaylar için <a href="gizlilik-politikasi.html" target="_blank" rel="noopener noreferrer">Gizlilik Politikamızı</a> inceleyebilirsiniz.</span>
-        <button type="button" id="lrfCookieAcceptBtn" class="lrf-cookie-btn" aria-label="Çerez politikasını kabul et ve uyarıyı kapat">Anladım, Kabul Et</button>
+        <div class="lrf-cookie-actions">
+          <button type="button" id="lrfCookieRejectBtn" class="lrf-cookie-btn lrf-cookie-btn--reject" aria-label="Analitik çerezleri reddet ve uyarıyı kapat">Reddet</button>
+          <button type="button" id="lrfCookieAcceptBtn" class="lrf-cookie-btn" aria-label="Çerez politikasını kabul et ve uyarıyı kapat">Kabul Et</button>
+        </div>
       </div>
     </aside>
 
