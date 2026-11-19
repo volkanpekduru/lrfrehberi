@@ -3504,6 +3504,32 @@ svg,
 .lrf-cookie-btn:active {
   transform: scale(0.97);
 }
+/* 🍪 ÇEREZ BANNER ÇİFT BUTON (KABUL ET / REDDET) DÜZENİ */
+.lrf-cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.lrf-cookie-btn--reject {
+  background-color: transparent;
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.lrf-cookie-btn--reject:hover {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--lrf-color-bg);
+  border-color: #94a3b8;
+}
+
+@media (max-width: 540px) {
+  .lrf-cookie-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}
 
 /* ── 2. SSS GENEL BÖLÜM ŞASİSİ (PODYUM NİZAMI) ── */
 .lrf-faq-section {
@@ -3998,12 +4024,7 @@ svg,
 }
 
 /* 2. Camgöbeği / Renkli Dolgulu Butonlar ve Kapsül Sekmeler İçin Kontrast Kalkanı */
-:is(
-    .lrf-navbar__item--active,
-    .lrf-navbar__btn,
-    .lrf-tab-system-container--capsule .lrf-tab-system-btn,
-    .lrf-tab-system-container--panel .lrf-tab-system-btn--active
-  ):focus-visible {
+:is(.lrf-navbar__item--active, .lrf-navbar__btn, .lrf-tab-system-container--capsule .lrf-tab-system-btn, .lrf-tab-system-container--panel .lrf-tab-system-btn--active):focus-visible {
   outline: 3px solid var(--lrf-color-dark);
   outline-offset: 3px;
   box-shadow:
