@@ -642,11 +642,16 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================================================== */
 (function () {
   const GA_MEASUREMENT_ID = "G-GGELV2X6X1";
+  const TRIGGER_EVENTS = ["scroll", "mousemove", "touchstart", "keydown"];
   let gaLoaded = false;
 
   function loadGoogleAnalytics() {
     if (gaLoaded) return;
     gaLoaded = true;
+
+    TRIGGER_EVENTS.forEach(function (evt) {
+      window.removeEventListener(evt, loadGoogleAnalytics);
+    });
 
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -656,12 +661,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gtag("js", new Date());
     gtag("config", GA_MEASUREMENT_ID, {
-      anonymize_ip: true,
-      cookie_flags: "SameSite=None;Secure",
+      cookie_flags: "SameSite=Lax;Secure",
     });
 
     const script = document.createElement("script");
-    script.src = ["https://googletagmanager.com", "/gtag/js?id=", GA_MEASUREMENT_ID].join("");
+    script.src = ["https://www.googletagmanager.com", "/gtag/js?id=", GA_MEASUREMENT_ID].join("");
     script.async = true;
     document.head.appendChild(script);
   }
@@ -672,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (e) {}
 
   if (hasConsent) {
-    ["scroll", "mousemove", "touchstart", "keydown"].forEach(function (evt) {
+    TRIGGER_EVENTS.forEach(function (evt) {
       window.addEventListener(evt, loadGoogleAnalytics, { once: true, passive: true });
     });
   }
