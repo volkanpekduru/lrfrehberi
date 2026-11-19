@@ -1496,7 +1496,7 @@ svg,
   box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
 }
 
-/* ── C. VARYASYON 2: LINE SYSTEM (Uzmanlık Sayfası Çizgi Menüsü) ── */
+/* ── C. VARYASYON 2: LINE SYSTEM (Uzmanlık & Akademi Çizgi Menüsü) ── */
 .lrf-tab-system-container--line {
   gap: 32px;
   border-bottom: 1px solid var(--lrf-color-border);
@@ -1758,7 +1758,9 @@ svg,
   line-height: 1.5;
   color: var(--lrf-color-slate-tok);
   padding-top: 10px;
+  margin-top: auto;
   border-top: 1px solid var(--lrf-color-border);
+  text-align: left;
 }
 
 .lrf-tab-system-card__tech-line strong {
@@ -1832,6 +1834,10 @@ svg,
 .lrf-zigzag__row:hover .lrf-zigzag__media,
 .lrf-zigzag__row.in-view .lrf-zigzag__media {
   transform: translateY(-6px);
+}
+
+.lrf-zigzag__media--video {
+  background-color: var(--lrf-color-dark);
 }
 
 .lrf-zigzag__content {
@@ -2203,6 +2209,234 @@ svg,
 }
 
 /* ==========================================================================
+   🎬 LRF 100 PAGESPEED LITE YOUTUBE FACADE MOTORU (.lrf-video-facade)
+   ========================================================================== */
+
+.lrf-video-facade {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: var(--lrf-color-dark);
+  isolation: isolate;
+}
+
+.lrf-video-facade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.14) 0%, transparent 45%), radial-gradient(circle at 14% 88%, rgba(0, 188, 212, 0.22) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lrf-video-facade--cyan {
+  background: linear-gradient(135deg, #0b192c 0%, #0f2e47 52%, #0077b6 100%);
+}
+.lrf-video-facade--teal {
+  background: linear-gradient(135deg, #0b1f26 0%, #10383a 52%, #0d9488 100%);
+}
+.lrf-video-facade--blue {
+  background: linear-gradient(135deg, #0c1a33 0%, #11325b 52%, #0077b6 100%);
+}
+.lrf-video-facade--purple {
+  background: linear-gradient(135deg, #161336 0%, #2c1f5e 52%, #7c3aed 100%);
+}
+.lrf-video-facade--orange {
+  background: linear-gradient(135deg, #1f1410 0%, #4a2112 52%, #ea580c 100%);
+}
+
+.lrf-video-facade__trigger {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: clamp(16px, 3vw, 28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  color: var(--lrf-color-bg);
+  background: transparent;
+  cursor: pointer;
+}
+
+.lrf-video-facade__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background-color: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--lrf-color-bg);
+  letter-spacing: 0.1px;
+}
+
+.lrf-video-facade__badge svg,
+.lrf-video-facade__badge [data-lucide] {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.lrf-video-facade__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--lrf-color-bg);
+  color: var(--lrf-color-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 10px rgba(255, 255, 255, 0.18),
+    0 14px 32px rgba(15, 23, 42, 0.45);
+  transition:
+    transform var(--lrf-transition-smooth),
+    background-color var(--lrf-transition-fast),
+    color var(--lrf-transition-fast),
+    box-shadow var(--lrf-transition-smooth);
+}
+
+.lrf-video-facade__play svg,
+.lrf-video-facade__play [data-lucide] {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.4;
+  fill: currentColor;
+  margin-left: 3px;
+}
+
+.lrf-video-facade:hover .lrf-video-facade__play,
+.lrf-video-facade.in-view .lrf-video-facade__play,
+.lrf-video-facade__trigger:focus-visible .lrf-video-facade__play {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: var(--lrf-color-cyan);
+  color: var(--lrf-color-bg);
+  box-shadow:
+    0 0 0 14px rgba(0, 188, 212, 0.28),
+    0 18px 36px rgba(15, 23, 42, 0.55);
+}
+
+.lrf-video-facade--teal:hover .lrf-video-facade__play,
+.lrf-video-facade--teal.in-view .lrf-video-facade__play {
+  background-color: var(--lrf-color-teal);
+  box-shadow:
+    0 0 0 14px rgba(13, 148, 136, 0.3),
+    0 18px 36px rgba(15, 23, 42, 0.55);
+}
+
+.lrf-video-facade--blue:hover .lrf-video-facade__play,
+.lrf-video-facade--blue.in-view .lrf-video-facade__play {
+  background-color: var(--lrf-color-blue);
+  box-shadow:
+    0 0 0 14px rgba(0, 119, 182, 0.32),
+    0 18px 36px rgba(15, 23, 42, 0.55);
+}
+
+.lrf-video-facade--purple:hover .lrf-video-facade__play,
+.lrf-video-facade--purple.in-view .lrf-video-facade__play {
+  background-color: var(--lrf-color-purple);
+  box-shadow:
+    0 0 0 14px rgba(124, 58, 237, 0.32),
+    0 18px 36px rgba(15, 23, 42, 0.55);
+}
+
+.lrf-video-facade--orange:hover .lrf-video-facade__play,
+.lrf-video-facade--orange.in-view .lrf-video-facade__play {
+  background-color: var(--lrf-color-orange-dark);
+  box-shadow:
+    0 0 0 14px rgba(234, 88, 12, 0.32),
+    0 18px 36px rgba(15, 23, 42, 0.55);
+}
+
+.lrf-video-facade__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.78) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.lrf-video-facade__title {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  color: var(--lrf-color-bg);
+  line-height: 1.3;
+}
+
+.lrf-video-facade__meta {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.lrf-video-facade__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 24px;
+  z-index: 3;
+  background-color: #000000;
+}
+
+@media (max-width: 480px) {
+  .lrf-video-facade__play {
+    width: 58px;
+    height: 58px;
+  }
+  .lrf-video-facade__play svg,
+  .lrf-video-facade__play [data-lucide] {
+    width: 22px;
+    height: 22px;
+  }
+  .lrf-video-facade__caption {
+    padding: 10px 12px;
+  }
+}
+
+/* ==========================================================================
+   💬 GISCUS TOPLULUK SORU-CEVAP KAPSAYICISI (AKADEMİ)
+   ========================================================================== */
+
+.lrf-giscus-card {
+  max-width: 1100px;
+}
+
+.lrf-giscus-wrapper {
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--lrf-opac-cyan-border);
+  text-align: left;
+  min-height: 180px;
+}
+
+.lrf-giscus-noscript {
+  font-size: 14px;
+  color: var(--lrf-color-slate-tok);
+  text-align: center;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--lrf-color-bg);
+  border: 1px solid var(--lrf-color-border);
+}
+
+/* ==========================================================================
    🏆 LRF SAFKAN BEM GRID-SECTION MOTORU (LOKAL VE TEMİZ SÜRÜM)
    ========================================================================== */
 
@@ -2224,6 +2458,17 @@ svg,
   align-items: start;
   gap: 24px;
   width: 100%;
+}
+
+.lrf-grid-matrix--2col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  .lrf-grid-matrix--2col {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* 💎 MASTER LÜKS KART ŞASİSİ */
@@ -2341,12 +2586,12 @@ svg,
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  margin: 8px 0 0 0;
+  margin: 8px 0 16px 0;
 }
 
 .lrf-grid-card__list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   font-size: 13.5px;
   color: var(--lrf-color-slate-tok);
@@ -2361,6 +2606,7 @@ svg,
   color: var(--lrf-color-cyan-hover);
   stroke-width: 2.4;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .lrf-grid-card__list li strong {
@@ -2375,6 +2621,11 @@ svg,
   margin: 0 0 16px 0;
   text-align: center;
   letter-spacing: -0.05px;
+}
+
+.lrf-grid-matrix--2col .lrf-grid-card__title,
+.lrf-grid-matrix--2col .lrf-grid-card__desc {
+  text-align: left;
 }
 
 /* ── 3. START KARE KART EKOSİSTEMİ (PREMİUM CYAN & DİNAMİK HOVER) ── */
@@ -4080,6 +4331,13 @@ svg,
   border-radius: 16px;
 }
 
+.lrf-video-facade__trigger:focus-visible {
+  outline: 3px solid var(--lrf-color-bg);
+  outline-offset: -4px;
+  box-shadow: inset 0 0 0 6px var(--lrf-color-cyan);
+  border-radius: 24px;
+}
+
 .lrf-jig-gallery__item:focus-visible {
   outline: 3px solid var(--lrf-color-dark);
   outline-offset: 2px;
@@ -4106,5 +4364,398 @@ div[tabindex="-1"]:focus {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+/* ==========================================================================
+   🧭 PRATİK BİLGİLER: CANLI MERA, AY EVRESİ, ZEHİRLİ UYARI & ÇANTA LİSTESİ
+   ========================================================================== */
+
+.lrf-tool-card {
+  max-width: 1000px;
+}
+
+.lrf-tool-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 8px 0;
+  width: 100%;
+}
+
+.lrf-tool-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.lrf-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background-color: var(--lrf-color-cyan);
+  color: var(--lrf-color-bg);
+  font-size: 15px;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 188, 212, 0.32);
+  transition:
+    background-color var(--lrf-transition-fast),
+    transform var(--lrf-transition-fast),
+    box-shadow var(--lrf-transition-fast);
+}
+
+.lrf-tool-btn:hover:not(:disabled) {
+  background-color: var(--lrf-color-cyan-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 188, 212, 0.42);
+}
+
+.lrf-tool-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.lrf-tool-select-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lrf-tool-select {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lrf-color-dark);
+  background-color: var(--lrf-color-bg);
+  border: 1.5px solid var(--lrf-opac-cyan-border);
+  border-radius: 100px;
+  padding: 13px 20px;
+  cursor: pointer;
+  min-width: 230px;
+  transition:
+    border-color var(--lrf-transition-fast),
+    box-shadow var(--lrf-transition-fast);
+}
+
+.lrf-tool-select:hover {
+  border-color: var(--lrf-color-cyan);
+}
+
+.lrf-tool-select:focus-visible {
+  outline: 3px solid var(--lrf-color-dark);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--lrf-color-cyan);
+}
+
+.lrf-tool-status {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--lrf-color-slate-tok);
+  margin: 0;
+}
+
+.lrf-tool-status--error {
+  color: var(--lrf-color-red);
+}
+
+.lrf-tool-metrics {
+  max-width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 12px 0 8px 0;
+}
+
+.lrf-tool-advice {
+  width: 100%;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background-color: var(--lrf-color-bg);
+  border: 1px solid var(--lrf-opac-cyan-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.lrf-tool-advice--purple {
+  border-color: var(--lrf-opac-purple-border);
+  align-items: flex-start;
+  text-align: left;
+}
+
+.lrf-tool-advice__title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--lrf-color-dark);
+  margin: 0;
+}
+
+.lrf-tool-advice__desc {
+  font-size: 14px;
+  color: var(--lrf-color-slate-tok);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 🌙 Ay Evresi Panosu */
+.lrf-moon-dashboard {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 8px;
+}
+
+.lrf-moon-badge-wrap {
+  background-color: var(--lrf-color-bg);
+  border: 1px solid var(--lrf-opac-purple-border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lrf-moon-emoji {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.lrf-moon-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.lrf-moon-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--lrf-color-dark);
+}
+
+.lrf-moon-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* 🚨 Zehirli Balıklar Kırmızı Zigzag Varyantı & Acil İlk Yardım Kutusu */
+.lrf-zigzag__row--red .lrf-zigzag__icon-badge--baslangic {
+  background-color: var(--lrf-color-red);
+  color: var(--lrf-color-bg);
+  box-shadow:
+    0 0 0 4px rgba(220, 38, 38, 0.22),
+    0 4px 12px rgba(220, 38, 38, 0.16);
+}
+
+.lrf-zigzag__row--red .lrf-zigzag__list-icon {
+  color: var(--lrf-color-red);
+}
+
+.lrf-zigzag__row--red:hover .lrf-zigzag__media,
+.lrf-zigzag__row--red.in-view .lrf-zigzag__media {
+  border-color: var(--lrf-color-red);
+  box-shadow:
+    0 30px 50px -15px rgba(15, 23, 42, 0.12),
+    0 12px 24px -8px rgba(220, 38, 38, 0.24);
+}
+
+.lrf-zigzag__tip-box--danger {
+  background-color: rgba(220, 38, 38, 0.07);
+  border-color: rgba(220, 38, 38, 0.35);
+  color: var(--lrf-color-dark);
+}
+
+.lrf-zigzag__tip-box--danger .lrf-zigzag__tip-box-icon,
+.lrf-zigzag__tip-box--danger strong {
+  color: #b91c1c;
+}
+
+.lrf-puffer-alert {
+  margin-top: 8px;
+}
+
+.lrf-grid-card--highlight-teal {
+  background-color: var(--lrf-opac-teal-bg);
+  border-color: var(--lrf-opac-teal-border);
+}
+
+/* 🎒 Çanta Kontrol Listesi */
+.lrf-checklist-card {
+  max-width: 1000px;
+}
+
+.lrf-checklist-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.lrf-checklist-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lrf-checklist-reset {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--lrf-color-orange-dark);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--lrf-opac-orange-border);
+  background-color: var(--lrf-color-bg);
+  transition: background-color var(--lrf-transition-fast);
+}
+
+.lrf-checklist-reset:hover {
+  background-color: var(--lrf-opac-orange-soft);
+}
+
+.lrf-checklist {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.lrf-checklist__item {
+  width: 100%;
+  background-color: var(--lrf-color-bg);
+  border: 1px solid var(--lrf-color-border);
+  border-radius: 12px;
+  transition:
+    border-color var(--lrf-transition-fast),
+    background-color var(--lrf-transition-fast);
+}
+
+.lrf-checklist__item.is-checked {
+  border-color: var(--lrf-opac-teal-border);
+  background-color: var(--lrf-opac-teal-bg);
+}
+
+.lrf-checklist__label {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.lrf-checklist__input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--lrf-color-teal);
+  cursor: pointer;
+}
+
+.lrf-checklist__text {
+  font-size: 14px;
+  color: var(--lrf-color-slate-tok);
+  line-height: 1.55;
+}
+
+.lrf-checklist__text strong {
+  color: var(--lrf-color-dark);
+}
+
+.lrf-checklist__item.is-checked .lrf-checklist__text {
+  text-decoration: line-through;
+  opacity: 0.72;
+}
+
+/* 💧 Av Sonrası 2 Dakikalık Tuzlu Su Bakım Rutini */
+.lrf-care-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.lrf-care-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: var(--lrf-color-bg);
+  border: 1px solid var(--lrf-opac-blue-border);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 13.5px;
+  color: var(--lrf-color-slate-tok);
+  line-height: 1.55;
+}
+
+.lrf-care-list__item strong {
+  color: var(--lrf-color-dark);
+}
+
+.lrf-care-list__num {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background-color: var(--lrf-color-blue);
+  color: var(--lrf-color-bg);
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+@media (max-width: 860px) {
+  .lrf-tool-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lrf-moon-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .lrf-tool-advice--purple {
+    align-items: center;
+    text-align: center;
+  }
+  .lrf-moon-tags {
+    justify-content: center;
+  }
+  .lrf-care-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .lrf-tool-metrics {
+    grid-template-columns: 1fr;
+  }
+  .lrf-tool-btn,
+  .lrf-tool-select-wrap,
+  .lrf-tool-select {
+    width: 100%;
+  }
+  .lrf-tool-btn {
+    padding: 14px 18px;
+    font-size: 14px;
   }
 }
