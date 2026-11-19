@@ -11,16 +11,7 @@ const PANEL_TAB_TEXTS = Object.freeze({
   surface: "Tamamen su yüzeyinde çalışan çılgın maketler. Sabah erken ve akşam üstü, balıkların su üstüne oynak yaptığı anlarda katliam yaratır.",
 });
 
-const JIG_KEYWORDS = Object.freeze([
-  "round",
-  "dart",
-  "standup",
-  "football",
-  "shaky",
-  "swimbait",
-  "cheburashka",
-  "hirsiz",
-]);
+const JIG_KEYWORDS = Object.freeze(["round", "dart", "standup", "football", "shaky", "swimbait", "cheburashka", "hirsiz"]);
 
 const MOBILE_HOVER_SELECTORS = [
   ".lrf-grid-card",
@@ -87,11 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const initMobileHover = () => {
     teardownMobileHover();
 
-    if (
-      !("IntersectionObserver" in window) ||
-      !touchOrMobileQuery.matches ||
-      reducedMotionQuery.matches
-    ) {
+    if (!("IntersectionObserver" in window) || !touchOrMobileQuery.matches || reducedMotionQuery.matches) {
       return;
     }
 
@@ -108,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         root: null,
         rootMargin: "-35% 0px -35% 0px",
         threshold: 0,
-      }
+      },
     );
 
     targets.forEach((el) => mobileHoverObserver.observe(el));
@@ -221,16 +208,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* ── 1B. ÇİZGİ SEKME MENÜSÜ SCROLLSPY & İLK YÜKLEME HASH SENKRONİZASYONU ── */
-  const lineTabButtons = Array.from(
-    document.querySelectorAll('[data-tab-type="line"][data-tab-target]')
-  );
+  const lineTabButtons = Array.from(document.querySelectorAll('[data-tab-type="line"][data-tab-target]'));
 
   if (lineTabButtons.length > 0) {
     if (window.location.hash) {
       const initialHashId = window.location.hash.slice(1);
-      const matchingHashBtn = lineTabButtons.find(
-        (btn) => btn.getAttribute("data-tab-target") === initialHashId
-      );
+      const matchingHashBtn = lineTabButtons.find((btn) => btn.getAttribute("data-tab-target") === initialHashId);
       if (matchingHashBtn) {
         setActiveTabButton(matchingHashBtn);
       }
@@ -261,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           rootMargin: "-20% 0px -65% 0px",
           threshold: 0,
-        }
+        },
       );
 
       sectionMap.forEach((_, sectionEl) => sectionObserver.observe(sectionEl));
@@ -548,10 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // D. Lightbox Kapatma Butonu veya Dış Alan Kapatıcı Sensör
-    if (
-      target.closest("#lrfLightboxClose") ||
-      (target.closest("#lrf-lightbox") && !target.closest(".lrf-lightbox-wrapper"))
-    ) {
+    if (target.closest("#lrfLightboxClose") || (target.closest("#lrf-lightbox") && !target.closest(".lrf-lightbox-wrapper"))) {
       closeLightbox();
       return;
     }
@@ -582,8 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // H. Klavye Erişilebilirliği (ESC + Focus Trap + Enter/Space Lightbox + Tablist Yön/Home/End Tuşları)
   document.addEventListener("keydown", (event) => {
-    const isLightboxActive =
-      lightbox && lightbox.classList.contains("lrf-lightbox-overlay--active");
+    const isLightboxActive = lightbox && lightbox.classList.contains("lrf-lightbox-overlay--active");
     const isMobileMenuOpen = navMenu && navMenu.classList.contains("is-open");
 
     if (event.key === "Escape") {
@@ -602,11 +581,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Lightbox Açıkken Klavye Odağını İçeride Hapseden Focus Trap Kalkanı
     if (isLightboxActive && event.key === "Tab") {
-      const focusableInLightbox = Array.from(
-        lightbox.querySelectorAll(
-          'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
-        )
-      );
+      const focusableInLightbox = Array.from(lightbox.querySelectorAll('button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'));
       if (focusableInLightbox.length > 0) {
         const firstEl = focusableInLightbox[0];
         const lastEl = focusableInLightbox[focusableInLightbox.length - 1];
@@ -635,13 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (
-      (event.key === "ArrowRight" ||
-        event.key === "ArrowLeft" ||
-        event.key === "Home" ||
-        event.key === "End") &&
-      activeEl.getAttribute("role") === "tab"
-    ) {
+    if ((event.key === "ArrowRight" || event.key === "ArrowLeft" || event.key === "Home" || event.key === "End") && activeEl.getAttribute("role") === "tab") {
       const tabList = activeEl.closest('[role="tablist"]');
       if (!tabList) return;
       const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
@@ -668,3 +637,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+/* ==========================================================================
+   GOOGLE ANALYTICS 4 (G-GGELV2X6X1) - KVKK & 100 PAGESPEED DOSTU YÜKLEME
+   ========================================================================== */
+(function () {
+  const GA_MEASUREMENT_ID = "G-GGELV2X6X1";
+  let gaLoaded = false;
+
+  function loadGoogleAnalytics() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", GA_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      cookie_flags: "SameSite=None;Secure",
+    });
+
+    const script = document.createElement("script");
+    script.src = "https://googletagmanager.com" + GA_MEASUREMENT_ID;
+    script.async = true;
+    document.head.appendChild(script);
+  }
+
+  // 1. Kullanıcı çerezleri daha önce kabul ettiyse ilk etkileşimde (kaydırma/dokunma) yükle
+  const hasConsent = localStorage.getItem("lrf_cookie_consent") === "accepted";
+
+  if (hasConsent) {
+    ["scroll", "mousemove", "touchstart", "keydown"].forEach(function (evt) {
+      window.addEventListener(evt, loadGoogleAnalytics, { once: true, passive: true });
+    });
+  }
+
+  // 2. Kullanıcı "Anladım, Kabul Et" butonuna tıkladığı anda yükle
+  document.addEventListener("click", function (e) {
+    if (e.target && e.target.closest("#lrf-cookie-accept")) {
+      loadGoogleAnalytics();
+    }
+  });
+})();
