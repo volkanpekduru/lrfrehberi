@@ -661,13 +661,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const script = document.createElement("script");
-    script.src = "https://googletagmanager.com" + GA_MEASUREMENT_ID;
+    script.src = ["https://googletagmanager.com", "/gtag/js?id=", GA_MEASUREMENT_ID].join("");
     script.async = true;
     document.head.appendChild(script);
   }
 
-  // 1. Kullanıcı çerezleri daha önce kabul ettiyse ilk etkileşimde (kaydırma/dokunma) yükle
-  const hasConsent = localStorage.getItem("lrf_cookie_consent") === "accepted";
+  let hasConsent = false;
+  try {
+    hasConsent = localStorage.getItem("lrf_cookie_accepted") === "true";
+  } catch (e) {}
 
   if (hasConsent) {
     ["scroll", "mousemove", "touchstart", "keydown"].forEach(function (evt) {
@@ -675,9 +677,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Kullanıcı "Anladım, Kabul Et" butonuna tıkladığı anda yükle
   document.addEventListener("click", function (e) {
-    if (e.target && e.target.closest("#lrf-cookie-accept")) {
+    if (e.target && e.target.closest("#lrfCookieAcceptBtn")) {
       loadGoogleAnalytics();
     }
   });
