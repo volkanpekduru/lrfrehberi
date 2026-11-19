@@ -19,6 +19,7 @@ const MOBILE_HOVER_SELECTORS = [
   ".lrf-premium-info-card",
   ".lrf-zigzag__row",
   ".lrf-zigzag__list-item--boxed",
+  ".lrf-video-facade",
   ".lrf-jig-gallery__item",
   ".lrf-layers-row",
   ".lrf-strategy-panel",
@@ -377,6 +378,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  /* ── 4B. 100 PAGESPEED LITE YOUTUBE FACADE MOTORU (YOUTUBE-NOCOOKIE) ── */
+  const activateLiteYoutubeFacade = (facadeElement) => {
+    if (!facadeElement || facadeElement.classList.contains("lrf-video-facade--loaded")) return;
+
+    const rawVideoId = (facadeElement.getAttribute("data-video-id") || "").trim();
+    if (!rawVideoId) return;
+
+    const videoTitle = (facadeElement.getAttribute("data-video-title") || "LRF Akademi Eğitim Videosu").trim();
+
+    const iframe = document.createElement("iframe");
+    iframe.className = "lrf-video-facade__iframe";
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(rawVideoId)}?autoplay=1&rel=0&modestbranding=1`;
+    iframe.title = videoTitle;
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.allowFullscreen = true;
+
+    facadeElement.classList.add("lrf-video-facade--loaded");
+    facadeElement.replaceChildren(iframe);
+  };
+
   /* ── 5. AKILLI ÇEREZ KALKANI SENSÖRÜ (KABUL ET / REDDET + CONSENT MODE V2) ── */
   const getCookieDecision = () => {
     try {
@@ -533,6 +556,14 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
       }
+    }
+
+    // B3. 100 PageSpeed Lite YouTube Facade Oynatıcısı
+    const videoFacade = target.closest(".lrf-video-facade");
+    if (videoFacade && !videoFacade.classList.contains("lrf-video-facade--loaded")) {
+      event.preventDefault();
+      activateLiteYoutubeFacade(videoFacade);
+      return;
     }
 
     // C. Galeri Lightbox Açıcı Sensörler
@@ -735,3 +766,333 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("load", scheduleAnalyticsLoad, { once: true });
   }
 })();
+/* ==========================================================================
+   🧭 PRATİK BİLGİLER: CANLI MERA ANALİZİ, AY EVRESİ VE ÇANTA LİSTESİ MOTORU
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  /* ── 1. AY EVRESİ & GECE RENGİ HESAPLAYICISI (SAF JS - SIFIR AĞ İSTEĞİ) ── */
+  const moonEmojiEl = document.getElementById("lrfMoonEmoji");
+  const moonDateEl = document.getElementById("lrfMoonDate");
+  const moonPhaseNameEl = document.getElementById("lrfMoonPhaseName");
+  const moonIllumEl = document.getElementById("lrfMoonIllum");
+  const moonStrategyBadgeEl = document.getElementById("lrfMoonStrategyBadge");
+  const moonColorTitleEl = document.getElementById("lrfMoonColorTitle");
+  const moonColorDescEl = document.getElementById("lrfMoonColorDesc");
+  const moonColorTagsEl = document.getElementById("lrfMoonColorTags");
+
+  if (moonPhaseNameEl && moonIllumEl) {
+    const now = new Date();
+    const SYNODIC_MONTH = 29.53058867;
+    // Referans Yeni Ay: 6 Ocak 2000 18:14 UTC
+    const KNOWN_NEW_MOON = Date.UTC(2000, 0, 6, 18, 14, 0);
+    const diffDays = (now.getTime() - KNOWN_NEW_MOON) / 86400000;
+    const cyclePos = ((diffDays % SYNODIC_MONTH) + SYNODIC_MONTH) % SYNODIC_MONTH;
+    const phaseRatio = cyclePos / SYNODIC_MONTH;
+    const illumination = Math.round(((1 - Math.cos(2 * Math.PI * phaseRatio)) / 2) * 100);
+
+    let phaseName = "Dolunay";
+    let phaseEmoji = "🌕";
+
+    if (phaseRatio < 0.03 || phaseRatio >= 0.97) {
+      phaseName = "Yeni Ay";
+      phaseEmoji = "🌑";
+    } else if (phaseRatio < 0.22) {
+      phaseName = "Hilal (Büyüyen)";
+      phaseEmoji = "🌒";
+    } else if (phaseRatio < 0.28) {
+      phaseName = "İlk Dördün";
+      phaseEmoji = "🌓";
+    } else if (phaseRatio < 0.47) {
+      phaseName = "Şişkin Ay (Büyüyen)";
+      phaseEmoji = "🌔";
+    } else if (phaseRatio < 0.53) {
+      phaseName = "Dolunay";
+      phaseEmoji = "🌕";
+    } else if (phaseRatio < 0.72) {
+      phaseName = "Şişkin Ay (Küçülen)";
+      phaseEmoji = "🌖";
+    } else if (phaseRatio < 0.78) {
+      phaseName = "Son Dördün";
+      phaseEmoji = "🌗";
+    } else {
+      phaseName = "Hilal (Küçülen)";
+      phaseEmoji = "🌘";
+    }
+
+    let strategyBadge = "Hibrit Gece Stratejisi";
+    let colorTitle = "Yüksek Kontrast: Glow Pembe + UV Beyaz";
+    let colorDesc = "Yarı aydınlık gecede balıklar hem hafif ışığa hem siluete tepki verir. UV fenerle kısa şarj edilmiş pembe/beyaz silikonlar ve liman gölgelerinde mor tonlar en yüksek verimi sunar.";
+    let tags = [
+      { label: "UV Pembe", cls: "lrf-badge--uv-pink" },
+      { label: "Glow Beyaz", cls: "lrf-badge--glow" },
+      { label: "UV Chartreuse", cls: "lrf-badge--uv-chartreuse" },
+    ];
+
+    if (illumination <= 30) {
+      strategyBadge = "Karanlık Gece • Glow & UV Öncelikli";
+      colorTitle = "Glow (Fosforlu) ve Parlak UV Renkler";
+      colorDesc = "Ay ışığı çok düşük olduğu için su altı karanlıktır. Balığın yemi fark etmesi için UV fenerle şarj edilmiş Glow (fosforlu) beyaz, pembe veya chartreuse kokulu silikonları 1–2 gr jig head ile yavaşça sunun.";
+      tags = [
+        { label: "Glow (Fosforlu)", cls: "lrf-badge--glow" },
+        { label: "UV Beyaz", cls: "lrf-badge--uv-white" },
+        { label: "UV Pembe", cls: "lrf-badge--uv-pink" },
+        { label: "Chartreuse", cls: "lrf-badge--chartreuse" },
+      ];
+    } else if (illumination >= 70) {
+      strategyBadge = "Parlak Ay Işığı • Koyu Siluet Öncelikli";
+      colorTitle = "Koyu Siluet (Siyah / Mor) ve Şeffaf Simli";
+      colorDesc = "Güçlü ay ışığı su yüzeyini aydınlatır; aşırı parlak glow yemler balığı ürkütebilir. Gökyüzüne karşı keskin siluet veren siyah, koyu mor veya doğal şeffaf gümüş simli silikonlara geçin.";
+      tags = [
+        { label: "Siyah Siluet", cls: "lrf-badge--black" },
+        { label: "Koyu Mor", cls: "lrf-badge--purple" },
+        { label: "Siyah/Mavi", cls: "lrf-badge--black-blue" },
+        { label: "Şeffaf Simli", cls: "lrf-badge--transparent" },
+      ];
+    }
+
+    if (moonDateEl) {
+      moonDateEl.textContent = now.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" });
+    }
+    if (moonEmojiEl) moonEmojiEl.textContent = phaseEmoji;
+    moonPhaseNameEl.textContent = phaseName;
+    moonIllumEl.textContent = `Doluluk: %${illumination}`;
+    if (moonStrategyBadgeEl) moonStrategyBadgeEl.textContent = strategyBadge;
+    if (moonColorTitleEl) moonColorTitleEl.textContent = colorTitle;
+    if (moonColorDescEl) moonColorDescEl.textContent = colorDesc;
+
+    if (moonColorTagsEl) {
+      moonColorTagsEl.replaceChildren();
+      tags.forEach((tag) => {
+        const span = document.createElement("span");
+        span.className = `lrf-badge lrf-badge--xs ${tag.cls}`;
+        span.textContent = tag.label;
+        moonColorTagsEl.appendChild(span);
+      });
+    }
+  }
+
+  /* ── 2. CANLI MERA HAVA & DENİZ ANALİZİ (OPEN-METEO - KONUM VEYA ŞEHİR) ── */
+  const fetchSpotBtn = document.getElementById("lrfFetchSpotBtn");
+  const citySelectEl = document.getElementById("lrfCitySelect");
+  const spotStatusEl = document.getElementById("lrfSpotStatus");
+  const windSpeedEl = document.getElementById("lrfMetricWindSpeed");
+  const windDirEl = document.getElementById("lrfMetricWindDir");
+  const tempEl = document.getElementById("lrfMetricTemp");
+  const waveEl = document.getElementById("lrfMetricWave");
+  const adviceBadgeEl = document.getElementById("lrfAdviceBadge");
+  const adviceTitleEl = document.getElementById("lrfAdviceTitle");
+  const adviceTextEl = document.getElementById("lrfAdviceText");
+
+  const getCompassDirection = (deg) => {
+    if (typeof deg !== "number" || Number.isNaN(deg)) return "--";
+    const dirs = ["Kuzey (K)", "Kuzeydoğu (KD)", "Doğu (D)", "Güneydoğu (GD)", "Güney (G)", "Güneybatı (GB)", "Batı (B)", "Kuzeybatı (KB)"];
+    return dirs[Math.round((deg % 360) / 45) % 8];
+  };
+
+  const buildLrfTackleAdvice = (windSpeed, waveHeight) => {
+    const wave = typeof waveHeight === "number" && !Number.isNaN(waveHeight) ? waveHeight : 0;
+
+    if (windSpeed >= 26 || wave >= 1.2) {
+      return {
+        badge: "Sert Hava • Ağır LRF / Güvenlik Öncelikli",
+        badgeClass: "lrf-badge lrf-badge--red lrf-badge--sm",
+        title: "5–10 gr Mikro Metal Jig veya Korunaklı Liman İçi",
+        desc: "Rüzgar veya dalga yüksekliği klasik 1–2 gr silikon sunumunu zorlaştırır. Açık kayalıklardan uzak durup rüzgarı arkaya alan liman içlerine yönelin; 5–8 gr mikro metal jig, 0.18–0.20 mm florokarbon lider ve düşük açılı atış tercih edin.",
+      };
+    }
+
+    if (windSpeed >= 15 || wave >= 0.6) {
+      return {
+        badge: "Orta Rüzgar & Çalkantı • Aktif Av Koşulu",
+        badgeClass: "lrf-badge lrf-badge--orange lrf-badge--sm",
+        title: "2.5–5 gr Jig Head / Mikro Jig + Titreşimli Silikon",
+        desc: "Kıyıdaki çalkantı oksijeni artırarak levrek, mırmır ve istavriti kıyıya çeker. İp balonunu önlemek için 2.5–4 gr jig head veya 3–5 gr metal jig kullanın; kamış ucunu suya yakın tutarak feathering (parmak freni) ile atış yapın.",
+      };
+    }
+
+    if (windSpeed >= 8 || wave >= 0.3) {
+      return {
+        badge: "İdeal LRF Koşulu • Dengeli Sunum",
+        badgeClass: "lrf-badge lrf-badge--teal lrf-badge--sm",
+        title: "1.5–2.5 gr Jig Head + 4–5 cm Kokulu Silikon",
+        desc: "Hafif meltem ve düşük dalga LRF için altın dengedir. PE #0.2–#0.4 ip, 0.16 mm lider ve 1.5–2.5 gr Round veya Dart Head ile hem orta su hem dip taramasında yüksek hissiyat elde edersiniz.",
+      };
+    }
+
+    return {
+      badge: "Sakin Deniz • Ultra Hafif Finesse",
+      badgeClass: "lrf-badge lrf-badge--cyan lrf-badge--sm",
+      title: "0.8–1.5 gr Mikro Jig Head + İnce Silikon",
+      desc: "Deniz çarşaf gibi sakin. Balıklar sesi ve kalın misinayı kolayca fark eder; 0.14 mm ince florokarbon lider, 0.8–1.5 gr ultra hafif jig head ve sarkaç/yandan atışla sessiz sunum yapın.",
+    };
+  };
+
+  const fetchSpotAnalysis = async (lat, lon, label) => {
+    if (!spotStatusEl) return;
+
+    if (fetchSpotBtn) fetchSpotBtn.disabled = true;
+    if (citySelectEl) citySelectEl.disabled = true;
+    spotStatusEl.classList.remove("lrf-tool-status--error");
+    spotStatusEl.textContent = `${label} için Open-Meteo hava ve deniz verileri çekiliyor...`;
+
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m,wind_direction_10m&wind_speed_unit=kmh&timezone=auto`;
+    const marineUrl = `https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&current=wave_height&timezone=auto`;
+
+    try {
+      const [weatherRes, marineRes] = await Promise.all([fetch(weatherUrl), fetch(marineUrl).catch(() => null)]);
+
+      if (!weatherRes.ok) {
+        throw new Error("Hava durumu servisine ulaşılamadı.");
+      }
+
+      const weatherData = await weatherRes.json();
+      const marineData = marineRes && marineRes.ok ? await marineRes.json() : null;
+
+      const currentWeather = weatherData && weatherData.current ? weatherData.current : null;
+      if (!currentWeather) {
+        throw new Error("Anlık meteoroloji verisi alınamadı.");
+      }
+
+      const windSpeed = Number(currentWeather.wind_speed_10m);
+      const windDir = Number(currentWeather.wind_direction_10m);
+      const temp = Number(currentWeather.temperature_2m);
+      const rawWave = marineData && marineData.current ? marineData.current.wave_height : null;
+      const waveHeight = rawWave !== null && rawWave !== undefined ? Number(rawWave) : null;
+
+      if (windSpeedEl) windSpeedEl.textContent = `${windSpeed.toFixed(1)} km/s`;
+      if (windDirEl) windDirEl.textContent = `${getCompassDirection(windDir)} (${Math.round(windDir)}°)`;
+      if (tempEl) tempEl.textContent = `${temp.toFixed(1)} °C`;
+      if (waveEl) waveEl.textContent = waveHeight !== null && !Number.isNaN(waveHeight) ? `${waveHeight.toFixed(2)} m` : "Kıyı dışı / Veri yok";
+
+      const advice = buildLrfTackleAdvice(windSpeed, waveHeight);
+      if (adviceBadgeEl) {
+        adviceBadgeEl.className = advice.badgeClass;
+        adviceBadgeEl.textContent = advice.badge;
+      }
+      if (adviceTitleEl) adviceTitleEl.textContent = advice.title;
+      if (adviceTextEl) adviceTextEl.textContent = advice.desc;
+
+      const updatedTime = new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+      spotStatusEl.textContent = `${label} analizi güncellendi (${updatedTime})`;
+    } catch {
+      spotStatusEl.textContent = "Veriler çekilirken bir bağlantı sorunu oluştu. Lütfen internetinizi kontrol edip tekrar deneyin.";
+      spotStatusEl.classList.add("lrf-tool-status--error");
+    } finally {
+      if (fetchSpotBtn) fetchSpotBtn.disabled = false;
+      if (citySelectEl) citySelectEl.disabled = false;
+    }
+  };
+
+  if (fetchSpotBtn && spotStatusEl) {
+    fetchSpotBtn.addEventListener("click", () => {
+      if (!("geolocation" in navigator)) {
+        spotStatusEl.textContent = "Tarayıcınız konum özelliğini desteklemiyor. Listeden bir kıyı şehri seçebilirsiniz.";
+        spotStatusEl.classList.add("lrf-tool-status--error");
+        return;
+      }
+
+      if (citySelectEl) citySelectEl.value = "";
+      fetchSpotBtn.disabled = true;
+      spotStatusEl.classList.remove("lrf-tool-status--error");
+      spotStatusEl.textContent = "Konum izni bekleniyor...";
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude.toFixed(4);
+          const lon = position.coords.longitude.toFixed(4);
+          fetchSpotAnalysis(lat, lon, `Konumunuz (${lat}, ${lon})`);
+        },
+        (error) => {
+          fetchSpotBtn.disabled = false;
+          spotStatusEl.classList.add("lrf-tool-status--error");
+          if (error.code === error.PERMISSION_DENIED) {
+            spotStatusEl.textContent = "Konum izni reddedildi. Sağdaki listeden bir kıyı şehri seçerek konumsuz analiz alabilirsiniz.";
+          } else {
+            spotStatusEl.textContent = "Konumunuz alınamadı. Sağdaki listeden bir kıyı şehri seçebilirsiniz.";
+          }
+        },
+        { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
+      );
+    });
+  }
+
+  if (citySelectEl) {
+    citySelectEl.addEventListener("change", () => {
+      const val = citySelectEl.value;
+      if (!val) return;
+      const [lat, lon] = val.split(",");
+      const cityLabel = citySelectEl.options[citySelectEl.selectedIndex].text;
+      if (lat && lon) {
+        fetchSpotAnalysis(lat, lon, cityLabel);
+      }
+    });
+  }
+
+  /* ── 3. MERAYA ÇIKMADAN ÖNCE ÇANTA KONTROL LİSTESİ (LOCALSTORAGE) ── */
+  const checklistEl = document.getElementById("lrfBagChecklist");
+  const checklistCountEl = document.getElementById("lrfChecklistCount");
+  const checklistResetBtn = document.getElementById("lrfChecklistReset");
+  const STORAGE_KEY = "lrf_bag_checklist_v1";
+
+  if (checklistEl) {
+    const checkboxes = Array.from(checklistEl.querySelectorAll(".lrf-checklist__input"));
+
+    const loadSavedChecklist = () => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch {
+        return {};
+      }
+    };
+
+    const saveChecklist = (stateObj) => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(stateObj));
+      } catch {
+        // Depolama kısıtlamasında sessizce devam et
+      }
+    };
+
+    const syncChecklistUI = () => {
+      let checkedCount = 0;
+      const stateObj = {};
+
+      checkboxes.forEach((box) => {
+        const key = box.getAttribute("data-check-id");
+        const item = box.closest(".lrf-checklist__item");
+        if (box.checked) {
+          checkedCount += 1;
+          if (item) item.classList.add("is-checked");
+        } else if (item) {
+          item.classList.remove("is-checked");
+        }
+        if (key) stateObj[key] = box.checked;
+      });
+
+      if (checklistCountEl) {
+        checklistCountEl.textContent = `${checkedCount} / ${checkboxes.length} Hazır`;
+      }
+      saveChecklist(stateObj);
+    };
+
+    const savedState = loadSavedChecklist();
+    checkboxes.forEach((box) => {
+      const key = box.getAttribute("data-check-id");
+      if (key && savedState[key]) {
+        box.checked = true;
+      }
+      box.addEventListener("change", syncChecklistUI);
+    });
+    syncChecklistUI();
+
+    if (checklistResetBtn) {
+      checklistResetBtn.addEventListener("click", () => {
+        checkboxes.forEach((box) => {
+          box.checked = false;
+        });
+        syncChecklistUI();
+      });
+    }
+  }
+});
