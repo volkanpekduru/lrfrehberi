@@ -13,23 +13,7 @@ const PANEL_TAB_TEXTS = Object.freeze({
 
 const JIG_KEYWORDS = Object.freeze(["round", "dart", "standup", "football", "shaky", "swimbait", "cheburashka", "hirsiz"]);
 
-const MOBILE_HOVER_SELECTORS = [
-  ".lrf-grid-card",
-  ".lrf-start-card",
-  ".lrf-premium-info-card",
-  ".lrf-zigzag__row",
-  ".lrf-zigzag__list-item--boxed",
-  ".lrf-video-facade",
-  ".lrf-jig-gallery__item",
-  ".lrf-layers-row",
-  ".lrf-strategy-panel",
-  ".lrf-faq__item",
-  ".lrf-hero__btn-primary",
-  ".lrf-hero__btn-secondary",
-  ".lrf-cta__btn-white",
-  ".lrf-cta__btn-trans",
-  ".lrf-tab-system-container--capsule .lrf-tab-system-btn",
-].join(", ");
+const MOBILE_HOVER_SELECTORS = [".lrf-grid-card", ".lrf-start-card", ".lrf-premium-info-card", ".lrf-zigzag__row", ".lrf-zigzag__list-item--boxed", ".lrf-video-facade", ".lrf-jig-gallery__item", ".lrf-layers-row", ".lrf-strategy-panel"].join(", ");
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ── 0. LUCIDE İKON MOTORU BAŞLATICI ── */
