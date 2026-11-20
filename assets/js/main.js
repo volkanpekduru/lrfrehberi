@@ -1096,3 +1096,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+/* ==========================================================================
+   💬 LRF AKADEMİ: 100 PAGESPEED LAZY LOAD GISCUS YORUM MOTORU
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const giscusContainer = document.querySelector(".lrf-giscus-wrapper .giscus");
+  if (!giscusContainer) return;
+
+  let isGiscusLoaded = false;
+
+  const loadGiscusEngine = () => {
+    if (isGiscusLoaded) return;
+    isGiscusLoaded = true;
+
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "volkanpekduru/lrfrehberi");
+    script.setAttribute("data-repo-id", "R_kgDOV0rBYA");
+    script.setAttribute("data-category", "Announcements");
+    script.setAttribute("data-category-id", "DIC_kwDOV0rBYM4DLjK3");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "1");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", "light");
+    script.setAttribute("data-lang", "tr");
+    script.setAttribute("crossorigin", "anonymous");
+    script.async = true;
+
+    giscusContainer.appendChild(script);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const giscusObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadGiscusEngine();
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "350px 0px" },
+    );
+    giscusObserver.observe(giscusContainer);
+  } else {
+    loadGiscusEngine();
+  }
+});
