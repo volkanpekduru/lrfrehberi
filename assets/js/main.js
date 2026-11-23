@@ -13,7 +13,7 @@ const PANEL_TAB_TEXTS = Object.freeze({
 
 const JIG_KEYWORDS = Object.freeze(["round", "dart", "standup", "football", "shaky", "swimbait", "cheburashka", "hirsiz"]);
 
-const MOBILE_HOVER_SELECTORS = [".lrf-grid-card", ".lrf-start-card", ".lrf-premium-info-card", ".lrf-zigzag__row", ".lrf-zigzag__list-item--boxed", ".lrf-video-facade", ".lrf-layers-row", ".lrf-strategy-panel", ".lrf-cta__btn-white", ".lrf-cta__btn-trans"].join(", ");
+const MOBILE_HOVER_SELECTORS = [".lrf-grid-card", ".lrf-start-card", ".lrf-premium-info-card", ".lrf-zigzag__row", ".lrf-zigzag__list-item--boxed", ".lrf-video-facade", ".lrf-layers-row", ".lrf-strategy-panel", ".lrf-puffer-alert-wrap"].join(", ");
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ── 0. LUCIDE İKON MOTORU BAŞLATICI ── */
@@ -767,8 +767,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (moonPhaseNameEl && moonIllumEl) {
     const now = new Date();
     const SYNODIC_MONTH = 29.53058867;
-    // Referans Yeni Ay: 6 Ocak 2000 18:14 UTC
-    const KNOWN_NEW_MOON = Date.UTC(2000, 0, 6, 18, 14, 0);
+    // Referans Yeni Ay: 9 Kasım 2026 07:02 UTC (Yüksek hassasiyetli güncel referans)
+    const KNOWN_NEW_MOON = Date.UTC(2026, 10, 9, 7, 2, 0);
     const diffDays = (now.getTime() - KNOWN_NEW_MOON) / 86400000;
     const cyclePos = ((diffDays % SYNODIC_MONTH) + SYNODIC_MONTH) % SYNODIC_MONTH;
     const phaseRatio = cyclePos / SYNODIC_MONTH;
@@ -786,10 +786,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (phaseRatio < 0.28) {
       phaseName = "İlk Dördün";
       phaseEmoji = "🌓";
-    } else if (phaseRatio < 0.47) {
+    } else if (phaseRatio < 0.465) {
       phaseName = "Şişkin Ay (Büyüyen)";
       phaseEmoji = "🌔";
-    } else if (phaseRatio < 0.53) {
+    } else if (phaseRatio <= 0.535) {
       phaseName = "Dolunay";
       phaseEmoji = "🌕";
     } else if (phaseRatio < 0.72) {
@@ -880,7 +880,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return {
         badge: "Sert Hava • Ağır LRF / Güvenlik Öncelikli",
         badgeClass: "lrf-badge lrf-badge--red lrf-badge--sm",
-        title: "5–10 gr Mikro Metal Jig veya Korunaklı Liman İçi",
+        title: "5–8 gr Mikro Metal Jig veya Korunaklı Liman İçi",
         desc: "Rüzgar veya dalga yüksekliği klasik 1–2 gr silikon sunumunu zorlaştırır. Açık kayalıklardan uzak durup rüzgarı arkaya alan liman içlerine yönelin; 5–8 gr mikro metal jig, 0.18–0.20 mm florokarbon lider ve düşük açılı atış tercih edin.",
       };
     }
@@ -1128,4 +1128,328 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     loadGiscusEngine();
   }
+});
+/* ==========================================================================
+   🎬 PRATİK BİLGİLER: 3 AŞAMALI SİNEMATİK FİNAL & SIFIR KB WEB AUDIO AMBİYANSI
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const closingSection = document.getElementById("lrfClosingStage");
+  if (!closingSection) return;
+
+  const ambientBtn = document.getElementById("lrfAmbientToggle");
+  const replayBtn = document.getElementById("lrfClosingReplay");
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ── 1. 3 AŞAMALI SİNEMATİK ZAMAN ÇİZELGESİ (0s → 3.8s → 4.8s+) ── */
+  const STAGE_TIMINGS = Object.freeze({
+    letterboxStartMs: 10500,
+    finaleStartMs: 11700,
+  });
+
+  let sceneTimers = [];
+  let hasPlayedOnScroll = false;
+
+  const clearSceneTimers = () => {
+    sceneTimers.forEach((timerId) => window.clearTimeout(timerId));
+    sceneTimers = [];
+  };
+
+  const playCinematicSequence = () => {
+    clearSceneTimers();
+
+    if (reducedMotionQuery.matches) {
+      closingSection.setAttribute("data-closing-state", "scene-3");
+      return;
+    }
+
+    // Baştan oynatıldığında CSS geçişlerini temiz şekilde sıfırla
+    closingSection.setAttribute("data-closing-state", "idle");
+    void closingSection.offsetWidth;
+
+    window.requestAnimationFrame(() => {
+      // Sahne 1: Manifesto Akışı (0s – 3.8s)
+      closingSection.setAttribute("data-closing-state", "scene-1");
+
+      // Sahne 2: Sinematik Letterbox Perde Kapanışı + Manifesto Bulanıklaşması (3.8s – 4.8s)
+      sceneTimers.push(
+        window.setTimeout(() => {
+          closingSection.setAttribute("data-closing-state", "scene-2");
+        }, STAGE_TIMINGS.letterboxStartMs),
+      );
+
+      // Sahne 3: Büyük Final İmzası — RASTGELE! (4.8s+ kalıcı)
+      sceneTimers.push(
+        window.setTimeout(() => {
+          closingSection.setAttribute("data-closing-state", "scene-3");
+        }, STAGE_TIMINGS.finaleStartMs),
+      );
+    });
+  };
+
+  if (reducedMotionQuery.matches) {
+    closingSection.setAttribute("data-closing-state", "scene-3");
+  } else if ("IntersectionObserver" in window) {
+    const closingObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasPlayedOnScroll) {
+            hasPlayedOnScroll = true;
+            playCinematicSequence();
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.35,
+      },
+    );
+    closingObserver.observe(closingSection);
+  } else {
+    hasPlayedOnScroll = true;
+    playCinematicSequence();
+  }
+
+  if (reducedMotionQuery.addEventListener) {
+    reducedMotionQuery.addEventListener("change", (event) => {
+      if (event.matches) {
+        clearSceneTimers();
+        closingSection.setAttribute("data-closing-state", "scene-3");
+      }
+    });
+  }
+
+  if (replayBtn) {
+    replayBtn.addEventListener("click", () => {
+      hasPlayedOnScroll = true;
+      playCinematicSequence();
+    });
+  }
+
+  /* ── 2. SIFIR KB WEB AUDIO API KIYI DALGASI / GECE MERASI SENTEZLEYİCİSİ ── */
+  const createWaveAmbientEngine = () => {
+    let audioCtx = null;
+    let masterGain = null;
+    let isPlaying = false;
+    let suspendTimer = null;
+
+    const TARGET_VOLUME = 0.3;
+    const FADE_IN_SEC = 1.4;
+    const FADE_OUT_SEC = 0.75;
+
+    /**
+     * Kesintisiz döngü için uçları crossfade edilmiş stereo pembe veya kahverengi gürültü tamponu üretir.
+     */
+    const createNoiseBuffer = (ctx, type, durationSec = 6) => {
+      const sampleRate = ctx.sampleRate;
+      const frameCount = Math.floor(sampleRate * durationSec);
+      const buffer = ctx.createBuffer(2, frameCount, sampleRate);
+      const fadeSamples = Math.floor(sampleRate * 0.18);
+
+      for (let channel = 0; channel < 2; channel += 1) {
+        const data = buffer.getChannelData(channel);
+
+        if (type === "brown") {
+          let lastOut = 0;
+          for (let i = 0; i < frameCount; i += 1) {
+            const white = Math.random() * 2 - 1;
+            lastOut = (lastOut + 0.02 * white) / 1.02;
+            data[i] = lastOut * 3.2;
+          }
+        } else {
+          // Paul Kellet 7 aşamalı pembe gürültü filtresi
+          let b0 = 0;
+          let b1 = 0;
+          let b2 = 0;
+          let b3 = 0;
+          let b4 = 0;
+          let b5 = 0;
+          let b6 = 0;
+          for (let i = 0; i < frameCount; i += 1) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.969 * b2 + white * 0.153852;
+            b3 = 0.8665 * b3 + white * 0.3104856;
+            b4 = 0.55 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.016898;
+            data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.045;
+            b6 = white * 0.115926;
+          }
+        }
+
+        // Döngü sınırında tık sesini önleyen yumuşak crossfade
+        for (let i = 0; i < fadeSamples; i += 1) {
+          const ratio = i / fadeSamples;
+          const tailIndex = frameCount - fadeSamples + i;
+          data[i] = data[i] * ratio + data[tailIndex] * (1 - ratio);
+        }
+      }
+
+      return buffer;
+    };
+
+    const ensureGraph = () => {
+      if (audioCtx) return true;
+      const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextCtor) return false;
+
+      audioCtx = new AudioContextCtor();
+      masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
+
+      // Katman 1: Derin Kıyı Dalgası (Kahverengi Gürültü + Alçak Geçiren Filtre + Yavaş LFO)
+      const swellSource = audioCtx.createBufferSource();
+      swellSource.buffer = createNoiseBuffer(audioCtx, "brown", 7);
+      swellSource.loop = true;
+
+      const swellFilter = audioCtx.createBiquadFilter();
+      swellFilter.type = "lowpass";
+      swellFilter.frequency.setValueAtTime(220, audioCtx.currentTime);
+      swellFilter.Q.setValueAtTime(0.7, audioCtx.currentTime);
+
+      const swellGain = audioCtx.createGain();
+      swellGain.gain.setValueAtTime(0.52, audioCtx.currentTime);
+
+      const swellLfo = audioCtx.createOscillator();
+      swellLfo.type = "sine";
+      swellLfo.frequency.setValueAtTime(0.11, audioCtx.currentTime); // ~9.1 sn dalga ritmi
+
+      const swellFilterDepth = audioCtx.createGain();
+      swellFilterDepth.gain.setValueAtTime(145, audioCtx.currentTime);
+
+      const swellGainDepth = audioCtx.createGain();
+      swellGainDepth.gain.setValueAtTime(0.24, audioCtx.currentTime);
+
+      swellLfo.connect(swellFilterDepth);
+      swellFilterDepth.connect(swellFilter.frequency);
+      swellLfo.connect(swellGainDepth);
+      swellGainDepth.connect(swellGain.gain);
+
+      swellSource.connect(swellFilter);
+      swellFilter.connect(swellGain);
+      swellGain.connect(masterGain);
+
+      // Katman 2: Kıyı Köpüğü & Çakıl Sürtünmesi (Pembe Gürültü + Bant Geçiren Filtre + İkinci LFO)
+      const foamSource = audioCtx.createBufferSource();
+      foamSource.buffer = createNoiseBuffer(audioCtx, "pink", 6);
+      foamSource.loop = true;
+
+      const foamFilter = audioCtx.createBiquadFilter();
+      foamFilter.type = "bandpass";
+      foamFilter.frequency.setValueAtTime(560, audioCtx.currentTime);
+      foamFilter.Q.setValueAtTime(0.55, audioCtx.currentTime);
+
+      const foamGain = audioCtx.createGain();
+      foamGain.gain.setValueAtTime(0.16, audioCtx.currentTime);
+
+      const foamLfo = audioCtx.createOscillator();
+      foamLfo.type = "sine";
+      foamLfo.frequency.setValueAtTime(0.145, audioCtx.currentTime); // ~6.9 sn organik faz kayması
+
+      const foamFilterDepth = audioCtx.createGain();
+      foamFilterDepth.gain.setValueAtTime(240, audioCtx.currentTime);
+
+      const foamGainDepth = audioCtx.createGain();
+      foamGainDepth.gain.setValueAtTime(0.11, audioCtx.currentTime);
+
+      foamLfo.connect(foamFilterDepth);
+      foamFilterDepth.connect(foamFilter.frequency);
+      foamLfo.connect(foamGainDepth);
+      foamGainDepth.connect(foamGain.gain);
+
+      foamSource.connect(foamFilter);
+      foamFilter.connect(foamGain);
+      foamGain.connect(masterGain);
+
+      swellSource.start();
+      foamSource.start();
+      swellLfo.start();
+      foamLfo.start();
+
+      return true;
+    };
+
+    const start = async () => {
+      if (!ensureGraph()) return false;
+      if (suspendTimer) {
+        window.clearTimeout(suspendTimer);
+        suspendTimer = null;
+      }
+
+      if (audioCtx.state === "suspended") {
+        await audioCtx.resume();
+      }
+
+      const now = audioCtx.currentTime;
+      masterGain.gain.cancelScheduledValues(now);
+      masterGain.gain.setValueAtTime(Math.max(masterGain.gain.value, 0.0001), now);
+      masterGain.gain.linearRampToValueAtTime(TARGET_VOLUME, now + FADE_IN_SEC);
+
+      isPlaying = true;
+      return true;
+    };
+
+    const stop = () => {
+      if (!audioCtx || !masterGain) {
+        isPlaying = false;
+        return;
+      }
+
+      const now = audioCtx.currentTime;
+      masterGain.gain.cancelScheduledValues(now);
+      masterGain.gain.setValueAtTime(Math.max(masterGain.gain.value, 0.0001), now);
+      masterGain.gain.linearRampToValueAtTime(0.0001, now + FADE_OUT_SEC);
+
+      isPlaying = false;
+      if (suspendTimer) window.clearTimeout(suspendTimer);
+      suspendTimer = window.setTimeout(
+        () => {
+          if (!isPlaying && audioCtx && audioCtx.state === "running") {
+            audioCtx.suspend().catch(() => {});
+          }
+        },
+        Math.round(FADE_OUT_SEC * 1000) + 80,
+      );
+    };
+
+    return {
+      isPlaying: () => isPlaying,
+      toggle: async () => {
+        if (isPlaying) {
+          stop();
+          return false;
+        }
+        return start();
+      },
+      stop,
+    };
+  };
+
+  const waveEngine = createWaveAmbientEngine();
+
+  const syncAmbientButtonUI = (active) => {
+    if (!ambientBtn) return;
+    ambientBtn.setAttribute("aria-pressed", String(active));
+    ambientBtn.setAttribute("aria-label", active ? "Kıyı dalgası mera sesini kapat" : "Kıyı dalgası mera sesini aç");
+  };
+
+  if (ambientBtn) {
+    ambientBtn.addEventListener("click", async () => {
+      try {
+        const active = await waveEngine.toggle();
+        syncAmbientButtonUI(active);
+      } catch {
+        syncAmbientButtonUI(false);
+      }
+    });
+  }
+
+  window.addEventListener("pagehide", () => {
+    if (waveEngine.isPlaying()) {
+      waveEngine.stop();
+      syncAmbientButtonUI(false);
+    }
+  });
 });
