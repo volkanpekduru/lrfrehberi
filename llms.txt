@@ -1,0 +1,23 @@
+# LRF Rehberi (Light Rock Fishing Türkiye)
+
+> Türkiye kıyılarında Light Rock Fishing (LRF) disiplinini sıfırdan öğrenmek ve ustalaşmak isteyen avcılar için hazırlanmış kapsamlı, ücretsiz ve reklamsız teknik rehber ve saha araçları platformu.
+
+LRF Rehberi; 0.5–10 gr atar aralığındaki ultra hafif ekipmanların kurulumundan kritik düğüm tekniklerine, su katmanlarına göre sahte yem ve renk seçiminden Türkiye'deki hedef balık türlerine, yasal av limitlerinden zehirli balık ilk yardım kurallarına kadar sahada doğrudan uygulanabilir bilgiler sunar.
+
+## Ana Rehber Sayfaları
+
+- [Ana Sayfa](https://lrfrehberi.com/): LRF nedir, temel disiplin prensipleri, hızlı başlangıç özeti ve rehber haritası.
+- [Başlangıç Rehberi](https://lrfrehberi.com/baslangic.html): LRF'ye ilk adım atanlar için takım kurulumu, kalama ayarı, hedef derinlik seçimi ve temel saha kuralları.
+- [Ekipman ve Malzemeler](https://lrfrehberi.com/malzemeler.html): LRF kamışları (solid/tubular uç), hafif makineler, PE örgü ip misinalar, florokarbon lider seçimi, jig head türleri, silikon, mikro jig, maket ve su üstü sahteler.
+- [Avcılık Teknikleri ve Hedef Balıklar](https://lrfrehberi.com/teknikler.html): Su katmanları (su üstü, orta su, dip), ışık ve su berraklığına göre renk rehberi, gündüz/gece stratejileri ve Türkiye kıyılarında LRF ile avlanan hedef balık profilleri.
+- [LRF Akademi](https://lrfrehberi.com/akademi.html): Kritik LRF düğümleri (FG Knot, Albright, Uni, Palomar, Rapala), atış laboratuvarı, 12 çekiş ve aksiyon tekniği videosu, mera senaryoları ve topluluk soru-cevap alanı.
+- [Uzmanlık Rehberi](https://lrfrehberi.com/uzmanlik.html): Jig head kafa geometrileri (Round, Dart, Standup, Football, Shaky, Cheburashka vb.), aksiyon dinamikleri ve ileri seviye takım optimizasyonu.
+
+## İnteraktif Saha Araçları ve Güvenlik
+
+- [Pratik Bilgiler ve Saha Araçları](https://lrfrehberi.com/pratik-bilgiler.html): Open-Meteo tabanlı canlı mera rüzgar/dalga analizi, anlık ay evresi ve gece renk önerisi hesaplayıcısı, meraya çıkmadan önce çanta kontrol listesi, amatör balıkçılık yasal boy/adet limitleri, tuzlu su bakım rutini ve zehirli balıklar (Trakonya, İskorpit, Sokar, Vatoz, Balon Balığı) acil ilk yardım rehberi.
+
+## Yasal Bilgiler
+
+- [Gizlilik Politikası](https://lrfrehberi.com/gizlilik-politikasi.html): KVKK uyumlu veri işleme, çerez tercihleri ve kullanılan üçüncü taraf servisler hakkında bilgilendirme.
+- [Kullanım Koşulları](https://lrfrehberi.com/kullanim-kosullari.html): Platform kullanım şartları, yasal sorumluluk reddi ve telif hakları.
