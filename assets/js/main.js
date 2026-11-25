@@ -122,10 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
   allTabGroups.forEach((group) => {
     if (group.classList.contains("lrf-tab-system-group--active")) {
       group.removeAttribute("inert");
-      group.setAttribute("aria-hidden", "false");
     } else {
       group.setAttribute("inert", "");
-      group.setAttribute("aria-hidden", "true");
     }
   });
 
@@ -165,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
       allTabGroups.forEach((group) => {
         group.classList.remove("lrf-tab-system-group--active");
         group.setAttribute("inert", "");
-        group.setAttribute("aria-hidden", "true");
       });
 
       const targetGal = document.getElementById(`lrf-tab-system-group-${tabTargetId}`);
@@ -174,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetGal) {
         targetGal.classList.add("lrf-tab-system-group--active");
         targetGal.removeAttribute("inert");
-        targetGal.setAttribute("aria-hidden", "false");
         const targetGalBox = targetGal.querySelector(".lrf-jig-gallery");
         if (targetGalBox) {
           targetGalBox.setAttribute("data-active-color", tabTargetId);
@@ -184,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetContent) {
         targetContent.classList.add("lrf-tab-system-group--active");
         targetContent.removeAttribute("inert");
-        targetContent.setAttribute("aria-hidden", "false");
       }
 
       // Aktif panel değişiminde yeni görünür olan kartlar için göz hizası observer'ını tazele
@@ -281,8 +276,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  /* ── 3. KÜRESEL LIGHTBOX POPUP MOTORU (FOCUS TRAP & FOCUS RETURN KORUMALI) ── */
+  /* ── 3. KÜRESEL LIGHTBOX POPUP MOTORU (FOCUS TRAP, ARKA PLAN INERT & FOCUS RETURN) ── */
   let lastLightboxTrigger = null;
+  let lightboxInertElements = [];
+
+  const setLightboxBackgroundInert = (shouldInert) => {
+    if (shouldInert) {
+      lightboxInertElements = [];
+      Array.from(document.body.children).forEach((child) => {
+        if (child === lightbox || child.tagName === "SCRIPT" || child.hasAttribute("inert")) {
+          return;
+        }
+        child.setAttribute("inert", "");
+        lightboxInertElements.push(child);
+      });
+    } else {
+      lightboxInertElements.forEach((el) => {
+        el.removeAttribute("inert");
+      });
+      lightboxInertElements = [];
+    }
+  };
 
   const resolveLightboxSrc = (galleryItem) => {
     if (!galleryItem) return "";
@@ -316,9 +330,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.overflow = "hidden";
     document.documentElement.style.touchAction = "none";
 
+    setLightboxBackgroundInert(true);
     lightbox.removeAttribute("inert");
     lightbox.classList.add("lrf-lightbox-overlay--active");
-    lightbox.setAttribute("aria-hidden", "false");
 
     const closeBtn = document.getElementById("lrfLightboxClose");
     if (closeBtn) closeBtn.focus();
@@ -327,8 +341,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeLightbox = () => {
     if (lightbox && lightbox.classList.contains("lrf-lightbox-overlay--active")) {
       lightbox.classList.remove("lrf-lightbox-overlay--active");
-      lightbox.setAttribute("aria-hidden", "true");
       lightbox.setAttribute("inert", "");
+      setLightboxBackgroundInert(false);
 
       document.documentElement.style.overflow = "";
       document.documentElement.style.touchAction = "";
@@ -363,25 +377,83 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* ── 4B. 100 PAGESPEED LITE YOUTUBE FACADE MOTORU (YOUTUBE-NOCOOKIE) ── */
+  const parseVideoSeconds = (value) => {
+    if (value === null) return null;
+    const trimmed = value.trim();
+    if (!/^\d+$/.test(trimmed)) return null;
+    const seconds = Number.parseInt(trimmed, 10);
+    return Number.isSafeInteger(seconds) ? seconds : null;
+  };
+
+  const liteYoutubeOriginalNodes = new WeakMap();
+
+  const resetActiveLiteYoutubeFacades = (excludeElement = null) => {
+    document.querySelectorAll(".lrf-video-facade.lrf-video-facade--loaded").forEach((activeFacade) => {
+      if (activeFacade === excludeElement) return;
+
+      const activeIframe = activeFacade.querySelector("iframe");
+      if (activeIframe) {
+        activeIframe.src = "about:blank";
+        activeIframe.remove();
+      }
+
+      const originalNodes = liteYoutubeOriginalNodes.get(activeFacade);
+      if (originalNodes) {
+        activeFacade.replaceChildren(...originalNodes.map((node) => node.cloneNode(true)));
+      } else {
+        activeFacade.replaceChildren();
+      }
+
+      activeFacade.classList.remove("lrf-video-facade--loaded");
+    });
+  };
+
   const activateLiteYoutubeFacade = (facadeElement) => {
     if (!facadeElement || facadeElement.classList.contains("lrf-video-facade--loaded")) return;
 
     const rawVideoId = (facadeElement.getAttribute("data-video-id") || "").trim();
-    if (!rawVideoId) return;
+    if (!rawVideoId || !/^[A-Za-z0-9_-]{11}$/.test(rawVideoId)) {
+      return;
+    }
+
+    resetActiveLiteYoutubeFacades(facadeElement);
+
+    if (!liteYoutubeOriginalNodes.has(facadeElement)) {
+      liteYoutubeOriginalNodes.set(
+        facadeElement,
+        Array.from(facadeElement.childNodes, (node) => node.cloneNode(true)),
+      );
+    }
 
     const videoTitle = (facadeElement.getAttribute("data-video-title") || "LRF Akademi Eğitim Videosu").trim();
+    const startSec = parseVideoSeconds(facadeElement.getAttribute("data-start"));
+    const endSec = parseVideoSeconds(facadeElement.getAttribute("data-end"));
+
+    const params = new URLSearchParams({
+      autoplay: "1",
+      rel: "0",
+    });
+
+    if (startSec !== null && startSec > 0) {
+      params.set("start", String(startSec));
+    }
+    if (endSec !== null && endSec > (startSec ?? 0)) {
+      params.set("end", String(endSec));
+    }
 
     const iframe = document.createElement("iframe");
     iframe.className = "lrf-video-facade__iframe";
-    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(rawVideoId)}?autoplay=1&rel=0&modestbranding=1`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(rawVideoId)}?${params.toString()}`;
     iframe.title = videoTitle;
     iframe.loading = "lazy";
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.allowFullscreen = true;
 
+    iframe.setAttribute("tabindex", "-1");
     facadeElement.classList.add("lrf-video-facade--loaded");
     facadeElement.replaceChildren(iframe);
+    iframe.focus({ preventScroll: true });
   };
 
   /* ── 5. AKILLI ÇEREZ KALKANI SENSÖRÜ (KABUL ET / REDDET + CONSENT MODE V2) ── */
@@ -413,12 +485,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!getCookieDecision()) {
       setTimeout(() => {
         cookieBanner.removeAttribute("inert");
-        cookieBanner.setAttribute("aria-hidden", "false");
         cookieBanner.classList.add("show");
       }, 1000);
     } else {
       cookieBanner.setAttribute("inert", "");
-      cookieBanner.setAttribute("aria-hidden", "true");
     }
   }
 
@@ -426,7 +496,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cookieBanner) {
       const wasFocusedInside = cookieBanner.contains(document.activeElement);
       cookieBanner.classList.remove("show");
-      cookieBanner.setAttribute("aria-hidden", "true");
       cookieBanner.setAttribute("inert", "");
       saveCookieDecision(decision);
 
@@ -448,14 +517,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mobileMediaQuery.matches) {
       if (isOpen) {
         navMenu.removeAttribute("inert");
-        navMenu.setAttribute("aria-hidden", "false");
       } else {
         navMenu.setAttribute("inert", "");
-        navMenu.setAttribute("aria-hidden", "true");
       }
     } else {
       navMenu.removeAttribute("inert");
-      navMenu.removeAttribute("aria-hidden");
     }
   };
 
@@ -722,21 +788,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Kabul Et / Reddet tıklandığında GA4 izin durumunu anında güncelle
+  // Kabul Et / Reddet tıklandığında GA4 yükleme ve izin durumunu yönet
   window.__lrfUpdateGaConsent = function (isAccepted) {
-    if (!window.__lrfGaInitialized) {
-      initGoogleAnalytics();
+    if (isAccepted) {
+      if (!window.__lrfGaInitialized) {
+        initGoogleAnalytics();
+      }
+      ensureGtagStub();
+      window.gtag("consent", "update", {
+        analytics_storage: "granted",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+    } else if (window.__lrfGaInitialized) {
+      ensureGtagStub();
+      window.gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
     }
-    ensureGtagStub();
-    window.gtag("consent", "update", {
-      analytics_storage: isAccepted ? "granted" : "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-    });
   };
 
   function scheduleAnalyticsLoad() {
+    if (!hasAcceptedCookies()) return;
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(initGoogleAnalytics, { timeout: 1500 });
     } else {
@@ -937,18 +1014,18 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Anlık meteoroloji verisi alınamadı.");
       }
 
-      const windSpeed = Number(currentWeather.wind_speed_10m);
-      const windDir = Number(currentWeather.wind_direction_10m);
-      const temp = Number(currentWeather.temperature_2m);
+      const windSpeed = currentWeather.wind_speed_10m != null ? Number(currentWeather.wind_speed_10m) : Number.NaN;
+      const windDir = currentWeather.wind_direction_10m != null ? Number(currentWeather.wind_direction_10m) : Number.NaN;
+      const temp = currentWeather.temperature_2m != null ? Number(currentWeather.temperature_2m) : Number.NaN;
       const rawWave = marineData && marineData.current ? marineData.current.wave_height : null;
       const waveHeight = rawWave !== null && rawWave !== undefined ? Number(rawWave) : null;
 
-      if (windSpeedEl) windSpeedEl.textContent = `${windSpeed.toFixed(1)} km/s`;
-      if (windDirEl) windDirEl.textContent = `${getCompassDirection(windDir)} (${Math.round(windDir)}°)`;
-      if (tempEl) tempEl.textContent = `${temp.toFixed(1)} °C`;
+      if (windSpeedEl) windSpeedEl.textContent = !Number.isNaN(windSpeed) ? `${windSpeed.toFixed(1)} km/s` : "--";
+      if (windDirEl) windDirEl.textContent = !Number.isNaN(windDir) ? `${getCompassDirection(windDir)} (${Math.round(windDir)}°)` : "--";
+      if (tempEl) tempEl.textContent = !Number.isNaN(temp) ? `${temp.toFixed(1)} °C` : "--";
       if (waveEl) waveEl.textContent = waveHeight !== null && !Number.isNaN(waveHeight) ? `${waveHeight.toFixed(2)} m` : "Kıyı dışı / Veri yok";
 
-      const advice = buildLrfTackleAdvice(windSpeed, waveHeight);
+      const advice = buildLrfTackleAdvice(!Number.isNaN(windSpeed) ? windSpeed : 0, waveHeight);
       if (adviceBadgeEl) {
         adviceBadgeEl.className = advice.badgeClass;
         adviceBadgeEl.textContent = advice.badge;
@@ -975,7 +1052,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      if (citySelectEl) citySelectEl.value = "";
+      if (citySelectEl) {
+        citySelectEl.value = "";
+        citySelectEl.disabled = true;
+      }
       fetchSpotBtn.disabled = true;
       spotStatusEl.classList.remove("lrf-tool-status--error");
       spotStatusEl.textContent = "Konum izni bekleniyor...";
@@ -988,6 +1068,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         (error) => {
           fetchSpotBtn.disabled = false;
+          if (citySelectEl) citySelectEl.disabled = false;
           spotStatusEl.classList.add("lrf-tool-status--error");
           if (error.code === error.PERMISSION_DENIED) {
             spotStatusEl.textContent = "Konum izni reddedildi. Sağdaki listeden bir kıyı şehri seçerek konumsuz analiz alabilirsiniz.";
@@ -1140,7 +1221,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const replayBtn = document.getElementById("lrfClosingReplay");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  /* ── 1. 3 AŞAMALI SİNEMATİK ZAMAN ÇİZELGESİ (0s → 3.8s → 4.8s+) ── */
+  /* ── 1. 3 AŞAMALI SİNEMATİK ZAMAN ÇİZELGESİ (0s → 10.5s → 11.7s+) ── */
   const STAGE_TIMINGS = Object.freeze({
     letterboxStartMs: 10500,
     finaleStartMs: 11700,
@@ -1167,17 +1248,17 @@ document.addEventListener("DOMContentLoaded", () => {
     void closingSection.offsetWidth;
 
     window.requestAnimationFrame(() => {
-      // Sahne 1: Manifesto Akışı (0s – 3.8s)
+      // Sahne 1: Manifesto Akışı (0s – 10.5s)
       closingSection.setAttribute("data-closing-state", "scene-1");
 
-      // Sahne 2: Sinematik Letterbox Perde Kapanışı + Manifesto Bulanıklaşması (3.8s – 4.8s)
+      // Sahne 2: Sinematik Letterbox Perde Kapanışı + Manifesto Bulanıklaşması (10.5s – 11.7s)
       sceneTimers.push(
         window.setTimeout(() => {
           closingSection.setAttribute("data-closing-state", "scene-2");
         }, STAGE_TIMINGS.letterboxStartMs),
       );
 
-      // Sahne 3: Büyük Final İmzası — RASTGELE! (4.8s+ kalıcı)
+      // Sahne 3: Büyük Final İmzası — RASTGELE! (11.7s+ kalıcı)
       sceneTimers.push(
         window.setTimeout(() => {
           closingSection.setAttribute("data-closing-state", "scene-3");

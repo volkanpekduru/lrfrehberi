@@ -7,7 +7,7 @@
   font-display: swap;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400 600;
+  font-weight: 400;
   src:
     local("Inter Regular"),
     local("Inter"),
@@ -17,10 +17,36 @@
   font-display: swap;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 700 800;
+  font-weight: 500;
+  src:
+    local("Inter Medium"),
+    url("../fonts/inter-v20-latin_latin-ext-500.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local("Inter SemiBold"),
+    url("../fonts/inter-v20-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local("Inter Bold"),
+    url("../fonts/inter-v20-latin_latin-ext-700.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
   src:
     local("Inter ExtraBold"),
-    local("Inter Bold"),
     url("../fonts/inter-v20-latin_latin-ext-800.woff2") format("woff2");
 }
 
@@ -203,14 +229,6 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-.lrf-grid-card__img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-  border-radius: 12px;
 }
 
 /* 🌊 2. Grup: Giriş ve Sunum Görselleri (1600x1000) */
@@ -1060,6 +1078,10 @@ svg,
     0 0 0 7px rgba(220, 38, 38, 0.22),
     0 6px 16px rgba(220, 38, 38, 0.3);
 }
+/* Izgara (Grid) bölümü içinde kartların altına gelen bilgi kutusu için ekstra ikon boşluğu */
+.lrf-grid-section .lrf-premium-info-card {
+  margin-top: 64px;
+}
 
 @media (max-width: 480px) {
   .lrf-premium-info-card {
@@ -1372,13 +1394,6 @@ svg,
   background-color: var(--lrf-opac-purple-bg);
   color: var(--lrf-color-purple);
   border-color: var(--lrf-opac-purple-border);
-}
-
-/* 🛑 Tehlike Kalkanı Kırmızı (Red Varyantı) */
-.lrf-icon-box--red {
-  background-color: var(--lrf-opac-red-bg);
-  color: var(--lrf-color-red);
-  border-color: var(--lrf-opac-red-border);
 }
 
 .lrf-icon-box svg,
@@ -2347,8 +2362,7 @@ svg,
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
-  opacity: 0.24;
-  mix-blend-mode: luminosity;
+  opacity: 0.65;
   z-index: 0;
   pointer-events: none;
   transition:
@@ -2360,7 +2374,7 @@ svg,
 .lrf-video-facade.in-view .lrf-video-facade__bg,
 .lrf-video-facade__trigger:focus-visible ~ .lrf-video-facade__bg {
   transform: scale(1.05);
-  opacity: 0.32;
+  opacity: 0.75;
 }
 
 .lrf-video-facade::before {
@@ -2580,6 +2594,10 @@ svg,
 /* ==========================================================================
    🏆 LRF SAFKAN BEM GRID-SECTION MOTORU (LOKAL VE TEMİZ SÜRÜM)
    ========================================================================== */
+
+.lrf-grid-section--flush-bottom {
+  padding-bottom: 0;
+}
 
 .lrf-grid-section {
   max-width: 1400px;
@@ -3926,13 +3944,6 @@ svg,
   border-color: #94a3b8;
 }
 
-@media (max-width: 540px) {
-  .lrf-cookie-actions {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
 /* ── 2. SSS GENEL BÖLÜM ŞASİSİ (PODYUM NİZAMI) ── */
 .lrf-faq-section {
   width: 100%;
@@ -4067,6 +4078,10 @@ svg,
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+  .lrf-cookie-actions {
+    width: 100%;
+    flex-direction: column;
   }
   .lrf-cookie-btn {
     width: 100%;
@@ -4947,6 +4962,9 @@ div[tabindex="-1"]:focus {
   .lrf-tool-select-wrap,
   .lrf-tool-select {
     width: 100%;
+  }
+  .lrf-tool-select {
+    min-width: 0;
   }
   .lrf-tool-btn {
     padding: 14px 18px;
