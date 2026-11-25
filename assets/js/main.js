@@ -629,12 +629,17 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // E. Genel Kart Akordiyon Eylemleri (Jig Head ve Balık Kartları - Tutarlı Tekil Açılış)
+    // E. Genel Kart Akordiyon ve Çerez Tercihi Yönetimi Eylemleri
     const actionElement = target.closest("[data-action]");
     if (actionElement) {
       const action = actionElement.getAttribute("data-action");
       if (action === "toggle-jig" || action === "toggle-fish") {
         toggleCardAccordion(actionElement, true);
+      } else if (action === "manage-cookies" && cookieBanner) {
+        cookieBanner.removeAttribute("inert");
+        cookieBanner.classList.add("show");
+        const acceptBtn = document.getElementById("lrfCookieAcceptBtn");
+        if (acceptBtn) acceptBtn.focus();
       }
       return;
     }

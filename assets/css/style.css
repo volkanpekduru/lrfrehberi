@@ -5707,3 +5707,22 @@ div[tabindex="-1"]:focus {
     display: none;
   }
 }
+
+/* ==========================================================================
+   🛡️ DAR MOBİL ROZET KIRILIMI & FOOTER ÇEREZ TERCİH BUTONU SIFIRLAMASI
+   ========================================================================== */
+.lrf-cookie-manage-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .lrf-badge {
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+}
