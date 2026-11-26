@@ -521,7 +521,7 @@ svg,
 
 .lrf-hero {
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
   width: 100%;
   max-width: 100%;
   display: flex;
@@ -711,7 +711,7 @@ svg,
 /* ── 2. ALT SAYFA HERO VARYASYONLARI ── */
 .lrf-hero--subpage {
   min-height: 44vh;
-  min-height: 44dvh;
+  min-height: 44svh;
   padding-top: 124px;
   padding-bottom: 36px;
 }
@@ -730,7 +730,7 @@ svg,
     padding-top: 96px;
   }
   .lrf-hero--subpage {
-    min-height: 38dvh;
+    min-height: 38svh;
     padding-top: 96px;
     padding-bottom: 28px;
   }
