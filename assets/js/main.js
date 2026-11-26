@@ -276,6 +276,83 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  /* ── 2B. AKORDİYON KARTLARI İÇİN ESNEK KAPALI YÜKSEKLİK EŞİTLEME MOTORU ── */
+  const accordionMatrices = Array.from(document.querySelectorAll(".lrf-grid-matrix")).filter((matrix) =>
+    matrix.querySelector(".lrf-jig-card__panel, .lrf-fish-card__panel"),
+  );
+
+  const syncAccordionCardHeights = () => {
+    if (!accordionMatrices.length) return;
+    const isSingleColumn = window.innerWidth <= 600;
+
+    accordionMatrices.forEach((matrix) => {
+      if (isSingleColumn) {
+        matrix.style.removeProperty("--lrf-acc-card-min-h");
+        return;
+      }
+
+      const cards = Array.from(matrix.children).filter((el) => el.classList.contains("lrf-grid-card"));
+      if (!cards.length) return;
+
+      matrix.style.removeProperty("--lrf-acc-card-min-h");
+
+      let maxClosedHeight = 0;
+      cards.forEach((card) => {
+        let closedH = card.offsetHeight;
+        if (card.classList.contains("is-open")) {
+          const openPanel = card.querySelector(".lrf-jig-card__panel, .lrf-fish-card__panel");
+          if (openPanel) {
+            const panelStyle = window.getComputedStyle(openPanel);
+            const panelMarginTop = parseFloat(panelStyle.marginTop) || 0;
+            closedH = Math.max(0, closedH - (openPanel.offsetHeight + panelMarginTop));
+          }
+        }
+        if (closedH > maxClosedHeight) {
+          maxClosedHeight = closedH;
+        }
+      });
+
+      if (maxClosedHeight > 0) {
+        matrix.style.setProperty("--lrf-acc-card-min-h", `${Math.ceil(maxClosedHeight)}px`);
+      }
+    });
+  };
+
+  if (accordionMatrices.length) {
+    syncAccordionCardHeights();
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncAccordionCardHeights);
+    }
+
+    if ("ResizeObserver" in window) {
+      const lastWidths = new WeakMap();
+      let rafId = null;
+      const matrixResizeObserver = new ResizeObserver((entries) => {
+        let widthChanged = false;
+        entries.forEach((entry) => {
+          const w = Math.round(entry.contentRect.width);
+          if (lastWidths.get(entry.target) !== w) {
+            lastWidths.set(entry.target, w);
+            widthChanged = true;
+          }
+        });
+        if (!widthChanged) return;
+        if (rafId) window.cancelAnimationFrame(rafId);
+        rafId = window.requestAnimationFrame(() => {
+          rafId = null;
+          syncAccordionCardHeights();
+        });
+      });
+      accordionMatrices.forEach((matrix) => {
+        lastWidths.set(matrix, Math.round(matrix.getBoundingClientRect().width));
+        matrixResizeObserver.observe(matrix);
+      });
+    } else {
+      window.addEventListener("resize", syncAccordionCardHeights);
+    }
+  }
+
   /* ── 3. KÜRESEL LIGHTBOX POPUP MOTORU (FOCUS TRAP, ARKA PLAN INERT & FOCUS RETURN) ── */
   let lastLightboxTrigger = null;
   let lightboxInertElements = [];

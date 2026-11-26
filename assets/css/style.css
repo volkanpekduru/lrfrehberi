@@ -710,10 +710,15 @@ svg,
 
 /* ── 2. ALT SAYFA HERO VARYASYONLARI ── */
 .lrf-hero--subpage {
-  min-height: 44vh;
-  min-height: 44svh;
+  min-height: clamp(420px, 44vh, 480px);
+  min-height: clamp(420px, 44svh, 480px);
   padding-top: 124px;
   padding-bottom: 36px;
+}
+
+/* Alt sayfalarda buton olmadığı için 36px'lik fazladan alt boşluğu kaldırır */
+.lrf-hero--subpage .lrf-hero__desc {
+  margin-bottom: 0;
 }
 
 .lrf-hero--subpage .lrf-hero__scroll-link {
@@ -730,9 +735,13 @@ svg,
     padding-top: 96px;
   }
   .lrf-hero--subpage {
-    min-height: 38svh;
+    min-height: 360px;
     padding-top: 96px;
     padding-bottom: 28px;
+  }
+  .lrf-hero--subpage .lrf-hero__content--subpage {
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
   .lrf-hero__badge,
   .lrf-hero__btn-secondary {
@@ -1523,6 +1532,7 @@ svg,
 .lrf-tab-system-container--line {
   max-width: 1280px;
   gap: clamp(14px, 1.8vw, 24px);
+  justify-content: safe center;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -1740,7 +1750,7 @@ svg,
 }
 
 /* 📱 DAR EKRAN VE MOBİLDE STICKY ÇİZGİ SEKME MENÜSÜNÜN TAŞMASINI ÖNLEYEN YATAY KAYDIRMA */
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
   .lrf-tab-system-container--line {
     justify-content: flex-start;
   }
@@ -2614,9 +2624,28 @@ svg,
 .lrf-grid-matrix {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  align-items: start;
+  align-items: stretch;
   gap: 24px;
   width: 100%;
+}
+
+/* Akordiyonlu kartlarda kapalı yükseklik JS ile dinamik eşitlenir; açılan kart bağımsız uzar */
+.lrf-grid-matrix:has(.lrf-jig-card__panel, .lrf-fish-card__panel),
+.lrf-grid-matrix--start {
+  align-items: start;
+}
+
+.lrf-grid-matrix:has(.lrf-jig-card__panel, .lrf-fish-card__panel) > .lrf-grid-card,
+.lrf-grid-matrix--start > .lrf-grid-card {
+  height: auto;
+  min-height: var(--lrf-acc-card-min-h, auto);
+}
+
+@media (max-width: 600px) {
+  .lrf-grid-matrix:has(.lrf-jig-card__panel, .lrf-fish-card__panel) > .lrf-grid-card,
+  .lrf-grid-matrix--start > .lrf-grid-card {
+    min-height: 0;
+  }
 }
 
 .lrf-grid-matrix--2col {
@@ -3867,7 +3896,7 @@ svg,
   box-shadow:
     0 10px 30px -5px rgba(15, 23, 42, 0.3),
     0 0 0 1px rgba(0, 188, 212, 0.1);
-  z-index: 999999;
+  z-index: 9000;
   transition:
     transform var(--lrf-transition-smooth),
     visibility var(--lrf-transition-smooth);
@@ -4725,37 +4754,7 @@ div[tabindex="-1"]:focus {
   margin-top: 4px;
 }
 
-/* 🚨 Zehirli Balıklar Kırmızı Zigzag Varyantı & Acil İlk Yardım Kutusu */
-.lrf-zigzag__row--red .lrf-zigzag__icon-badge--baslangic {
-  background-color: var(--lrf-color-red);
-  color: var(--lrf-color-bg);
-  box-shadow:
-    0 0 0 4px rgba(220, 38, 38, 0.22),
-    0 4px 12px rgba(220, 38, 38, 0.16);
-}
-
-.lrf-zigzag__row--red .lrf-zigzag__list-icon {
-  color: var(--lrf-color-red);
-}
-
-.lrf-zigzag__row--red:hover .lrf-zigzag__media,
-.lrf-zigzag__row--red.in-view .lrf-zigzag__media {
-  border-color: var(--lrf-color-red);
-  box-shadow:
-    0 30px 50px -15px rgba(15, 23, 42, 0.12),
-    0 12px 24px -8px rgba(220, 38, 38, 0.24);
-}
-
-.lrf-zigzag__tip-box--danger {
-  background-color: rgba(220, 38, 38, 0.07);
-  border-color: rgba(220, 38, 38, 0.35);
-  color: var(--lrf-color-dark);
-}
-
-.lrf-zigzag__tip-box--danger .lrf-zigzag__tip-box-icon,
-.lrf-zigzag__tip-box--danger strong {
-  color: #b91c1c;
-}
+/* 🚨 Zehirli Balıklar: Balon Balığı Uyarı Kartı (Kırmızı zigzag kuralları aşağıda tek blokta birleştirildi) */
 
 .lrf-puffer-alert-wrap {
   width: 100%;
@@ -5001,6 +5000,18 @@ div[tabindex="-1"]:focus {
 .lrf-zigzag__row--red .lrf-zigzag__tip-box-icon,
 .lrf-zigzag__row--red .lrf-zigzag__list-icon {
   color: var(--lrf-color-red);
+}
+.lrf-zigzag__tip-box--danger,
+.lrf-zigzag__row--red .lrf-zigzag__tip-box--danger {
+  background-color: rgba(220, 38, 38, 0.07);
+  border-color: rgba(220, 38, 38, 0.35);
+  color: var(--lrf-color-dark);
+}
+.lrf-zigzag__tip-box--danger .lrf-zigzag__tip-box-icon,
+.lrf-zigzag__tip-box--danger strong,
+.lrf-zigzag__row--red .lrf-zigzag__tip-box--danger .lrf-zigzag__tip-box-icon,
+.lrf-zigzag__row--red .lrf-zigzag__tip-box--danger strong {
+  color: #b91c1c;
 }
 .lrf-zigzag__row--red:hover .lrf-zigzag__media,
 .lrf-zigzag__row--red.in-view .lrf-zigzag__media {
