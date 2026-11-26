@@ -116,6 +116,27 @@ document.addEventListener("DOMContentLoaded", () => {
       targetBtn.setAttribute("aria-selected", "true");
       targetBtn.setAttribute("tabindex", "0");
     }
+
+    // Yatay taşan sticky çizgi sekme çubuğunda aktif sekmeyi ortala (dikey kaydırmayı etkilemez)
+    if (
+      container &&
+      container.classList.contains("lrf-tab-system-container--line") &&
+      container.scrollWidth > container.clientWidth + 1
+    ) {
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = targetBtn.getBoundingClientRect();
+      const targetLeft =
+        container.scrollLeft +
+        (btnRect.left - containerRect.left) -
+        (container.clientWidth - btnRect.width) / 2;
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const clampedLeft = Math.max(0, Math.min(targetLeft, maxScrollLeft));
+
+      container.scrollTo({
+        left: clampedLeft,
+        behavior: reducedMotionQuery.matches ? "auto" : "smooth",
+      });
+    }
   };
 
   // İlk yüklemede pasif sekme panellerini hayalet odaktan (Ghost Focus) koru
@@ -1615,4 +1636,47 @@ document.addEventListener("DOMContentLoaded", () => {
       syncAmbientButtonUI(false);
     }
   });
+});
+
+/* ==========================================================================
+   ⬆️ TÜM SAYFALAR: YUKARI ÇIK (BACK-TO-TOP) OK BUTONU MOTORU
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.querySelector(".lrf-back-to-top")) return;
+
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const backToTopBtn = document.createElement("button");
+  backToTopBtn.type = "button";
+  backToTopBtn.className = "lrf-back-to-top";
+  backToTopBtn.setAttribute("aria-label", "Sayfanın başına dön");
+  backToTopBtn.setAttribute("title", "Yukarı çık");
+  backToTopBtn.innerHTML =
+    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>';
+  document.body.appendChild(backToTopBtn);
+
+  let scrollTicking = false;
+  const updateBackToTop = () => {
+    backToTopBtn.classList.toggle("is-visible", window.scrollY > 420);
+    scrollTicking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        window.requestAnimationFrame(updateBackToTop);
+      }
+    },
+    { passive: true },
+  );
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: reducedMotionQuery.matches ? "auto" : "smooth",
+    });
+  });
+
+  updateBackToTop();
 });
